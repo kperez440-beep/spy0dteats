@@ -12,11 +12,12 @@ export function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-20 px-4 overflow-hidden bg-[#050810]">
       <ShaderBackground />
 
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,rgba(240,180,41,0.13),transparent_44%),linear-gradient(180deg,rgba(5,8,16,0.08),rgba(5,8,16,0.9)_88%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_34%,rgba(240,180,41,0.12),transparent_38%),linear-gradient(180deg,rgba(5,8,16,0.04),rgba(5,8,16,0.34)_58%,rgba(5,8,16,0.94)_90%)] pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-25 pointer-events-none [mask-image:linear-gradient(to_bottom,black,transparent_76%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-b from-transparent via-[#050810]/45 to-[#050810] pointer-events-none" />
 
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none blur-3xl"
+        className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none blur-3xl"
         style={{
           width: 760,
           height: 460,

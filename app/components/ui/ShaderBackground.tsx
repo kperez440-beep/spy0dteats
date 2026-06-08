@@ -42,27 +42,31 @@ float clouds(vec2 p){
   return t;
 }
 void main(void){
-  vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
+  vec2 uv=(FC-vec2(.5*R.x,.58*R.y))/MN,st=uv*vec2(2,1);
+  vec2 screen=FC/R;
   vec3 col=vec3(0);
-  vec2 pnt=(pointer-.5*R)/MN;
+  vec2 pnt=(pointer-vec2(.5*R.x,.58*R.y))/MN;
   float pointerGlow=.055/max(length(uv-pnt),.08);
-  float bg=clouds(vec2(st.x+T*.36,-st.y*.86));
+  float bg=clouds(vec2(st.x+T*.30,-st.y*.78));
   uv*=1.-.3*(sin(T*.2)*.5+.5);
   for(float i=1.;i<12.;i++){
-    uv+=.075*cos(i*vec2(.1+.01*i,.8)+i*i+T*.44+.1*uv.x);
+    uv+=.065*cos(i*vec2(.1+.01*i,.8)+i*i+T*.38+.1*uv.x);
     vec2 p=uv;
     float d=length(p);
-    col+=.00105/d*(cos(sin(i)*vec3(.95,1.72,2.62))+1.);
+    col+=.00088/d*(cos(sin(i)*vec3(.95,1.72,2.62))+1.);
     float b=noise(i+p+bg*1.731);
-    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-    col=mix(col,vec3(bg*.18,bg*.11,bg*.035),d);
+    col+=.00155*b/length(max(p,vec2(b*p.x*.02,p.y)));
+    col=mix(col,vec3(bg*.14,bg*.08,bg*.025),d);
   }
   vec3 gold=vec3(0.94,0.67,0.16);
   vec3 cyan=vec3(0.04,0.53,0.72);
   vec3 green=vec3(0.02,0.58,0.36);
   float scan=.5+.5*sin((uv.y+uv.x*.18+T*.08)*90.);
-  col+=gold*bg*.08+cyan*max(0.,sin(st.x*2.1+T*.22))*.028+green*scan*.012;
-  col+=mix(cyan,gold,.45)*pointerGlow*.08;
+  float upperFocus=smoothstep(.86,.34,screen.y);
+  float lowerFade=smoothstep(.58,.86,screen.y);
+  col+=gold*bg*.052*upperFocus+cyan*max(0.,sin(st.x*2.1+T*.2))*.026+green*scan*.01;
+  col+=mix(cyan,gold,.38)*pointerGlow*.065;
+  col*=1.-lowerFade*.48;
   col*=smoothstep(1.45,.18,length((FC-.5*R)/MN));
   O=vec4(col,1);
 }`;
@@ -128,7 +132,7 @@ export function ShaderBackground() {
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       gl.viewport(0, 0, canvas.width, canvas.height);
-      pointerRef.current = [canvas.width * 0.5, canvas.height * 0.48];
+      pointerRef.current = [canvas.width * 0.5, canvas.height * 0.6];
     };
     resize();
     window.addEventListener("resize", resize, { passive: true });
