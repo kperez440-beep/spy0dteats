@@ -1,103 +1,121 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-/* Set your actual launch date here */
-const LAUNCH_DATE = new Date("2026-09-01T09:30:00-04:00"); // Sep 1, market open ET
-const FOUNDING_SPOTS = 200;
-const SPOTS_TAKEN = 47; /* update manually or wire to a real counter */
+const TOTAL_SPOTS = 200;
+const TARGET_COUNT = 47;
 
-function pad(n: number) {
-  return String(n).padStart(2, "0");
+function easeOut(t: number) {
+  return 1 - Math.pow(1 - t, 3);
 }
 
-function getTimeLeft() {
-  const diff = LAUNCH_DATE.getTime() - Date.now();
-  if (diff <= 0) return null;
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-  return { d, h, m, s };
-}
+const AVATARS = [
+  { initials: "MK", color: "#F0B429" },
+  { initials: "AS", color: "#06B6D4" },
+  { initials: "TR", color: "#10B981" },
+  { initials: "DL", color: "#1B72C0" },
+];
 
 export function LaunchCountdown() {
-  const [time, setTime] = useState(getTimeLeft());
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const started = useRef(false);
 
   useEffect(() => {
-    const id = setInterval(() => setTime(getTimeLeft()), 1000);
-    return () => clearInterval(id);
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting && !started.current) {
+          started.current = true;
+          const t0 = performance.now();
+          const duration = 1600;
+          const tick = (now: number) => {
+            const t = Math.min((now - t0) / duration, 1);
+            setCount(Math.round(easeOut(t) * TARGET_COUNT));
+            if (t < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
   }, []);
 
-  if (!time) return null;
-
-  const spotsLeft = FOUNDING_SPOTS - SPOTS_TAKEN;
-  const pct = (SPOTS_TAKEN / FOUNDING_SPOTS) * 100;
+  const pct = (count / TOTAL_SPOTS) * 100;
+  const remaining = TOTAL_SPOTS - TARGET_COUNT;
 
   return (
-    <div className="w-full max-w-xl mx-auto">
-      {/* Countdown */}
-      <div
-        className="flex items-center justify-center gap-2 sm:gap-4 p-4 rounded-2xl border border-[#1E2D3D] bg-[#0D1520]/80 backdrop-blur-sm mb-3"
-        style={{ boxShadow: "0 0 32px rgba(27,114,192,0.06)" }}
-      >
-        {[
-          { val: time.d, label: "Days" },
-          { val: time.h, label: "Hours" },
-          { val: time.m, label: "Min" },
-          { val: time.s, label: "Sec" },
-        ].map((unit, i) => (
-          <div key={unit.label} className="flex items-center gap-2 sm:gap-4">
-            {i > 0 && (
-              <span className="text-slate-600 font-mono text-lg font-bold">:</span>
-            )}
-            <div className="text-center">
-              <div
-                className="text-2xl sm:text-3xl font-bold font-mono tabular-nums"
-                style={{ color: "#1B72C0", minWidth: "2.2ch" }}
-              >
-                {pad(unit.val)}
-              </div>
-              <div className="text-[9px] font-mono tracking-widest text-slate-600 uppercase mt-0.5">
-                {unit.label}
-              </div>
-            </div>
-          </div>
-        ))}
+    <div
+      ref={ref}
+      className="flex flex-col items-center gap-5 w-full max-w-md mx-auto"
+    >
+      {/* Status pill */}
+      <div className="inline-flex items-center gap-2 border border-[#10B981]/30 bg-[#10B981]/10 px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest text-[#10B981] uppercase">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-dot inline-block" />
+        Beta Access · Now Open
+      </div>
 
-        <div className="hidden sm:block w-px h-10 bg-[#1E2D3D] mx-1" />
-
-        <div className="hidden sm:flex flex-col items-center">
-          <div className="text-[10px] font-mono text-amber-400/70 tracking-widest uppercase mb-1">
-            Launch
-          </div>
-          <div className="text-[11px] font-mono text-slate-300 font-semibold">Sep 1, 2026</div>
-          <div className="text-[9px] font-mono text-slate-600">9:30 AM ET</div>
+      {/* Counter */}
+      <div className="flex flex-col items-center gap-1">
+        <div
+          className="text-6xl sm:text-7xl font-bold font-mono tabular-nums leading-none"
+          style={{
+            color: "#F0B429",
+            textShadow: "0 0 32px rgba(240,180,41,0.45), 0 0 60px rgba(240,180,41,0.2)",
+          }}
+        >
+          {count}
+        </div>
+        <div className="text-sm text-slate-400 font-mono tracking-wide">
+          traders already in
         </div>
       </div>
 
-      {/* Spots bar */}
-      <div className="px-1">
-        <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[11px] font-mono text-slate-500">
-            Founding member spots
-          </span>
-          <span className="text-[11px] font-mono font-semibold text-amber-400">
-            {spotsLeft} of {FOUNDING_SPOTS} remaining
-          </span>
-        </div>
-        <div className="h-1.5 bg-[#1E2D3D] rounded-full overflow-hidden">
+      {/* Avatar row */}
+      <div className="flex items-center">
+        {AVATARS.map((av, i) => (
           <div
-            className="h-full rounded-full"
+            key={i}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold font-mono border-2"
+            style={{
+              background: av.color + "22",
+              color: av.color,
+              borderColor: "#050810",
+              marginLeft: i === 0 ? 0 : -8,
+            }}
+          >
+            {av.initials}
+          </div>
+        ))}
+        <span className="ml-3 text-[11px] text-slate-500 font-mono">
+          +{TARGET_COUNT - AVATARS.length} more
+        </span>
+      </div>
+
+      {/* Progress bar */}
+      <div className="w-full flex flex-col gap-1.5">
+        <div className="h-2 w-full bg-[#1E2D3D] rounded-full overflow-hidden">
+          <div
+            className="h-full rounded-full transition-all duration-75"
             style={{
               width: `${pct}%`,
-              background: "linear-gradient(90deg, #1B72C0, #F0B429)",
+              background: "linear-gradient(90deg, #F0B429, #06B6D4)",
+              boxShadow: "0 0 10px rgba(240,180,41,0.5)",
             }}
           />
         </div>
-        <p className="text-[10px] font-mono text-slate-600 mt-1.5 text-center">
-          Founding members lock in 40% below launch pricing — forever
-        </p>
+        <div className="flex justify-between text-[10px] font-mono text-slate-500">
+          <span>{count} joined</span>
+          <span>{remaining} of {TOTAL_SPOTS} spots left</span>
+        </div>
       </div>
+
+      {/* Footer note */}
+      <p className="text-[12px] text-slate-500 text-center font-mono leading-relaxed">
+        Founding members lock in{" "}
+        <span className="text-amber-400 font-semibold">40% below launch pricing</span>
+        {" "}— forever.
+      </p>
     </div>
   );
 }
