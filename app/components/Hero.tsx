@@ -2,28 +2,26 @@
 import Image from "next/image";
 import { useState } from "react";
 import { LaunchCountdown } from "./LaunchCountdown";
-import { AuroraBackground } from "@/app/components/ui/AuroraBackground";
+import { ShaderBackground } from "@/app/components/ui/ShaderBackground";
 import { ShinyButton } from "@/app/components/ui/ShinyButton";
 
 export function Hero() {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-20 px-4 overflow-hidden">
-      {/* Aurora background */}
-      <AuroraBackground />
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-20 px-4 overflow-hidden bg-[#050810]">
+      <ShaderBackground />
 
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_15%,rgba(240,180,41,0.13),transparent_44%),linear-gradient(180deg,rgba(5,8,16,0.08),rgba(5,8,16,0.9)_88%)] pointer-events-none" />
+      <div className="absolute inset-0 grid-bg opacity-25 pointer-events-none [mask-image:linear-gradient(to_bottom,black,transparent_76%)]" />
 
-      {/* Radial glow center */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none blur-3xl"
         style={{
-          width: 800,
-          height: 500,
+          width: 760,
+          height: 460,
           background:
-            "radial-gradient(ellipse at center, rgba(240,180,41,0.07) 0%, rgba(6,182,212,0.04) 40%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(240,180,41,0.08) 0%, rgba(6,182,212,0.06) 42%, transparent 72%)",
         }}
       />
 
@@ -84,7 +82,7 @@ export function Hero() {
           className="relative w-full max-w-5xl mt-10 rounded-2xl overflow-hidden border border-[#1E2D3D]"
           style={{
             boxShadow:
-              "0 0 0 1px rgba(240,180,41,0.08), 0 32px 80px rgba(0,0,0,0.6), 0 0 80px rgba(240,180,41,0.04)",
+              "0 0 0 1px rgba(240,180,41,0.10), 0 32px 80px rgba(0,0,0,0.6), 0 0 90px rgba(6,182,212,0.07)",
           }}
         >
           {/* Window chrome */}

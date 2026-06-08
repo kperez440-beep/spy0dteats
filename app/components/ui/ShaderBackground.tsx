@@ -6,12 +6,13 @@ precision highp float;
 in vec4 position;
 void main(){gl_Position=position;}`;
 
-// Fractal noise nebula shader by Matthias Hurrle (@atzedent) — adapted for SPY Pivot Pro
+// Fractal noise shader by Matthias Hurrle (@atzedent), adapted for SPY Pivot Pro.
 const FRAG = `#version 300 es
 precision highp float;
 out vec4 O;
 uniform vec2 resolution;
 uniform float time;
+uniform vec2 pointer;
 #define FC gl_FragCoord.xy
 #define T time
 #define R resolution
@@ -43,22 +44,32 @@ float clouds(vec2 p){
 void main(void){
   vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
   vec3 col=vec3(0);
-  float bg=clouds(vec2(st.x+T*.5,-st.y));
+  vec2 pnt=(pointer-.5*R)/MN;
+  float pointerGlow=.055/max(length(uv-pnt),.08);
+  float bg=clouds(vec2(st.x+T*.36,-st.y*.86));
   uv*=1.-.3*(sin(T*.2)*.5+.5);
   for(float i=1.;i<12.;i++){
-    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
+    uv+=.075*cos(i*vec2(.1+.01*i,.8)+i*i+T*.44+.1*uv.x);
     vec2 p=uv;
     float d=length(p);
-    col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);
+    col+=.00105/d*(cos(sin(i)*vec3(.95,1.72,2.62))+1.);
     float b=noise(i+p+bg*1.731);
     col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
-    col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);
+    col=mix(col,vec3(bg*.18,bg*.11,bg*.035),d);
   }
+  vec3 gold=vec3(0.94,0.67,0.16);
+  vec3 cyan=vec3(0.04,0.53,0.72);
+  vec3 green=vec3(0.02,0.58,0.36);
+  float scan=.5+.5*sin((uv.y+uv.x*.18+T*.08)*90.);
+  col+=gold*bg*.08+cyan*max(0.,sin(st.x*2.1+T*.22))*.028+green*scan*.012;
+  col+=mix(cyan,gold,.45)*pointerGlow*.08;
+  col*=smoothstep(1.45,.18,length((FC-.5*R)/MN));
   O=vec4(col,1);
 }`;
 
 export function ShaderBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pointerRef = useRef<[number, number]>([0, 0]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -110,15 +121,23 @@ export function ShaderBackground() {
 
     const uRes = gl.getUniformLocation(prog, "resolution");
     const uTime = gl.getUniformLocation(prog, "time");
+    const uPointer = gl.getUniformLocation(prog, "pointer");
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio, 2);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       gl.viewport(0, 0, canvas.width, canvas.height);
+      pointerRef.current = [canvas.width * 0.5, canvas.height * 0.48];
     };
     resize();
     window.addEventListener("resize", resize, { passive: true });
+
+    const handlePointerMove = (event: PointerEvent) => {
+      const dpr = Math.min(window.devicePixelRatio, 2);
+      pointerRef.current = [event.clientX * dpr, canvas.height - event.clientY * dpr];
+    };
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
 
     let raf = 0;
     let alive = true;
@@ -131,6 +150,7 @@ export function ShaderBackground() {
       gl.bindBuffer(gl.ARRAY_BUFFER, buf);
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, t * 0.001);
+      gl.uniform2f(uPointer, pointerRef.current[0], pointerRef.current[1]);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       if (!reduced) raf = requestAnimationFrame(render);
     };
@@ -141,6 +161,7 @@ export function ShaderBackground() {
       alive = false;
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("pointermove", handlePointerMove);
       gl.deleteBuffer(buf);
       gl.detachShader(prog, vs);
       gl.detachShader(prog, fs);
@@ -153,7 +174,7 @@ export function ShaderBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="absolute inset-0 h-full w-full pointer-events-none opacity-95"
       aria-hidden="true"
       style={{ display: "block" }}
     />
