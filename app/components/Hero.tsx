@@ -12,7 +12,7 @@ export function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-28 pb-20 px-4 overflow-hidden bg-[#050810]">
       <ShaderBackground />
 
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_34%,rgba(240,180,41,0.12),transparent_38%),linear-gradient(180deg,rgba(5,8,16,0.04),rgba(5,8,16,0.34)_58%,rgba(5,8,16,0.94)_90%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_34%,rgba(240,180,41,0.06),transparent_32%),linear-gradient(180deg,rgba(5,8,16,0.04),rgba(5,8,16,0.34)_58%,rgba(5,8,16,0.94)_90%)] pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-25 pointer-events-none [mask-image:linear-gradient(to_bottom,black,transparent_76%)]" />
       <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-b from-transparent via-[#050810]/45 to-[#050810] pointer-events-none" />
 
@@ -27,10 +27,9 @@ export function Hero() {
       />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full flex flex-col items-center text-center gap-6">
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 border border-[#1E2D3D] bg-[#0D1520]/80 px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest text-slate-400 uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-dot inline-block" />
-          Early Access — Now Open
+        {/* Eyebrow — system tag, not access status (that lives in the momentum widget) */}
+        <div className="inline-flex items-center gap-2 border border-[#1E2D3D] bg-[#0D1520]/80 px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest text-slate-500 uppercase">
+          Institutional SPY Options Intelligence · Built by Fortitud Capital
         </div>
 
         {/* Headline */}

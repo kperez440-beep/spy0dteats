@@ -49,19 +49,13 @@ export function LaunchCountdown() {
       ref={ref}
       className="flex flex-col items-center gap-5 w-full max-w-md mx-auto"
     >
-      {/* Status pill */}
-      <div className="inline-flex items-center gap-2 border border-[#10B981]/30 bg-[#10B981]/10 px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest text-[#10B981] uppercase">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-dot inline-block" />
-        Beta Access · Now Open
-      </div>
-
       {/* Counter */}
       <div className="flex flex-col items-center gap-1">
         <div
           className="text-6xl sm:text-7xl font-bold font-mono tabular-nums leading-none"
           style={{
             color: "#F0B429",
-            textShadow: "0 0 32px rgba(240,180,41,0.45), 0 0 60px rgba(240,180,41,0.2)",
+            textShadow: "0 0 12px rgba(240,180,41,0.28)",
           }}
         >
           {count}
