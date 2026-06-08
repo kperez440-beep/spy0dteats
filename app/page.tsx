@@ -3,18 +3,8 @@ import { Nav } from "@/app/components/Nav";
 import { Ticker } from "@/app/components/Ticker";
 import { Hero } from "@/app/components/Hero";
 import { TrustBand } from "@/app/components/TrustBand";
-import { Stats } from "@/app/components/Stats";
-import { WallStreet } from "@/app/components/WallStreet";
-import { BentoGrid } from "@/app/components/BentoGrid";
-import { Confluence } from "@/app/components/Confluence";
+import { PlatformOverview } from "@/app/components/PlatformOverview";
 import { Backtest } from "@/app/components/Backtest";
-import { ComparisonTable } from "@/app/components/ComparisonTable";
-import { Pricing } from "@/app/components/Pricing";
-import { Testimonials } from "@/app/components/Testimonials";
-import { Roadmap } from "@/app/components/Roadmap";
-import { Community } from "@/app/components/Community";
-import { Partners } from "@/app/components/Partners";
-import { FAQ } from "@/app/components/FAQ";
 import { Waitlist } from "@/app/components/Waitlist";
 import { Footer } from "@/app/components/Footer";
 
@@ -28,18 +18,8 @@ export default function Home() {
       </div>
       <Hero />
       <TrustBand />
-      <Stats />
-      <WallStreet />
-      <BentoGrid />
-      <Confluence />
+      <PlatformOverview />
       <Backtest />
-      <ComparisonTable />
-      <Pricing />
-      <Testimonials />
-      <Roadmap />
-      <Community />
-      <Partners />
-      <FAQ />
       <Waitlist />
       <Footer />
     </div>

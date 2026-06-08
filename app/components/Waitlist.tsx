@@ -7,20 +7,20 @@ const TIERS = [
   {
     id: "Core",
     price: "$79/mo",
-    desc: "Signal dashboard, SPY alerts, win gauge",
+    desc: "Signal cockpit, SPY alerts, win gauge",
     color: "#06B6D4",
   },
   {
     id: "Pro",
     price: "$249/mo",
-    desc: "Full ML system + playback + auto-learn",
+    desc: "ML scoring, playback, and strategy testing",
     color: "#F0B429",
     popular: true,
   },
   {
     id: "Automate",
     price: "$499/mo",
-    desc: "Live trade execution with risk controls",
+    desc: "Broker-connected automation with risk controls",
     color: "#1B72C0",
   },
 ];
@@ -66,14 +66,14 @@ export function Waitlist() {
         </div>
 
         <div className="text-[11px] font-mono tracking-widest text-amber-400/70 uppercase mb-4 text-center">
-          Early Access · Limited Spots
+          Private Beta · Trader and Partner Interest
         </div>
 
         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight text-center">
-          <RevealText text="Your edge is waiting." />
+          <RevealText text="Help shape the SPY trading cockpit." />
         </h2>
         <p className="text-slate-400 text-base mb-10 leading-relaxed text-center">
-          First 200 subscribers lock in founding-member pricing — 40% below launch rates — for life.
+          Join the beta list for trader access, automation interest, or investor and lending conversations.
         </p>
 
         {submitted ? (
@@ -286,7 +286,7 @@ export function Waitlist() {
                       <path d="M7 1l1.6 3.3 3.6.5-2.6 2.5.6 3.6L7 9.3 3.8 11l.6-3.6L2 4.8l3.6-.5L7 1z" fill="#F0B429" />
                     </svg>
                     <p className="text-[11px] text-amber-400/80 font-mono leading-relaxed">
-                      As a founding member, you lock in 40% off launch pricing — forever.
+                      Founding beta members will receive early access updates and preferred launch pricing.
                     </p>
                   </div>
 

@@ -10,7 +10,7 @@ interface ShinyButtonProps {
 }
 
 const colorMap = {
-  gold: { highlight: "#F0B429", subtle: "#FDE68A", fg: "#050810", bg: "#0D1520" },
+  gold: { highlight: "#F0B429", subtle: "#FDE68A", fg: "#050810", bg: "#F0B429" },
   blue: { highlight: "#1B72C0", subtle: "#93C5FD", fg: "#ffffff", bg: "#0D1520" },
   teal: { highlight: "#06B6D4", subtle: "#A5F3FC", fg: "#050810", bg: "#0D1520" },
 };

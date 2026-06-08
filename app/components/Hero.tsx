@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { LaunchCountdown } from "./LaunchCountdown";
 import { ShaderBackground } from "@/app/components/ui/ShaderBackground";
 import { ShinyButton } from "@/app/components/ui/ShinyButton";
 
@@ -30,57 +29,64 @@ export function Hero() {
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 border border-[#1E2D3D] bg-[#0D1520]/80 px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest text-slate-400 uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-dot inline-block" />
-          Early Access — Now Open
+          Private Beta · Brokerage-Connected Trading Cockpit
         </div>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight max-w-4xl">
-          <span className="text-white">The edge is no</span>
+          <span className="text-white">Trade SPY with</span>
           <br />
-          <span className="text-gold-shimmer">longer institutional.</span>
+          <span className="text-gold-shimmer">confidence, data, and control.</span>
         </h1>
 
         {/* Sub */}
-        <p className="text-slate-400 text-lg sm:text-xl max-w-2xl leading-relaxed font-light">
-          Hedge funds spent decades building signal confluence engines, ML probability models, and
-          automation layers. SPY Pivot Pro delivers that same institutional intelligence — built
-          for SPY options, starting at $79/month.
+        <p className="text-slate-300 text-lg sm:text-xl max-w-3xl leading-relaxed font-light">
+          SPY Pivot Pro is a brokerage-connected trading cockpit for SPY options traders:
+          signal confluence, probability scoring, strategy testing, and automation controls
+          in one private beta platform.
         </p>
 
         {/* Proof line */}
-        <p className="text-sm font-mono text-slate-500">
-          January 2026 backtest:{" "}
-          <span className="text-[#10B981] font-semibold">$100 → $1,217</span>
+        <p className="text-sm font-mono text-slate-400">
+          Built for manual confidence now
           {" · "}
-          <span className="text-amber-400 font-semibold">Sharpe 14</span>
+          <span className="text-amber-400 font-semibold">automation when ready</span>
           {" · "}
-          <span className="text-slate-300 font-semibold">MaxDD −5.4%</span>
+          <span className="text-[#10B981] font-semibold">seeking beta users and strategic capital</span>
         </p>
 
-        {/* Launch countdown + spots */}
-        <div className="w-full mt-2 mb-2">
-          <LaunchCountdown />
-        </div>
-
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
           <ShinyButton href="#waitlist" color="gold">
-            Get Early Access
+            Join Private Beta
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </ShinyButton>
           <a
-            href="#backtest"
-            className="inline-flex items-center gap-2 border border-[#1E2D3D] hover:border-slate-500 text-slate-400 hover:text-white font-medium text-base px-7 py-3.5 rounded-xl transition-all duration-200 cursor-pointer"
+            href="#platform"
+            className="inline-flex items-center gap-2 border border-[#F0B429]/35 bg-[#050810]/70 hover:bg-[#F0B429]/10 text-slate-100 font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer"
           >
-            View Jan 2026 Results
+            Explore Platform
           </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mt-2">
+          {[
+            ["Connect", "Brokerage-ready execution layer"],
+            ["Test", "Indicators, stats, and replay research"],
+            ["Automate", "Strategy controls with risk limits"],
+          ].map(([label, text]) => (
+            <div key={label} className="rounded-xl border border-[#1E2D3D] bg-[#0D1520]/78 px-4 py-3 text-left">
+              <div className="text-[11px] font-mono tracking-widest uppercase text-amber-400">{label}</div>
+              <div className="mt-1 text-sm text-slate-300">{text}</div>
+            </div>
+          ))}
         </div>
 
         {/* App screenshot */}
         <div
-          className="relative w-full max-w-5xl mt-10 rounded-2xl overflow-hidden border border-[#1E2D3D]"
+          className="relative w-full max-w-5xl mt-8 rounded-2xl overflow-hidden border border-[#1E2D3D]"
           style={{
             boxShadow:
               "0 0 0 1px rgba(240,180,41,0.10), 0 32px 80px rgba(0,0,0,0.6), 0 0 90px rgba(6,182,212,0.07)",
