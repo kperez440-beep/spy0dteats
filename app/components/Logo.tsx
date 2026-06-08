@@ -1,5 +1,13 @@
-// SPY Pivot Pro — LogoMark: candlestick chart + pivot sweep + pivot dot
+import { useId } from "react";
+
+// SPY Pivot Pro — LogoMark: animated V-pivot with teal→gold gradient line + star burst at breakout tip
 export function LogoMark({ size = 32 }: { size?: number }) {
+  const uid = useId().replace(/[^a-z0-9]/gi, "");
+
+  // Path length: (5,24)→(15,31)→(32,8)
+  // seg1 = √((15-5)²+(31-24)²) ≈ 12.2  |  seg2 = √((32-15)²+(8-31)²) ≈ 28.6  |  total ≈ 41
+  const dash = 42;
+
   return (
     <svg
       width={size}
@@ -9,36 +17,103 @@ export function LogoMark({ size = 32 }: { size?: number }) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
+      <defs>
+        <style>{`
+          @keyframes sppdraw${uid} {
+            from { stroke-dashoffset: ${dash}; }
+            to   { stroke-dashoffset: 0; }
+          }
+          @keyframes sppstar${uid} {
+            0%   { opacity: 0; transform: scale(0.15); }
+            68%  { opacity: 1; transform: scale(1.22); }
+            100% { opacity: 1; transform: scale(1); }
+          }
+          @keyframes spppulse${uid} {
+            0%, 100% { transform: scale(1); }
+            50%      { transform: scale(1.1); }
+          }
+          @keyframes sppglow${uid} {
+            0%, 100% { opacity: 0.1; }
+            50%      { opacity: 0.32; }
+          }
+        `}</style>
+
+        {/* Teal → gold gradient along the V-path direction */}
+        <linearGradient id={`sppg${uid}`} x1="5" y1="24" x2="32" y2="8" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stopColor="#063B47" />
+          <stop offset="30%"  stopColor="#06B6D4" />
+          <stop offset="62%"  stopColor="#F0B429" />
+          <stop offset="100%" stopColor="#FFE082" />
+        </linearGradient>
+
+        {/* Blur for line glow bloom */}
+        <filter id={`spplg${uid}`} x="-120%" y="-120%" width="340%" height="340%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        </filter>
+
+        {/* Blur+merge for star glow (keeps crisp center visible) */}
+        <filter id={`sppsg${uid}`} x="-220%" y="-220%" width="540%" height="540%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.8" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        {/* Wide spread blur for pivot ambient glow */}
+        <filter id={`spppg${uid}`} x="-350%" y="-350%" width="800%" height="800%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+        </filter>
+      </defs>
+
       {/* Badge */}
       <rect width="40" height="40" rx="8" fill="#0D1520" />
-      <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="7.5" stroke="#F0B429" strokeWidth="1.5" strokeOpacity="0.5" />
+      <rect x="0.75" y="0.75" width="38.5" height="38.5" rx="7.5"
+        stroke="#F0B429" strokeWidth="1" strokeOpacity="0.38" fill="none" />
 
-      {/* Candle 1 — muted */}
-      <line x1="7" y1="15" x2="7" y2="27" stroke="#2D3F52" strokeWidth="1" strokeLinecap="round" />
-      <rect x="5.5" y="18" width="3" height="6" rx="0.5" fill="#2D3F52" />
+      {/* Pivot ambient glow — pulses softly at the V bottom */}
+      <circle cx="15" cy="31" r="7" fill="#F0B429"
+        filter={`url(#spppg${uid})`}
+        style={{ animation: `sppglow${uid} 2.6s ease-in-out infinite 1.3s` }}
+      />
 
-      {/* Candle 2 — muted */}
-      <line x1="13" y1="14" x2="13" y2="27" stroke="#2D3F52" strokeWidth="1" strokeLinecap="round" />
-      <rect x="11.5" y="17" width="3" height="7" rx="0.5" fill="#2D3F52" />
+      {/* Line — bloom layer (blurred duplicate for glow) */}
+      <polyline
+        points="5,24 15,31 32,8"
+        stroke={`url(#sppg${uid})`}
+        strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"
+        strokeDasharray={dash} fill="none"
+        filter={`url(#spplg${uid})`} opacity="0.48"
+        style={{ animation: `sppdraw${uid} 0.88s cubic-bezier(0.4,0,0.2,1) both` }}
+      />
 
-      {/* Candle 3 — GOLD pivot candle */}
-      <line x1="19" y1="9" x2="19" y2="12" stroke="#F0B429" strokeWidth="1.2" strokeLinecap="round" />
-      <rect x="17" y="12" width="4" height="13" rx="0.5" fill="#F0B429" />
-      <line x1="19" y1="25" x2="19" y2="28" stroke="#F0B429" strokeWidth="1.2" strokeLinecap="round" />
+      {/* Line — crisp layer */}
+      <polyline
+        points="5,24 15,31 32,8"
+        stroke={`url(#sppg${uid})`}
+        strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round"
+        strokeDasharray={dash} fill="none"
+        style={{ animation: `sppdraw${uid} 0.88s cubic-bezier(0.4,0,0.2,1) both` }}
+      />
 
-      {/* Candle 4 — muted, recovering */}
-      <line x1="25" y1="13" x2="25" y2="24" stroke="#2D3F52" strokeWidth="1" strokeLinecap="round" />
-      <rect x="23.5" y="14" width="3" height="6" rx="0.5" fill="#2D3F52" />
-
-      {/* Candle 5 — muted, bullish continuation */}
-      <line x1="31" y1="11" x2="31" y2="22" stroke="#2D3F52" strokeWidth="1" strokeLinecap="round" />
-      <rect x="29.5" y="12" width="3" height="7" rx="0.5" fill="#2D3F52" />
-
-      {/* Pivot sweep — arc through the signal */}
-      <path d="M 3,25 C 12,21 23,15 37,9" stroke="#F0B429" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-
-      {/* Pivot dot — exact inflection point */}
-      <circle cx="10" cy="22" r="1.8" fill="#F0B429" />
+      {/* Star burst at breakout tip (32, 8)
+          8-point star: R=3.5, r=1.1, centered at (32,8)
+          computed outer/inner alternating points, clockwise from top */}
+      <g
+        filter={`url(#sppsg${uid})`}
+        style={{
+          transformBox: "fill-box",
+          transformOrigin: "center",
+          animation: `sppstar${uid} 0.48s cubic-bezier(0.34,1.56,0.64,1) 0.8s both, spppulse${uid} 2.6s ease-in-out infinite 1.5s`,
+        }}
+      >
+        <circle cx="32" cy="8" r="5.5" fill="#F0B429" opacity="0.18" />
+        <path
+          d="M32,4.5 L32.42,6.98 L34.47,5.53 L33.02,7.58 L35.5,8 L33.02,8.42 L34.47,10.47 L32.42,9.02 L32,11.5 L31.58,9.02 L29.53,10.47 L30.98,8.42 L28.5,8 L30.98,7.58 L29.53,5.53 L31.58,6.98 Z"
+          fill="#F0B429"
+        />
+        <circle cx="32" cy="8" r="1.25" fill="white" opacity="0.96" />
+      </g>
     </svg>
   );
 }
