@@ -3,6 +3,10 @@ import { Nav } from "@/app/components/Nav";
 import { Ticker } from "@/app/components/Ticker";
 import { Hero } from "@/app/components/Hero";
 import { TrustBand } from "@/app/components/TrustBand";
+import { IntelligenceGap } from "@/app/components/IntelligenceGap";
+import { IntelligenceFlow } from "@/app/components/IntelligenceFlow";
+import { IntelligenceBento } from "@/app/components/IntelligenceBento";
+import { PlatformShowcase } from "@/app/components/PlatformShowcase";
 import { Stats } from "@/app/components/Stats";
 import { WallStreet } from "@/app/components/WallStreet";
 import { BentoGrid } from "@/app/components/BentoGrid";
@@ -28,6 +32,10 @@ export default function Home() {
       </div>
       <Hero />
       <TrustBand />
+      <IntelligenceGap />
+      <IntelligenceFlow />
+      <IntelligenceBento />
+      <PlatformShowcase />
       <Stats />
       <WallStreet />
       <BentoGrid />
