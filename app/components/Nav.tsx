@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import { Logo } from "./Logo";
 
 const links = [
-  { label: "Platform", href: "#platform" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Signals", href: "#signals" },
   { label: "Results", href: "#backtest" },
-  { label: "Beta", href: "#waitlist" },
+  { label: "Pricing", href: "#pricing" },
 ];
 
-const sectionIds = ["platform", "backtest", "waitlist"];
+const sectionIds = ["how-it-works", "signals", "backtest", "pricing"];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);

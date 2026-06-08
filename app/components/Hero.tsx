@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { LaunchCountdown } from "./LaunchCountdown";
 import { ShaderBackground } from "@/app/components/ui/ShaderBackground";
 import { ShinyButton } from "@/app/components/ui/ShinyButton";
 
@@ -29,98 +30,126 @@ export function Hero() {
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 border border-[#1E2D3D] bg-[#0D1520]/80 px-4 py-1.5 rounded-full text-[11px] font-mono tracking-widest text-slate-400 uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-dot inline-block" />
-          Private Beta · Brokerage-Connected Trading Cockpit
+          Early Access — Now Open
         </div>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight max-w-4xl">
-          <span className="text-white">Trade SPY with</span>
+          <span className="text-white">The edge is no</span>
           <br />
-          <span className="text-gold-shimmer">confidence, data, and control.</span>
+          <span className="text-gold-shimmer">longer institutional.</span>
         </h1>
 
         {/* Sub */}
-        <p className="text-slate-300 text-lg sm:text-xl max-w-3xl leading-relaxed font-light">
-          SPY Pivot Pro is a brokerage-connected trading cockpit for SPY options traders:
-          signal confluence, probability scoring, strategy testing, and automation controls
-          in one private beta platform.
+        <p className="text-slate-400 text-lg sm:text-xl max-w-2xl leading-relaxed font-light">
+          Hedge funds spent decades building signal confluence engines, ML probability models, and
+          automation layers. SPY Pivot Pro delivers that same institutional intelligence — built
+          for SPY options, starting at $79/month.
         </p>
 
         {/* Proof line */}
-        <p className="text-sm font-mono text-slate-400">
-          Built for manual confidence now
+        <p className="text-sm font-mono text-slate-500">
+          January 2026 backtest:{" "}
+          <span className="text-[#10B981] font-semibold">$100 → $1,217</span>
           {" · "}
-          <span className="text-amber-400 font-semibold">automation when ready</span>
+          <span className="text-amber-400 font-semibold">Sharpe 14</span>
           {" · "}
-          <span className="text-[#10B981] font-semibold">seeking beta users and strategic capital</span>
+          <span className="text-slate-300 font-semibold">MaxDD −5.4%</span>
         </p>
 
+        {/* Launch countdown + spots */}
+        <div className="w-full mt-2 mb-2">
+          <LaunchCountdown />
+        </div>
+
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
           <ShinyButton href="#waitlist" color="gold">
-            Join Private Beta
+            Get Early Access
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </ShinyButton>
           <a
-            href="#platform"
-            className="inline-flex items-center gap-2 border border-[#F0B429]/35 bg-[#050810]/70 hover:bg-[#F0B429]/10 text-slate-100 font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 cursor-pointer"
+            href="#backtest"
+            className="inline-flex items-center gap-2 border border-[#1E2D3D] hover:border-slate-500 text-slate-400 hover:text-white font-medium text-base px-7 py-3.5 rounded-xl transition-all duration-200 cursor-pointer"
           >
-            Explore Platform
+            View Jan 2026 Results
           </a>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mt-2">
-          {[
-            ["Connect", "Brokerage-ready execution layer"],
-            ["Test", "Indicators, stats, and replay research"],
-            ["Automate", "Strategy controls with risk limits"],
-          ].map(([label, text]) => (
-            <div key={label} className="rounded-xl border border-[#1E2D3D] bg-[#0D1520]/78 px-4 py-3 text-left">
-              <div className="text-[11px] font-mono tracking-widest uppercase text-amber-400">{label}</div>
-              <div className="mt-1 text-sm text-slate-300">{text}</div>
-            </div>
-          ))}
-        </div>
-
         {/* App screenshot */}
-        <div
-          className="relative w-full max-w-5xl mt-8 rounded-2xl overflow-hidden border border-[#1E2D3D]"
-          style={{
-            boxShadow:
-              "0 0 0 1px rgba(240,180,41,0.10), 0 32px 80px rgba(0,0,0,0.6), 0 0 90px rgba(6,182,212,0.07)",
-          }}
-        >
-          {/* Window chrome */}
-          <div className="flex items-center gap-1.5 px-4 py-2.5 bg-[#0A1220] border-b border-[#1E2D3D]">
-            <div className="w-3 h-3 rounded-full bg-[#FF4D6A]/70" />
-            <div className="w-3 h-3 rounded-full bg-amber-400/40" />
-            <div className="w-3 h-3 rounded-full bg-[#10B981]/40" />
-            <span className="ml-3 text-[11px] font-mono text-slate-500 tracking-wider">
-              SPY Pivot Pro — Terminal
-            </span>
-            <div className="ml-auto flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-dot inline-block" />
-              <span className="text-[10px] font-mono text-[#10B981]">LIVE</span>
-            </div>
-          </div>
+        <div className="relative w-full max-w-6xl mt-10">
+          {/* Ambient glow behind the frame */}
+          <div
+            className="absolute -inset-4 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse at 50% 60%, rgba(240,180,41,0.08) 0%, rgba(27,114,192,0.06) 45%, transparent 72%)",
+              filter: "blur(24px)",
+            }}
+          />
 
-          {!imgError ? (
-            <div className="relative" style={{ aspectRatio: "16/9" }}>
-              <Image
-                src="/images/app_hero.png"
-                alt="SPY Pivot Pro trading interface showing Signal Confluence, ML win probability, and live options flow"
-                fill
-                className="object-cover object-top"
-                priority
-                onError={() => setImgError(true)}
-              />
-            </div>
-          ) : (
-            /* Placeholder when no screenshot yet */
-            <AppPlaceholder />
-          )}
+          {/* Main frame */}
+          <div
+            className="relative rounded-2xl overflow-hidden border border-[#1E2D3D]"
+            style={{
+              boxShadow: "0 0 0 1px rgba(240,180,41,0.12), 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(6,182,212,0.05)",
+            }}
+          >
+            {!imgError ? (
+              <div className="relative" style={{ aspectRatio: "1920/1040" }}>
+                <Image
+                  src="/images/app_hero.png"
+                  alt="SPY Pivot Pro live trading interface — signal confluence, ML win probability, intraday playback"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                  onError={() => setImgError(true)}
+                />
+                {/* Bottom fade — blends screenshot into page */}
+                <div className="absolute inset-x-0 bottom-0 h-24 pointer-events-none bg-gradient-to-t from-[#050810] to-transparent" />
+
+                {/* Feature callout badges — pinned to key areas of the UI */}
+                <div className="absolute top-[10%] right-[2%] flex flex-col gap-2 pointer-events-none hidden sm:flex">
+                  {[
+                    { label: "Signal Confluence", color: "#F0B429" },
+                    { label: "ML Win Prob", color: "#10B981" },
+                    { label: "Supply / Demand", color: "#1B72C0" },
+                  ].map((badge) => (
+                    <div
+                      key={badge.label}
+                      className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono tracking-wider"
+                      style={{
+                        background: badge.color + "15",
+                        border: `1px solid ${badge.color}30`,
+                        color: badge.color,
+                        backdropFilter: "blur(6px)",
+                      }}
+                    >
+                      <span className="w-1 h-1 rounded-full inline-block" style={{ background: badge.color }} />
+                      {badge.label}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom-left live indicator */}
+                <div
+                  className="absolute bottom-6 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] font-mono tracking-widest pointer-events-none hidden sm:flex"
+                  style={{
+                    background: "rgba(10,18,32,0.85)",
+                    border: "1px solid rgba(16,185,129,0.3)",
+                    backdropFilter: "blur(8px)",
+                    color: "#10B981",
+                  }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-dot inline-block" />
+                  PLAYBACK · SPY · FEB 26 2026
+                </div>
+              </div>
+            ) : (
+              <AppPlaceholder />
+            )}
+          </div>
         </div>
       </div>
     </section>

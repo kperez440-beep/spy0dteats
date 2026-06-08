@@ -1,4 +1,4 @@
-import { Logo, FortitudTree } from "./Logo";
+import { Logo, FortitudLogo } from "./Logo";
 
 const links = {
   Product: ["Signal Confluence", "ML Win Probability", "Playback Simulator", "Auto-Learn Engine", "Automation"],
@@ -15,16 +15,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <FortitudTree size={36} color="#F0B429" />
-              <div className="flex flex-col leading-none">
-                <span className="text-[13px] font-bold tracking-[0.18em] text-white uppercase" style={{ fontFamily: "var(--font-mono, monospace)" }}>
-                  SPY PIVOT PRO
-                </span>
-                <span className="text-[9px] tracking-[0.22em] uppercase mt-[4px]" style={{ color: "rgba(240,180,41,0.6)", fontFamily: "var(--font-sans)" }}>
-                  Institutional Trading Research
-                </span>
-              </div>
+            <div className="mb-4">
+              <Logo size="md" />
             </div>
             <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
               Institutional-grade SPY options intelligence. Built by quantitative researchers at
@@ -86,13 +78,11 @@ export function Footer() {
             educational and informational purposes only. Never trade with capital you cannot afford
             to lose.
           </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <p className="text-[11px] text-slate-600 font-mono">
               © {year} Fortitud Capital LLC. All rights reserved.
             </p>
-            <p className="text-[11px] text-slate-700 font-mono tracking-wider">
-              SPY PIVOT PRO · BUILT FOR THE EDGE
-            </p>
+            <FortitudLogo size="xs" />
           </div>
         </div>
       </div>
