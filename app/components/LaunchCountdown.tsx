@@ -61,7 +61,7 @@ export function LaunchCountdown() {
           {count}
         </div>
         <div className="text-sm text-slate-400 font-mono tracking-wide">
-          traders already in
+          on the early access waitlist
         </div>
       </div>
 
@@ -94,19 +94,19 @@ export function LaunchCountdown() {
             style={{
               width: `${pct}%`,
               background: "linear-gradient(90deg, #F0B429, #06B6D4)",
-              boxShadow: "0 0 10px rgba(240,180,41,0.5)",
+              boxShadow: "0 0 8px rgba(240,180,41,0.35)",
             }}
           />
         </div>
         <div className="flex justify-between text-[10px] font-mono text-slate-500">
-          <span>{count} joined</span>
-          <span>{remaining} of {TOTAL_SPOTS} spots left</span>
+          <span>{count} signed up</span>
+          <span>{remaining} of {TOTAL_SPOTS} founding spots left</span>
         </div>
       </div>
 
       {/* Footer note */}
       <p className="text-[12px] text-slate-500 text-center font-mono leading-relaxed">
-        Founding members lock in{" "}
+        Founding waitlist members lock in{" "}
         <span className="text-amber-400 font-semibold">40% below launch pricing</span>
         {" "}— forever.
       </p>
