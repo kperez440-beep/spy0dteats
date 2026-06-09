@@ -23,6 +23,10 @@ import { Roadmap } from "@/app/components/Roadmap";
 import { Community } from "@/app/components/Community";
 import { Partners } from "@/app/components/Partners";
 import { FAQ } from "@/app/components/FAQ";
+import { RoadmapVision } from "@/app/components/RoadmapVision";
+import { FoundingAccess } from "@/app/components/FoundingAccess";
+import { PricingPlans } from "@/app/components/PricingPlans";
+import { FinalCTA } from "@/app/components/FinalCTA";
 import { Waitlist } from "@/app/components/Waitlist";
 import { Footer } from "@/app/components/Footer";
 
@@ -56,6 +60,10 @@ export default function Home() {
       <Community />
       <Partners />
       <FAQ />
+      <RoadmapVision />
+      <FoundingAccess />
+      <PricingPlans />
+      <FinalCTA />
       <Waitlist />
       <Footer />
     </div>
