@@ -7,6 +7,10 @@ import { IntelligenceGap } from "@/app/components/IntelligenceGap";
 import { IntelligenceFlow } from "@/app/components/IntelligenceFlow";
 import { IntelligenceBento } from "@/app/components/IntelligenceBento";
 import { PlatformShowcase } from "@/app/components/PlatformShowcase";
+import { WhySPYOnly } from "@/app/components/WhySPYOnly";
+import { ResearchResults } from "@/app/components/ResearchResults";
+import { TradingDay } from "@/app/components/TradingDay";
+import { WhySwitch } from "@/app/components/WhySwitch";
 import { Stats } from "@/app/components/Stats";
 import { WallStreet } from "@/app/components/WallStreet";
 import { BentoGrid } from "@/app/components/BentoGrid";
@@ -36,6 +40,10 @@ export default function Home() {
       <IntelligenceFlow />
       <IntelligenceBento />
       <PlatformShowcase />
+      <WhySPYOnly />
+      <ResearchResults />
+      <TradingDay />
+      <WhySwitch />
       <Stats />
       <WallStreet />
       <BentoGrid />
