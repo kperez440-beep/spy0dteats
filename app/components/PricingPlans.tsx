@@ -26,7 +26,7 @@ const PLANS: Plan[] = [
     price: "$79",
     period: "/mo",
     desc: "Full platform access. The complete intelligence dashboard and research toolkit.",
-    cta: "Get Started",
+    cta: "Request Founding Access",
     ctaHref: "#founding",
     color: "#06B6D4",
     features: [
@@ -48,7 +48,7 @@ const PLANS: Plan[] = [
     desc: "The complete intelligence suite. Trade planning, ML probability, risk analytics.",
     badge: "Most Popular",
     featured: true,
-    cta: "Get Started",
+    cta: "Request Founding Access",
     ctaHref: "#founding",
     color: "#F0B429",
     features: [
@@ -70,7 +70,7 @@ const PLANS: Plan[] = [
     desc: "Full broker connectivity, automated execution, and strategy deployment.",
     badge: "Coming Soon",
     comingSoon: true,
-    cta: "Join Waitlist",
+    cta: "Request Founding Access",
     ctaHref: "#founding",
     color: "#475569",
     features: [
@@ -87,7 +87,7 @@ const PLANS: Plan[] = [
   },
 ];
 
-const FADE = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } };
+const FADE = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
 function FeatureRow({ feature, color }: { feature: PlanFeature; color: string }) {
   return (
@@ -156,8 +156,8 @@ export function PricingPlans() {
           {PLANS.map((plan, i) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="relative rounded-2xl border overflow-hidden"
@@ -173,8 +173,15 @@ export function PricingPlans() {
                 opacity: plan.comingSoon ? 0.62 : 1,
               }}
             >
+              {/* Full-width Most Popular banner — visible on all screen sizes */}
+              {plan.featured && (
+                <div className="w-full bg-[#F0B429] text-[#050810] text-[10px] font-mono font-bold tracking-[0.18em] uppercase text-center py-2">
+                  Most Popular
+                </div>
+              )}
+
               {/* Badge */}
-              {plan.badge && (
+              {plan.badge && !plan.featured && (
                 <div
                   className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full text-[8px] font-mono font-bold tracking-wider"
                   style={{

@@ -25,8 +25,8 @@ const CONTRASTS = [
 ] as const;
 
 const FADE = {
-  hidden: { opacity: 0, y: 20 },
-  show:   { opacity: 1, y: 0  },
+  hidden: { opacity: 0 },
+  show:   { opacity: 1 },
 };
 
 export function IntelligenceGap() {

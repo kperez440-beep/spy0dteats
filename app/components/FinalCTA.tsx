@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { DashboardMockup } from "@/app/components/DashboardMockup";
 
 // Floating intelligence signal badges — subtle ambient movement
 const FLOAT_BADGES = [
@@ -28,6 +29,19 @@ export function FinalCTA() {
         style={{ background: "radial-gradient(ellipse 80% 80% at center, transparent 45%, #050810 100%)" }}
         aria-hidden="true"
       />
+
+      {/* DashboardMockup — blurred, darkened, atmospheric background */}
+      <div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <div
+          className="w-full max-w-5xl"
+          style={{ opacity: 0.06, filter: "blur(4px) brightness(0.5)", transform: "scale(1.08)" }}
+        >
+          <DashboardMockup />
+        </div>
+      </div>
 
       {/* Floating data badges */}
       {FLOAT_BADGES.map((b) => (
@@ -99,7 +113,7 @@ export function FinalCTA() {
             href="#founding"
             className="shiny-btn inline-flex items-center gap-2.5 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[15px] px-9 py-4 rounded-full transition-all duration-200 hover:shadow-[0_0_40px_rgba(240,180,41,0.5)] hover:-translate-y-px cursor-pointer"
           >
-            Request Early Access
+            Request Founding Access
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

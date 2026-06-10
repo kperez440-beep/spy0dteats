@@ -85,7 +85,7 @@ export function WhySwitch() {
             transition={{ duration: 0.5, delay: 0.12 }}
             className="mt-4 text-slate-400 text-lg max-w-xl mx-auto leading-relaxed"
           >
-            The gap isn't intelligence or market knowledge. It's infrastructure.
+            The gap isn&apos;t intelligence or market knowledge. It&apos;s infrastructure.
           </motion.p>
         </div>
 
@@ -168,20 +168,20 @@ export function WhySwitch() {
             style={{ background: "linear-gradient(135deg, rgba(240,180,41,0.04), rgba(6,182,212,0.03))" }}
           >
             <p className="text-2xl sm:text-3xl font-bold text-white leading-snug">
-              "The difference isn't intelligence.
+              &ldquo;The difference isn&apos;t intelligence.
             </p>
             <p className="text-2xl sm:text-3xl font-bold text-gold-shimmer leading-snug mt-1">
-              It's infrastructure."
+              It&apos;s infrastructure.&rdquo;
             </p>
             <p className="mt-5 text-slate-500 text-sm leading-relaxed max-w-lg mx-auto">
-              Every trader who switched already knew the typical approach wasn't working.
-              What they needed wasn't more charts — it was a decision system built around a defined edge.
+              Every trader who switched already knew the typical approach wasn&apos;t working.
+              What they needed wasn&apos;t more charts — it was a decision system built around a defined edge.
             </p>
             <a
-              href="#waitlist"
+              href="#founding"
               className="mt-6 inline-flex items-center gap-2 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-sm px-7 py-3 rounded-full transition-all duration-200 cursor-pointer hover:shadow-[0_0_24px_rgba(240,180,41,0.4)] hover:-translate-y-px"
             >
-              Join the Waitlist
+              Request Founding Access
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>

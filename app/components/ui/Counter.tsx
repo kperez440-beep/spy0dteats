@@ -13,7 +13,7 @@ function easeOut(t: number) {
 function SpinNum({ mv, n }: { mv: MotionValue<number>; n: number }) {
   const y = useTransform(mv, (v) => {
     const cur = v % 10;
-    let offset = (10 + n - cur) % 10;
+    const offset = (10 + n - cur) % 10;
     let px = offset * H;
     if (offset > 5) px -= 10 * H;
     return px;

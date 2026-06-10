@@ -58,8 +58,8 @@ const PHILOSOPHY = [
 ] as const;
 
 const FADE = {
-  hidden: { opacity: 0, y: 16 },
-  show:   { opacity: 1, y: 0  },
+  hidden: { opacity: 0 },
+  show:   { opacity: 1 },
 };
 
 export function ResearchResults() {

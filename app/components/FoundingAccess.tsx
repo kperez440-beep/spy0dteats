@@ -30,7 +30,7 @@ const SPOTS_TAKEN = 47;
 const SPOTS_TOTAL = 200;
 const PCT = (SPOTS_TAKEN / SPOTS_TOTAL) * 100;
 
-const FADE = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } };
+const FADE = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
 export function FoundingAccess() {
   const [email, setEmail] = useState("");
@@ -85,8 +85,8 @@ export function FoundingAccess() {
 
         {/* Card */}
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           className="rounded-2xl border border-[#F0B429]/20 overflow-hidden"
@@ -184,7 +184,7 @@ export function FoundingAccess() {
                   type="submit"
                   className="shrink-0 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[12px] px-6 py-2.5 rounded-xl transition-all duration-200 hover:shadow-[0_0_20px_rgba(240,180,41,0.35)] cursor-pointer"
                 >
-                  Request Access
+                  Request Founding Access
                 </button>
               </form>
             )}

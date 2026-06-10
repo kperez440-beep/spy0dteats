@@ -10,7 +10,15 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#1E2D3D] bg-[#050810] pt-16 pb-10 px-4">
+    <footer className="border-t border-[#1E2D3D] bg-[#050810] pb-10 px-4">
+      {/* Compliance bar */}
+      <div className="border-b border-[#1E2D3D] bg-[#060D18] px-4 py-3 text-center">
+        <p className="text-[9px] font-mono text-slate-600 tracking-wide leading-relaxed max-w-4xl mx-auto">
+          Results shown are hypothetical backtests.&nbsp;&nbsp;Options trading involves substantial risk.&nbsp;&nbsp;Past performance does not guarantee future results.
+        </p>
+      </div>
+
+      <div className="pt-14">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           {/* Brand */}
@@ -85,6 +93,7 @@ export function Footer() {
             <FortitudLogo size="xs" />
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

@@ -54,8 +54,8 @@ const VOL_COMPARE = [
 ] as const;
 
 const FADE = {
-  hidden: { opacity: 0, y: 16 },
-  show:   { opacity: 1, y: 0  },
+  hidden: { opacity: 0 },
+  show:   { opacity: 1 },
 };
 
 export function WhySPYOnly() {
@@ -110,7 +110,7 @@ export function WhySPYOnly() {
               key={r.title}
               variants={FADE} initial="hidden"
               whileInView="show" viewport={{ once: true, amount: 0.15 }}
-              transition={{ delay: r.delay, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.25 }}
               className="relative group rounded-2xl border border-[#1E2D3D] bg-[#0A1220] p-6 overflow-hidden transition-all duration-300 hover:border-[#2A3A50]"
               whileHover={{ y: -2 }}
             >
@@ -202,10 +202,10 @@ export function WhySPYOnly() {
               The Specialization Thesis
             </p>
             <blockquote className="text-xl sm:text-2xl text-white font-light leading-relaxed">
-              "Mastery requires constraint. Every intelligence module, every signal, every
+              &ldquo;Mastery requires constraint. Every intelligence module, every signal, every
               backtest was designed exclusively for{" "}
               <span className="text-amber-400 font-semibold">SPY options behavior</span>.
-              Breadth is the enemy of edge."
+              Breadth is the enemy of edge.&rdquo;
             </blockquote>
           </div>
         </motion.div>

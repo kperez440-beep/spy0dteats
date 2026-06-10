@@ -1,5 +1,4 @@
 "use client";
-import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 type PhaseStatus = "current" | "upcoming" | "planned" | "vision";
@@ -43,7 +42,7 @@ const PHASES: Phase[] = [
   },
 ];
 
-const FADE = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } };
+const FADE = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
 export function RoadmapVision() {
   return (
@@ -107,8 +106,8 @@ export function RoadmapVision() {
               {PHASES.map((phase, i) => (
                 <motion.div
                   key={phase.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.15 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="flex flex-col items-center"

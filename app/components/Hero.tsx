@@ -104,16 +104,16 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center gap-4"
         >
           <a
-            href="#waitlist"
+            href="#founding"
             className="inline-flex items-center gap-2 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-base px-8 py-3.5 rounded-full transition-all duration-200 cursor-pointer shadow-[0_0_0_1px_rgba(240,180,41,0.6)] hover:shadow-[0_0_28px_rgba(240,180,41,0.45)] hover:-translate-y-px"
           >
-            Join the Waitlist
+            Request Founding Access
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
           <a
-            href="#backtest"
+            href="#research"
             className="inline-flex items-center gap-2 border border-[#1E2D3D] hover:border-slate-500 text-slate-400 hover:text-white font-medium text-base px-7 py-3.5 rounded-xl transition-all duration-200 cursor-pointer"
           >
             View Jan 2026 Results

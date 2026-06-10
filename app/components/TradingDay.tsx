@@ -128,8 +128,8 @@ const STEPS = [
 type StepIdx = 0 | 1 | 2 | 3 | 4 | 5;
 
 const FADE = {
-  hidden: { opacity: 0, y: 10 },
-  show:   { opacity: 1, y: 0  },
+  hidden: { opacity: 0 },
+  show:   { opacity: 1 },
 };
 
 function StepPanel({ step }: { step: typeof STEPS[number] }) {
@@ -248,8 +248,34 @@ export function TradingDay() {
 
           <div className="bg-[#060D18] flex flex-col lg:flex-row" style={{ minHeight: 420 }}>
 
-            {/* Step list — left sidebar on desktop, top strip on mobile */}
-            <div className="flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible shrink-0 lg:w-[220px] border-b lg:border-b-0 lg:border-r border-[#1E2D3D] bg-[#07101C]/60">
+            {/* Mobile step indicator — replaces horizontal scroll list */}
+            <div className="flex lg:hidden items-center justify-between px-4 py-3 border-b border-[#1E2D3D] bg-[#07101C]/60">
+              <div>
+                <div className="text-[8px] font-mono text-slate-600 tracking-widest uppercase mb-0.5">
+                  Step {active + 1} of {STEPS.length}
+                </div>
+                <div className="text-[12px] font-bold" style={{ color: step.color }}>
+                  {step.time} · {step.label}
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5">
+                {STEPS.map((s, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i as StepIdx)}
+                    className="w-2 h-2 rounded-full transition-all duration-200 cursor-pointer"
+                    style={{
+                      background: i === active ? step.color : i < active ? "#334155" : "#1E2D3D",
+                      transform: i === active ? "scale(1.4)" : "scale(1)",
+                    }}
+                    aria-label={`Go to step ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Step list — desktop sidebar only */}
+            <div className="hidden lg:flex lg:flex-col shrink-0 lg:w-[220px] border-r border-[#1E2D3D] bg-[#07101C]/60">
               {STEPS.map((s, i) => {
                 const isActive   = active === i;
                 const isComplete = i < active;

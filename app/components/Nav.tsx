@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import { Logo } from "./Logo";
 
 const links = [
-  { label: "Platform", href: "#platform"  },
-  { label: "Results",  href: "#backtest"  },
-  { label: "Pricing",  href: "#pricing"   },
-  { label: "About",    href: "#about"     },
+  { label: "Platform", href: "#platform"      },
+  { label: "Results",  href: "#research"      },
+  { label: "Pricing",  href: "#pricing-plans" },
+  { label: "Access",   href: "#founding"      },
 ];
 
-const sectionIds = ["platform", "backtest", "pricing", "about"];
+const sectionIds = ["platform", "research", "pricing-plans", "founding"];
 
 export function Nav() {
   const [scrolled,      setScrolled]      = useState(false);
@@ -81,10 +81,10 @@ export function Nav() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#waitlist"
+            href="#founding"
             className="hidden sm:inline-flex items-center gap-1.5 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[13px] px-4 py-2 rounded-full transition-all duration-200 hover:shadow-[0_0_20px_rgba(240,180,41,0.45)] hover:-translate-y-px cursor-pointer"
           >
-            Join Waitlist
+            Request Founding Access
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -138,11 +138,11 @@ export function Nav() {
           ))}
 
           <a
-            href="#waitlist"
+            href="#founding"
             onClick={() => setMenuOpen(false)}
             className="mt-4 inline-flex items-center justify-center gap-2 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[14px] px-5 py-3 rounded-xl transition-all duration-200 cursor-pointer"
           >
-            Join Waitlist
+            Request Founding Access
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
