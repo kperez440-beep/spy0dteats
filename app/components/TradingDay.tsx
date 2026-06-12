@@ -33,12 +33,12 @@ const STEPS = [
     panel: {
       heading: "Confluence Score: 72 / 100",
       rows: [
-        { k: "EMA Trend",    v: "8.2 / 10", c: "#F0B429" },
-        { k: "VWAP Bias",    v: "7.4 / 10", c: "#06B6D4" },
-        { k: "RSI Momentum", v: "8.8 / 10", c: "#F0B429" },
-        { k: "Order Flow",   v: "6.0 / 10", c: "#06B6D4" },
-        { k: "SPY Breadth",  v: "7.6 / 10", c: "#10B981" },
-        { k: "IV Pct Rank",  v: "4.8 / 10", c: "#475569" },
+        { k: "MTF Alignment",  v: "8.2 / 10", c: "#F0B429" },
+        { k: "Supply / Demand", v: "7.4 / 10", c: "#06B6D4" },
+        { k: "Momentum",       v: "8.8 / 10", c: "#F0B429" },
+        { k: "Flow",           v: "6.0 / 10", c: "#06B6D4" },
+        { k: "Participation",  v: "7.6 / 10", c: "#10B981" },
+        { k: "Mkt Context",    v: "4.8 / 10", c: "#475569" },
       ],
       note: "Composite 72 / 100 · Threshold 68 ✓ · Proceeding to gate",
       noteColor: "#10B981",
@@ -49,17 +49,16 @@ const STEPS = [
     stage:   "Eligibility Gate",
     label:   "Gate Cleared",
     color:   "#10B981",
-    summary: "The eligibility engine runs its 5-condition check. All conditions must clear or the session is skipped.",
+    summary: "The eligibility engine runs its 4-condition check. All conditions must clear or the session is skipped.",
     panel: {
       heading: "All Gate Conditions Passed",
       rows: [
         { k: "Confluence ≥ 68",    v: "72 ✓",    c: "#10B981" },
         { k: "ML Probability",     v: "73.2% ✓",  c: "#10B981" },
         { k: "Risk Parameters",    v: "Aligned ✓", c: "#10B981" },
-        { k: "Market Structure",   v: "Bullish ✓", c: "#10B981" },
         { k: "Session Filter",     v: "Active ✓",  c: "#10B981" },
       ],
-      note: "ELIGIBLE LONG · 5/5 conditions met · Trade plan generating",
+      note: "ELIGIBLE LONG · 4/4 conditions met · Trade plan generating",
       noteColor: "#F0B429",
     },
   },
@@ -86,20 +85,20 @@ const STEPS = [
   {
     time:    "9:45 AM",
     stage:   "Execution",
-    label:   "Trade Placed",
+    label:   "Plan Ready",
     color:   "#F0B429",
-    summary: "The contract is purchased at market. Risk is capped at the stop level. The platform monitors the position.",
+    summary: "The platform outputs your complete trade plan. You execute in your broker. Strike, sizing, and budget are fully defined before you touch the order screen.",
     panel: {
-      heading: "Order Filled · Position Open",
+      heading: "Execute Your Trade Plan",
       rows: [
-        { k: "Contract",  v: "SPY 592C 0DTE",   c: "#F0B429" },
-        { k: "Fill Price", v: "$2.15 / contract", c: "#F1F5F9" },
-        { k: "Qty",       v: "1 contract",        c: "#F1F5F9" },
-        { k: "Cost",      v: "$215 debit",        c: "#FF4D6A" },
-        { k: "Stop",      v: "$0.00 (−100%)",     c: "#FF4D6A" },
-        { k: "Target",    v: "$7.39 (+$5.24)",    c: "#10B981" },
+        { k: "Contract",     v: "SPY 592C 0DTE",    c: "#F0B429" },
+        { k: "Est. Premium", v: "~$2.15 / contract", c: "#F1F5F9" },
+        { k: "Qty",          v: "1 contract",         c: "#F1F5F9" },
+        { k: "Budget",       v: "$500",               c: "#F0B429" },
+        { k: "Stop Level",   v: "$589.50",            c: "#FF4D6A" },
+        { k: "Target",       v: "$597.80",            c: "#10B981" },
       ],
-      note: "Position open · Stop active · Monitoring in progress",
+      note: "Plan complete · Execute in your broker · Platform monitors session",
       noteColor: "#F0B429",
     },
   },
@@ -259,7 +258,7 @@ export function TradingDay() {
                 </div>
               </div>
               <div className="flex items-center gap-1.5">
-                {STEPS.map((s, i) => (
+                {STEPS.map((_s, i) => (
                   <button
                     key={i}
                     onClick={() => setActive(i as StepIdx)}
@@ -365,7 +364,7 @@ export function TradingDay() {
 
                 {/* Progress dots */}
                 <div className="flex items-center gap-1.5">
-                  {STEPS.map((s, i) => (
+                  {STEPS.map((_s, i) => (
                     <button
                       key={i}
                       onClick={() => setActive(i as StepIdx)}

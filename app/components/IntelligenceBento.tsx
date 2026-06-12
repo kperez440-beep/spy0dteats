@@ -425,7 +425,7 @@ export function IntelligenceBento() {
           <BentoCard
             category="Technical Framework"
             name="Market Structure"
-            desc="Automated swing high/low detection categorizes trend phase and flags potential reversal before signals are scored."
+            desc="Directional bias analysis classifies market phase and structure across timeframes to confirm alignment before signals are evaluated."
             color="#06B6D4"
             delay={0.12}
           >
@@ -456,7 +456,7 @@ export function IntelligenceBento() {
           <BentoCard
             category="Participation Intelligence"
             name="Volume Participation"
-            desc="Volume profile identifies the point of control and high-volume nodes to confirm where price has been accepted by the market."
+            desc="Volume and participation analysis confirms that directional moves carry institutional backing before an entry is taken."
             color="#10B981"
             delay={0.24}
           >
