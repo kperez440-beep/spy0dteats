@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 
 const BENEFITS = [
   {
-    label: "Direct Feedback Influence",
-    desc: "Your feedback shapes platform features, signal parameters, and the product roadmap. Founding members have a seat at the table.",
+    label: "Intelligence Terminal Access",
+    desc: "Full platform access — signal confluence engine, session playback, and the backtesting environment — as the system exists today and as it expands.",
+  },
+  {
+    label: "SPY Research Briefings",
+    desc: "Regular setup analysis, methodology notes, and backtest findings delivered directly from the research team. Not alerts — structured research.",
+  },
+  {
+    label: "Priority Module Access",
+    desc: "Every new module, data layer, and feature ships to founding members first. You see it before general release.",
   },
   {
     label: "Founding Member Pricing",
-    desc: "Founding members are locked into early access pricing for the duration of their membership — regardless of future price increases.",
+    desc: "Your pricing is locked at founding rates. When paid tiers open to the public, you stay at the rate you joined at — permanently.",
   },
   {
-    label: "Priority Feature Access",
-    desc: "Every new feature ships to founding members first. You see it before general release.",
-  },
-  {
-    label: "Platform Development Updates",
-    desc: "Bi-weekly engineering updates delivered directly. You watch the platform evolve in real time.",
-  },
-  {
-    label: "Founding Cohort Access",
-    desc: "Private access to other founding members. Systematic traders only. No noise.",
+    label: "Research Team Access",
+    desc: "A direct line to the people building the platform. Not a support ticket — a conversation about how the system works and where it is going.",
   },
 ] as const;
 
@@ -34,6 +34,7 @@ const FADE = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
 export function FoundingAccess() {
   const [email, setEmail] = useState("");
+  const [qualifier, setQualifier] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: FormEvent) {
@@ -69,7 +70,7 @@ export function FoundingAccess() {
             transition={{ duration: 0.55, delay: 0.06 }}
             className="text-4xl sm:text-5xl font-bold text-white tracking-tight"
           >
-            Join the First 200
+            Founding Access
           </motion.h2>
 
           <motion.p
@@ -78,8 +79,9 @@ export function FoundingAccess() {
             transition={{ duration: 0.5, delay: 0.12 }}
             className="mt-4 text-slate-400 text-lg leading-relaxed"
           >
-            This is not a waitlist. This is a founding cohort.
-            The first 200 members help shape what this platform becomes.
+            The first cohort of SPY Pivot Pro users is being admitted now.
+            This is not a waitlist — it is access to the platform as it is
+            built, with direct input into how it develops.
           </motion.p>
         </div>
 
@@ -171,18 +173,25 @@ export function FoundingAccess() {
                 </div>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
-                  className="flex-1 bg-[#0A1220] border border-[#1E2D3D] focus:border-amber-400/40 focus:outline-none rounded-xl px-4 py-2.5 text-[12px] font-mono text-slate-300 placeholder:text-slate-600 transition-colors"
+                  className="w-full bg-[#0A1220] border border-[#1E2D3D] focus:border-amber-400/40 focus:outline-none rounded-xl px-4 py-2.5 text-[12px] font-mono text-slate-300 placeholder:text-slate-600 transition-colors"
+                />
+                <input
+                  type="text"
+                  value={qualifier}
+                  onChange={(e) => setQualifier(e.target.value)}
+                  placeholder="How would you describe your current approach to SPY options trading?"
+                  className="w-full bg-[#0A1220] border border-[#1E2D3D] focus:border-amber-400/30 focus:outline-none rounded-xl px-4 py-2.5 text-[12px] font-mono text-slate-300 placeholder:text-slate-600 transition-colors"
                 />
                 <button
                   type="submit"
-                  className="shrink-0 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[12px] px-6 py-2.5 rounded-xl transition-all duration-200 hover:shadow-[0_0_20px_rgba(240,180,41,0.35)] cursor-pointer"
+                  className="w-full bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[13px] px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-[0_0_20px_rgba(240,180,41,0.35)] cursor-pointer"
                 >
                   Request Founding Access
                 </button>
@@ -190,7 +199,8 @@ export function FoundingAccess() {
             )}
 
             <p className="mt-3 text-[9px] font-mono text-slate-600 text-center leading-relaxed">
-              No payment required. No commitment. Founding member pricing communicated upon approval.
+              No payment required. Applications reviewed before access is granted.
+              Founding member pricing communicated upon approval.
             </p>
           </div>
         </motion.div>

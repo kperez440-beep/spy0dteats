@@ -259,6 +259,22 @@ export function IntelligenceFlow() {
             Every trade flows through a five-stage architecture.
             No guesswork. No discretion gaps.
           </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-5 text-slate-500 text-sm max-w-2xl mx-auto leading-loose"
+            style={{ fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.02em" }}
+          >
+            Quantitative signals are sampled across three timeframes and weighted into a single composite
+            score. An eligibility gate — requiring confluence, ML confidence, risk alignment, and session
+            conditions to all clear simultaneously — filters out low-probability setups before they reach
+            the execution layer. What remains is a pre-built trade plan: entry, stop, and target derived
+            from supply and demand structure, with defined risk per trade calculated before any position
+            is opened. The trader makes the decision. The system builds the case.
+          </motion.p>
         </div>
 
         {/* ── Desktop Flow ── */}

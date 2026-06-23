@@ -13,32 +13,32 @@ interface Phase {
 
 const PHASES: Phase[] = [
   {
-    label: "TODAY",
+    label: "LIVE NOW",
     status: "current",
     color: "#F0B429",
-    quarter: "Live Now",
-    items: ["Intelligence Platform", "Signal Confluence", "Eligibility Engine", "Trade Planning"],
+    quarter: "Founding Access Open",
+    items: ["Intelligence Terminal", "Signal Confluence Engine", "Session Playback System", "Backtesting Environment", "Eligibility & Trade Planning"],
   },
   {
-    label: "NEXT",
+    label: "PLANNED",
     status: "upcoming",
     color: "#06B6D4",
-    quarter: "Q3 2026",
+    quarter: "Q3 2026 — Coming",
     items: ["Broker Integrations", "Automated Execution", "Enhanced Analytics"],
   },
   {
-    label: "FUTURE",
+    label: "PLANNED",
     status: "planned",
     color: "#8B5CF6",
-    quarter: "Q1 2027",
-    items: ["Strategy Marketplace", "Community Strategies", "Portfolio Intelligence"],
+    quarter: "Q1 2027 — Coming",
+    items: ["Strategy Marketplace", "API Access", "Agent Integrations"],
   },
   {
-    label: "LONG TERM",
+    label: "VISION",
     status: "vision",
     color: "#475569",
-    quarter: "2027+",
-    items: ["Complete Trading Ecosystem", "Multi-Strategy Deployment", "Quantitative Infrastructure"],
+    quarter: "2027+ — Coming",
+    items: ["Multi-Instrument Expansion", "Custom Widget System", "Quantitative Infrastructure"],
   },
 ];
 
@@ -73,7 +73,7 @@ export function RoadmapVision() {
             transition={{ duration: 0.55, delay: 0.06 }}
             className="text-4xl sm:text-5xl font-bold text-white tracking-tight"
           >
-            Built for the Long Game
+            This is version one.
           </motion.h2>
 
           <motion.p
@@ -82,8 +82,22 @@ export function RoadmapVision() {
             transition={{ duration: 0.5, delay: 0.12 }}
             className="mt-4 text-slate-400 text-lg max-w-xl mx-auto leading-relaxed"
           >
-            SPY Pivot Pro is the first release. The roadmap extends to a complete quantitative trading infrastructure.
+            SPY Pivot Pro is the first platform in a larger research infrastructure
+            being built by Fortitud Capital. The current system is active and available
+            to founding members now. The roadmap extends it significantly.
           </motion.p>
+
+          <motion.div
+            variants={FADE} initial="hidden"
+            whileInView="show" viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.2 }}
+            className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[rgba(248,113,113,0.18)] bg-[rgba(248,113,113,0.04)]"
+          >
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#94A3B8" }}>
+              Items marked Q3 2026 and beyond are planned expansions — not current features.
+              Founding members receive priority access as each ships.
+            </span>
+          </motion.div>
         </div>
 
         {/* ─── Desktop timeline ─── */}

@@ -224,14 +224,17 @@ export function Hero() {
               variants={FADE} initial="hidden" animate="show"
               transition={{ duration: 0.65, ease: EASE, delay: 0.18 }}
               style={{
-                fontFamily:    "var(--font-mono, 'IBM Plex Mono', monospace)",
-                fontSize:      "12px",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color:         "#C8D8E8",
+                fontFamily:    "var(--font-sans, 'IBM Plex Sans', sans-serif)",
+                fontSize:      "clamp(13px, 1.4vw, 16px)",
+                fontWeight:    300,
+                letterSpacing: "0.01em",
+                color:         "#94B4C8",
+                maxWidth:      "480px",
+                lineHeight:    1.5,
+                textAlign:     "center",
               }}
             >
-              Institutional Trading Research
+              The Research Platform for Disciplined SPY Options Traders
             </motion.p>
 
             {/* Teal separator */}

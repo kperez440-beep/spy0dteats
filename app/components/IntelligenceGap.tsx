@@ -75,7 +75,7 @@ export function IntelligenceGap() {
         </motion.div>
 
         <motion.p
-          className="text-center text-slate-400 text-lg max-w-2xl mx-auto mb-14 leading-relaxed"
+          className="text-center text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
           variants={FADE}
           initial="hidden"
           whileInView="show"
@@ -85,6 +85,49 @@ export function IntelligenceGap() {
           Every institutional desk has a quant stack behind their order flow.
           Individual traders are trading with a fraction of that infrastructure.
         </motion.p>
+
+        {/* ── What It Is / What It Isn't ── */}
+        <motion.div
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14"
+          variants={FADE}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
+        >
+          {[
+            { label: "Signal alert room",     is: false },
+            { label: "Autonomous trading bot", is: false },
+            { label: "A research platform",   is: true  },
+          ].map(({ label, is }) => (
+            <div
+              key={label}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border"
+              style={{
+                borderColor: is ? "rgba(6,182,212,0.30)"  : "rgba(248,113,113,0.20)",
+                background:  is ? "rgba(6,182,212,0.06)"  : "rgba(248,113,113,0.04)",
+              }}
+            >
+              <span style={{
+                fontFamily: "var(--font-mono)",
+                fontSize:   "11px",
+                fontWeight: 700,
+                color:      is ? "#06B6D4" : "#F87171",
+              }}>
+                {is ? "✓" : "✕"}
+              </span>
+              <span style={{
+                fontFamily: "var(--font-mono)",
+                fontSize:   "10px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: is ? "#94D4E8" : "#8B9BB0",
+              }}>
+                {label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Column headers */}
         <motion.div
