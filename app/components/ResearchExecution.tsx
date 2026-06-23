@@ -220,15 +220,17 @@ export function ResearchExecution() {
               key={card.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.55, ease: EASE, delay: 0.08 + i * 0.07 }}
-              className="group relative"
+              className="group relative card-hover"
               style={{
                 background:   "#060C15",
                 border:       "1px solid rgba(18,32,50,0.95)",
                 borderRadius: "12px",
                 padding:      "30px 30px 34px",
                 overflow:     "hidden",
+                cursor:       "default",
               }}
             >
               {/* Hairline top accent — barely visible */}

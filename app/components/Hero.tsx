@@ -61,7 +61,7 @@ export function Hero() {
       onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
     >
 
-      {/* ── Blue atmospheric glow — upper left ── */}
+      {/* ── Blue atmospheric glow — upper left (aurora-1) ── */}
       <div
         className="absolute pointer-events-none"
         aria-hidden="true"
@@ -70,10 +70,11 @@ export function Hero() {
           width: "65%", height: "75%",
           background: "radial-gradient(ellipse at center, rgba(59,130,246,0.11) 0%, transparent 65%)",
           filter: "blur(52px)",
+          animation: "aurora-1 22s ease-in-out infinite",
         }}
       />
 
-      {/* ── Emerald glow — right ── */}
+      {/* ── Emerald glow — right (aurora-2) ── */}
       <div
         className="absolute pointer-events-none"
         aria-hidden="true"
@@ -82,6 +83,7 @@ export function Hero() {
           width: "58%", height: "65%",
           background: "radial-gradient(ellipse at center, rgba(16,185,129,0.08) 0%, transparent 65%)",
           filter: "blur(68px)",
+          animation: "aurora-2 28s ease-in-out infinite",
         }}
       />
 
@@ -234,7 +236,7 @@ export function Hero() {
 
           {/* Secondary */}
           <a
-            href="#platform"
+            href="#system"
             className="inline-flex items-center gap-1.5 cursor-pointer"
             style={{
               fontFamily:    "var(--font-mono)",
@@ -266,52 +268,68 @@ export function Hero() {
         {/* Perspective wrapper */}
         <div style={{ maxWidth: "1380px", margin: "0 auto", perspective: "1800px" }}>
 
-          {/* Tilt + glow wrapper */}
+          {/* Tilt + animated border wrapper */}
           <motion.div
+            className="terminal-glow-border"
             style={{
               rotateX:         tiltX,
               rotateY:         tiltY,
               transformOrigin: "center top",
-              borderRadius:    "18px",
-              overflow:        "hidden",
-              border:          "1px solid rgba(6,182,212,0.11)",
+              borderRadius:    "19px",
               boxShadow: [
-                "0 0 0 1px rgba(6,182,212,0.05)",
                 "0 0 80px  rgba(6,182,212,0.09)",
                 "0 0 200px rgba(16,185,129,0.05)",
                 "0 100px 300px rgba(0,0,0,0.92)",
               ].join(", "),
             }}
           >
-            {/* Hairline top glow */}
+            {/* Inner frame — owns overflow + background */}
             <div
-              className="absolute inset-x-0 top-0 z-10 pointer-events-none"
-              style={{
-                height: "1px",
-                background: "linear-gradient(90deg, transparent 5%, rgba(6,182,212,0.55) 38%, rgba(16,185,129,0.30) 62%, transparent 95%)",
-              }}
-              aria-hidden="true"
-            />
+              className="relative"
+              style={{ borderRadius: "18px", overflow: "hidden", background: "#020509" }}
+            >
+              {/* Hairline top glow */}
+              <div
+                className="absolute inset-x-0 top-0 z-10 pointer-events-none"
+                style={{
+                  height: "1px",
+                  background: "linear-gradient(90deg, transparent 5%, rgba(6,182,212,0.55) 38%, rgba(16,185,129,0.30) 62%, transparent 95%)",
+                }}
+                aria-hidden="true"
+              />
 
-            <TerminalChrome />
+              <TerminalChrome />
 
-            <img
-              src="/images/terminal-hero.png"
-              alt="SPY Pivot Pro Intelligence Terminal"
-              className="w-full block"
-              onError={e => { (e.currentTarget as HTMLImageElement).src = "/images/app_hero.png"; }}
-              draggable={false}
-            />
-
-            {/* Bottom vignette — blends into page */}
-            <div
-              className="absolute bottom-0 inset-x-0 pointer-events-none"
-              style={{
-                height:     "40%",
-                background: "linear-gradient(to bottom, transparent 0%, rgba(3,6,8,0.72) 55%, #030608 100%)",
-              }}
-              aria-hidden="true"
-            />
+              {/* Image + overlays */}
+              <div className="relative">
+                <img
+                  src="/images/terminal-hero.png"
+                  alt="SPY Pivot Pro Intelligence Terminal"
+                  className="w-full block"
+                  onError={e => { (e.currentTarget as HTMLImageElement).src = "/images/app_hero.png"; }}
+                  draggable={false}
+                />
+                {/* CRT scanlines */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  aria-hidden="true"
+                  style={{
+                    backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.038) 2px, rgba(0,0,0,0.038) 4px)",
+                    zIndex: 2,
+                  }}
+                />
+                {/* Bottom vignette — blends into page */}
+                <div
+                  className="absolute bottom-0 inset-x-0 pointer-events-none"
+                  style={{
+                    height:     "40%",
+                    background: "linear-gradient(to bottom, transparent 0%, rgba(3,6,8,0.72) 55%, #030608 100%)",
+                    zIndex:     3,
+                  }}
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
           </motion.div>
 
         </div>
