@@ -5,6 +5,7 @@ import { Nav }               from "@/app/components/Nav";
 import { Hero }              from "@/app/components/Hero";
 import { TrustBand }         from "@/app/components/TrustBand";
 import { IntelligenceGap }   from "@/app/components/IntelligenceGap";
+import { WhatItIs }          from "@/app/components/WhatItIs";
 import { IntelligenceFlow }  from "@/app/components/IntelligenceFlow";
 import { IntelligenceBento } from "@/app/components/IntelligenceBento";
 import { CinematicBreak }    from "@/app/components/CinematicBreak";
@@ -30,6 +31,7 @@ export default function Home() {
       <Hero />
       <TrustBand />
       <IntelligenceGap />
+      <WhatItIs />
       <IntelligenceFlow />
       <IntelligenceBento />
       <CinematicBreak />
