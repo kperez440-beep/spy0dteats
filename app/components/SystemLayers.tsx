@@ -127,7 +127,7 @@ export function SystemLayers() {
                 fontSize:      "9px",
                 letterSpacing: "0.36em",
                 textTransform: "uppercase",
-                color:         "#183040",
+                color:         "rgba(255,255,255,0.16)",
               }}
             >
               <span
@@ -171,7 +171,7 @@ export function SystemLayers() {
             transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
             style={{
               marginTop:  "20px",
-              color:      "#3A5268",
+              color:      "rgba(255,255,255,0.40)",
               fontSize:   "clamp(14px, 1.25vw, 17px)",
               lineHeight: 1.7,
               maxWidth:   "540px",
@@ -328,7 +328,7 @@ export function SystemLayers() {
             fontSize:      "10px",
             letterSpacing: "0.20em",
             textTransform: "uppercase",
-            color:         "#162535",
+            color:         "rgba(255,255,255,0.12)",
           }}
         >
           Structured intelligence built specifically for SPY options.

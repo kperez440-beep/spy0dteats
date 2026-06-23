@@ -120,7 +120,7 @@ export function ResearchExecution() {
                 fontSize:      "9px",
                 letterSpacing: "0.36em",
                 textTransform: "uppercase",
-                color:         "#162535",
+                color:         "rgba(255,255,255,0.13)",
               }}
             >
               Adaptive Trading Intelligence
@@ -156,7 +156,7 @@ export function ResearchExecution() {
             <p
               style={{
                 fontSize:   "15px",
-                color:      "#2E4458",
+                color:      "rgba(255,255,255,0.36)",
                 lineHeight: 1.72,
                 marginBottom: "20px",
               }}
@@ -181,7 +181,7 @@ export function ResearchExecution() {
                     fontFamily:    "var(--font-mono)",
                     fontSize:      "10px",
                     letterSpacing: "0.12em",
-                    color:         "#1E3548",
+                    color:         "rgba(255,255,255,0.22)",
                     textTransform: "uppercase",
                   }}
                 >
@@ -204,7 +204,7 @@ export function ResearchExecution() {
             <p
               style={{
                 fontSize:   "14px",
-                color:      "#243542",
+                color:      "rgba(255,255,255,0.30)",
                 lineHeight: 1.72,
               }}
             >
@@ -258,7 +258,7 @@ export function ResearchExecution() {
                   alignItems:      "center",
                   justifyContent:  "center",
                   marginBottom:    "22px",
-                  color:           "#1E4A5E",
+                  color:           "rgba(255,255,255,0.25)",
                   transition:      "color 0.3s ease, border-color 0.3s ease",
                 }}
                 className="group-hover:[&]:!border-[rgba(6,182,212,0.18)] group-hover:[&]:!text-[#2A7A96]"
@@ -284,7 +284,7 @@ export function ResearchExecution() {
               <p
                 style={{
                   fontSize:   "13px",
-                  color:      "#253547",
+                  color:      "rgba(255,255,255,0.30)",
                   lineHeight: 1.78,
                 }}
               >
@@ -318,7 +318,7 @@ export function ResearchExecution() {
               style={{
                 fontSize:      "clamp(17px, 1.8vw, 22px)",
                 fontWeight:    300,
-                color:         "#364B5C",
+                color:         "rgba(255,255,255,0.38)",
                 letterSpacing: "-0.01em",
                 lineHeight:    1.5,
                 fontStyle:     "italic",

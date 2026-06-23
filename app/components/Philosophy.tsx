@@ -82,7 +82,7 @@ export function Philosophy() {
             fontSize:      "clamp(18px, 2.2vw, 26px)",
             fontWeight:    400,
             letterSpacing: "-0.01em",
-            color:         "rgba(180,205,220,0.65)",
+            color:         "rgba(255,255,255,0.48)",
             marginBottom:  "28px",
             textAlign:     "center",
           }}
@@ -108,7 +108,7 @@ export function Philosophy() {
                 fontSize:      "clamp(14px, 1.4vw, 17px)",
                 fontWeight:    400,
                 letterSpacing: "0.01em",
-                color:         `rgba(38, 68, 90, ${0.85 - i * 0.12})`,
+                color:         `rgba(255, 255, 255, ${0.20 - i * 0.06})`,
                 lineHeight:    1.6,
               }}
             >
@@ -131,7 +131,7 @@ export function Philosophy() {
           <p
             style={{
               fontSize:   "clamp(14px, 1.3vw, 16px)",
-              color:      "#1A3045",
+              color:      "rgba(255,255,255,0.28)",
               lineHeight: 1.80,
             }}
           >
@@ -140,7 +140,7 @@ export function Philosophy() {
           <p
             style={{
               fontSize:   "clamp(14px, 1.3vw, 16px)",
-              color:      "#152838",
+              color:      "rgba(255,255,255,0.22)",
               lineHeight: 1.80,
             }}
           >
@@ -176,7 +176,7 @@ export function Philosophy() {
               fontSize:      "17px",
               fontWeight:    600,
               letterSpacing: "-0.02em",
-              color:         "#182C3C",
+              color:         "rgba(255,255,255,0.09)",
             }}
           >
             SPY Pivot Pro
@@ -187,7 +187,7 @@ export function Philosophy() {
               fontSize:      "9px",
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color:         "#101E2A",
+              color:         "rgba(255,255,255,0.06)",
             }}
           >
             The Operating System for SPY Options Traders
@@ -198,7 +198,7 @@ export function Philosophy() {
               fontSize:      "8px",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color:         "#0B1620",
+              color:         "rgba(255,255,255,0.04)",
               marginTop:     "3px",
             }}
           >

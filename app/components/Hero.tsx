@@ -116,7 +116,7 @@ export function Hero() {
             fontSize:      "10px",
             letterSpacing: "0.38em",
             textTransform: "uppercase",
-            color:         "#2D3748",
+            color:         "rgba(255,255,255,0.14)",
             marginBottom:  "18px",
           }}
         >
@@ -184,7 +184,7 @@ export function Hero() {
           transition={{ duration: 0.85, ease: EASE, delay: 0.23 }}
           style={{
             marginTop:  "24px",
-            color:      "#4B5E6E",
+            color:      "rgba(255,255,255,0.44)",
             fontSize:   "clamp(15px, 1.4vw, 18px)",
             lineHeight: 1.68,
             maxWidth:   "520px",
@@ -242,11 +242,11 @@ export function Hero() {
               fontFamily:    "var(--font-mono)",
               fontSize:      "12px",
               letterSpacing: "0.06em",
-              color:         "#374151",
+              color:         "rgba(255,255,255,0.28)",
               transition:    "color 0.2s ease",
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#94A3B8"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#374151"; }}
+            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.70)"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.28)"; }}
           >
             Preview the System
             <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">

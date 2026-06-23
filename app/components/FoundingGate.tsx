@@ -84,7 +84,7 @@ export function FoundingGate() {
               fontSize:      "9px",
               letterSpacing: "0.40em",
               textTransform: "uppercase",
-              color:         "#152231",
+              color:         "rgba(255,255,255,0.13)",
             }}
           >
             Limited Release
@@ -131,7 +131,7 @@ export function FoundingGate() {
               key={i}
               style={{
                 fontSize:   "14px",
-                color:      i === 2 ? "#1E3A52" : "#192D3F",
+                color:      i === 2 ? "rgba(255,255,255,0.34)" : "rgba(255,255,255,0.28)",
                 lineHeight: 1.72,
               }}
             >
@@ -176,7 +176,7 @@ export function FoundingGate() {
                   fontSize:      "10px",
                   letterSpacing: "0.20em",
                   textTransform: "uppercase",
-                  color:         "#1C4438",
+                  color:         "rgba(16,185,129,0.65)",
                 }}
               >
                 Access request received.
@@ -185,7 +185,7 @@ export function FoundingGate() {
                 style={{
                   fontSize:  "15px",
                   fontWeight: 500,
-                  color:     "#4A7060",
+                  color:     "rgba(16,185,129,0.75)",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -299,7 +299,7 @@ export function FoundingGate() {
                 fontFamily:    "var(--font-mono)",
                 fontSize:      "10px",
                 letterSpacing: "0.10em",
-                color:         "#142030",
+                color:         "rgba(255,255,255,0.12)",
               }}
             >
               Built for disciplined SPY options traders.
@@ -309,7 +309,7 @@ export function FoundingGate() {
                 fontFamily:    "var(--font-mono)",
                 fontSize:      "9px",
                 letterSpacing: "0.08em",
-                color:         "#0E1A26",
+                color:         "rgba(255,255,255,0.08)",
               }}
             >
               Access to the initial release will remain intentionally limited.
@@ -344,7 +344,7 @@ export function FoundingGate() {
               fontSize:      "18px",
               fontWeight:    600,
               letterSpacing: "-0.02em",
-              color:         "#1A3040",
+              color:         "rgba(255,255,255,0.09)",
             }}
           >
             SPY Pivot Pro
@@ -355,7 +355,7 @@ export function FoundingGate() {
               fontSize:      "10px",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color:         "#0E1E2C",
+              color:         "rgba(255,255,255,0.06)",
             }}
           >
             The Operating System for SPY Options Traders
@@ -366,7 +366,7 @@ export function FoundingGate() {
               fontSize:      "9px",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color:         "#091420",
+              color:         "rgba(255,255,255,0.04)",
               marginTop:     "3px",
             }}
           >

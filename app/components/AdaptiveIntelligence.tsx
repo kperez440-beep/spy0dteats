@@ -89,7 +89,7 @@ export function AdaptiveIntelligence() {
                 fontSize:      "9px",
                 letterSpacing: "0.38em",
                 textTransform: "uppercase",
-                color:         "#152231",
+                color:         "rgba(255,255,255,0.13)",
               }}
             >
               Continuous Refinement
@@ -125,7 +125,7 @@ export function AdaptiveIntelligence() {
               transition={{ duration: 0.6, delay: 0.14 }}
               style={{
                 fontSize:     "14px",
-                color:        "#22374A",
+                color:        "rgba(255,255,255,0.32)",
                 lineHeight:   1.7,
                 marginBottom: "24px",
               }}
@@ -149,7 +149,7 @@ export function AdaptiveIntelligence() {
                     fontSize:      "11px",
                     letterSpacing: "0.10em",
                     textTransform: "uppercase",
-                    color:         "#1A3548",
+                    color:         "rgba(255,255,255,0.20)",
                     lineHeight:    2.1,
                   }}
                 >
@@ -171,7 +171,7 @@ export function AdaptiveIntelligence() {
                   key={text}
                   style={{
                     fontSize:  "13px",
-                    color:     "#1A2E40",
+                    color:     "rgba(255,255,255,0.26)",
                     lineHeight: 2.0,
                   }}
                 >
@@ -255,7 +255,7 @@ export function AdaptiveIntelligence() {
                       fontSize:      "8px",
                       letterSpacing: "0.24em",
                       textTransform: "uppercase",
-                      color:         "#0F2030",
+                      color:         "rgba(255,255,255,0.08)",
                       marginBottom:  "10px",
                     }}
                   >
@@ -279,7 +279,7 @@ export function AdaptiveIntelligence() {
                   <p
                     style={{
                       fontSize:   "12px",
-                      color:      "#1E3548",
+                      color:      "rgba(255,255,255,0.28)",
                       lineHeight: 1.75,
                     }}
                   >
@@ -336,7 +336,7 @@ export function AdaptiveIntelligence() {
                     fontSize:      "8px",
                     letterSpacing: "0.22em",
                     textTransform: "uppercase",
-                    color:         "#0F2030",
+                    color:         "rgba(255,255,255,0.08)",
                     marginBottom:  "7px",
                   }}
                 >
@@ -442,7 +442,7 @@ export function AdaptiveIntelligence() {
                 fontSize:      "10px",
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color:         "#1A3248",
+                color:         "rgba(255,255,255,0.08)",
               }}
             >
               Adaptive Trading Intelligence
@@ -453,7 +453,7 @@ export function AdaptiveIntelligence() {
                 fontSize:      "10px",
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color:         "#122233",
+                color:         "rgba(255,255,255,0.05)",
               }}
             >
               for SPY Options Traders.
@@ -464,7 +464,7 @@ export function AdaptiveIntelligence() {
                 fontSize:      "9px",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color:         "#0D1A24",
+                color:         "rgba(255,255,255,0.03)",
                 marginTop:     "4px",
               }}
             >

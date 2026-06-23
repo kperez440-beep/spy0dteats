@@ -153,7 +153,7 @@ export function PlatformReveal() {
                 fontSize:      "9px",
                 letterSpacing: "0.38em",
                 textTransform: "uppercase",
-                color:         "#152535",
+                color:         "rgba(255,255,255,0.13)",
               }}
             >
               Inside the Platform
@@ -184,7 +184,7 @@ export function PlatformReveal() {
             transition={{ duration: 0.7, ease: EASE, delay: 0.15 }}
             style={{
               fontSize:   "clamp(14px, 1.3vw, 16px)",
-              color:      "#233645",
+              color:      "rgba(255,255,255,0.32)",
               lineHeight: 1.72,
               maxWidth:   "540px",
               margin:     "0 auto",
@@ -234,7 +234,7 @@ export function PlatformReveal() {
                       fontFamily:    "var(--font-mono)",
                       fontSize:      "9px",
                       letterSpacing: "0.24em",
-                      color:         "#0E2030",
+                      color:         "rgba(255,255,255,0.08)",
                     }}
                   >
                     {panel.num}
@@ -255,7 +255,7 @@ export function PlatformReveal() {
                 <p
                   style={{
                     fontSize:   "13px",
-                    color:      "#1E3448",
+                    color:      "rgba(255,255,255,0.30)",
                     lineHeight: 1.75,
                     maxWidth:   "360px",
                     textAlign:  "right",
