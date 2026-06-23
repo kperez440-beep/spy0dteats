@@ -32,14 +32,40 @@ const PCT = (SPOTS_TAKEN / SPOTS_TOTAL) * 100;
 
 const FADE = { hidden: { opacity: 0 }, show: { opacity: 1 } };
 
+const FORMSPREE = "https://formspree.io/f/xykvpdya";
+
 export function FoundingAccess() {
   const [email, setEmail] = useState("");
   const [qualifier, setQualifier] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (email.trim()) setSubmitted(true);
+    if (!email.trim()) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(FORMSPREE, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          email,
+          approach: qualifier,
+          _subject: `Founding Access Request — SPY Pivot Pro`,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please try again or email us directly.");
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -191,10 +217,14 @@ export function FoundingAccess() {
                 />
                 <button
                   type="submit"
-                  className="w-full bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[13px] px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-[0_0_20px_rgba(240,180,41,0.35)] cursor-pointer"
+                  disabled={loading}
+                  className="w-full bg-[#F0B429] hover:bg-[#FFD060] disabled:opacity-60 disabled:cursor-not-allowed text-[#050810] font-bold text-[13px] px-6 py-3 rounded-xl transition-all duration-200 hover:shadow-[0_0_20px_rgba(240,180,41,0.35)] cursor-pointer"
                 >
-                  Request Founding Access
+                  {loading ? "Submitting…" : "Request Founding Access"}
                 </button>
+                {error && (
+                  <p className="text-[10px] font-mono text-rose-400 text-center mt-1">{error}</p>
+                )}
               </form>
             )}
 
