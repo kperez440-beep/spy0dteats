@@ -4,6 +4,7 @@ import { StickyMobileCTA }      from "@/app/components/StickyMobileCTA";
 import { Nav }                  from "@/app/components/Nav";
 import { Hero }                 from "@/app/components/Hero";
 import { SystemLayers }         from "@/app/components/SystemLayers";
+import { PlatformReveal }       from "@/app/components/PlatformReveal";
 import { ResearchExecution }    from "@/app/components/ResearchExecution";
 import { AdaptiveIntelligence } from "@/app/components/AdaptiveIntelligence";
 import { FoundingGate }         from "@/app/components/FoundingGate";
@@ -18,6 +19,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <SystemLayers />
+      <PlatformReveal />
       <ResearchExecution />
       <AdaptiveIntelligence />
       <FoundingGate />
