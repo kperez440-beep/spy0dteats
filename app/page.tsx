@@ -1,3 +1,4 @@
+import { SmoothScroll }         from "@/app/components/SmoothScroll";
 import { ScrollProgress }       from "@/app/components/ScrollProgress";
 import { CursorGlow }           from "@/app/components/CursorGlow";
 import { StickyMobileCTA }      from "@/app/components/StickyMobileCTA";
@@ -14,6 +15,7 @@ import { Footer }               from "@/app/components/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--brand-bg-primary)" }}>
+      <SmoothScroll />
       <CursorGlow />
       <ScrollProgress />
       <StickyMobileCTA />
