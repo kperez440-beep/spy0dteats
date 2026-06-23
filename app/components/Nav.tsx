@@ -63,7 +63,7 @@ export function Nav() {
                 key={l.href}
                 href={l.href}
                 className="relative text-[13px] font-medium transition-colors duration-150"
-                style={{ color: isActive ? "#F0B429" : undefined }}
+                style={{ color: isActive ? "#06B6D4" : undefined }}
                 onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = "#fff"; }}
                 onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.color = ""; }}
               >
@@ -71,7 +71,7 @@ export function Nav() {
                 {isActive && (
                   <span
                     className="absolute -bottom-1 left-0 right-0 h-px rounded-full"
-                    style={{ background: "linear-gradient(90deg, transparent, #F0B429, transparent)" }}
+                    style={{ background: "linear-gradient(90deg, transparent, #06B6D4, transparent)" }}
                   />
                 )}
               </a>
@@ -82,7 +82,24 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <a
             href="#founding"
-            className="hidden sm:inline-flex items-center gap-1.5 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[13px] px-4 py-2 rounded-full transition-all duration-200 hover:shadow-[0_0_20px_rgba(240,180,41,0.45)] hover:-translate-y-px cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-1.5 font-bold text-[13px] px-4 py-2 rounded-full transition-all duration-200 cursor-pointer"
+            style={{
+              background: "#06B6D4",
+              color:      "#050810",
+              boxShadow:  "0 0 0 1px rgba(6,182,212,0.4)",
+            }}
+            onMouseEnter={e => {
+              const el = e.currentTarget as HTMLAnchorElement;
+              el.style.background = "#22D3EE";
+              el.style.boxShadow  = "0 0 20px rgba(6,182,212,0.45)";
+              el.style.transform  = "translateY(-1px)";
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget as HTMLAnchorElement;
+              el.style.background = "#06B6D4";
+              el.style.boxShadow  = "0 0 0 1px rgba(6,182,212,0.4)";
+              el.style.transform  = "translateY(0)";
+            }}
           >
             Request Founding Access
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
@@ -140,7 +157,8 @@ export function Nav() {
           <a
             href="#founding"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 inline-flex items-center justify-center gap-2 bg-[#F0B429] hover:bg-[#FFD060] text-[#050810] font-bold text-[14px] px-5 py-3 rounded-xl transition-all duration-200 cursor-pointer"
+            className="mt-4 inline-flex items-center justify-center gap-2 font-bold text-[14px] px-5 py-3 rounded-xl transition-all duration-200 cursor-pointer"
+            style={{ background: "#06B6D4", color: "#050810" }}
           >
             Request Founding Access
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

@@ -1,12 +1,13 @@
 import { ScrollProgress }    from "@/app/components/ScrollProgress";
+import { CursorGlow }        from "@/app/components/CursorGlow";
 import { StickyMobileCTA }   from "@/app/components/StickyMobileCTA";
 import { Nav }               from "@/app/components/Nav";
-import { Ticker }            from "@/app/components/Ticker";
 import { Hero }              from "@/app/components/Hero";
 import { TrustBand }         from "@/app/components/TrustBand";
 import { IntelligenceGap }   from "@/app/components/IntelligenceGap";
 import { IntelligenceFlow }  from "@/app/components/IntelligenceFlow";
 import { IntelligenceBento } from "@/app/components/IntelligenceBento";
+import { CinematicBreak }    from "@/app/components/CinematicBreak";
 import { PlatformShowcase }  from "@/app/components/PlatformShowcase";
 import { MidPageCTA }        from "@/app/components/MidPageCTA";
 import { WhySPYOnly }        from "@/app/components/WhySPYOnly";
@@ -21,60 +22,27 @@ import { Footer }            from "@/app/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#050810] overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--brand-bg-primary)" }}>
+      <CursorGlow />
       <ScrollProgress />
       <StickyMobileCTA />
       <Nav />
-
-      {/* 01 — Hero */}
-      <div className="pt-[72px]">
-        <Ticker />
-      </div>
       <Hero />
-
-      {/* 02 — Trust Band */}
       <TrustBand />
-
-      {/* 03 — Intelligence Gap */}
       <IntelligenceGap />
-
-      {/* 04 — Intelligence Flow */}
       <IntelligenceFlow />
-
-      {/* 05 — Intelligence Modules */}
       <IntelligenceBento />
-
-      {/* 06 — Platform Showcase */}
+      <CinematicBreak />
       <PlatformShowcase />
-
-      {/* 07 — Mid-Page CTA */}
       <MidPageCTA />
-
-      {/* 08 — Why SPY Only */}
       <WhySPYOnly />
-
-      {/* 09 — Research & Results */}
-      <ResearchResults />
-
-      {/* 10 — A Day On The Platform */}
+      {/* <ResearchResults /> — hidden until results are ready to publish */}
       <TradingDay />
-
-      {/* 11 — Why Traders Switch */}
       <WhySwitch />
-
-      {/* 12 — Roadmap & Vision */}
       <RoadmapVision />
-
-      {/* 13 — Founding Member Access */}
       <FoundingAccess />
-
-      {/* 14 — Pricing Plans */}
       <PricingPlans />
-
-      {/* 15 — Final CTA */}
       <FinalCTA />
-
-      {/* 16 — Footer */}
       <Footer />
     </div>
   );

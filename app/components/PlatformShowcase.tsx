@@ -12,17 +12,18 @@ const MTF = [
 ];
 
 const SIGNALS = [
-  { name: "EMA TREND",    value: 8.2, cat: "momentum"  },
-  { name: "VWAP BIAS",    value: 7.4, cat: "trend"     },
-  { name: "OPTIONS FLOW", value: 6.8, cat: "momentum"  },
-  { name: "VOL PROFILE",  value: 5.2, cat: "structure" },
-  { name: "RSI MOMENTUM", value: 8.8, cat: "momentum"  },
-  { name: "MKT STRUCT",   value: 7.1, cat: "structure" },
-  { name: "PUT/CALL",     value: 6.4, cat: "sentiment" },
-  { name: "IV PCT RANK",  value: 4.8, cat: "sentiment" },
-  { name: "SPY BREADTH",  value: 7.6, cat: "trend"     },
-  { name: "PRICE ACTION", value: 8.4, cat: "momentum"  },
-  { name: "ORDER FLOW",   value: 6.0, cat: "trend"     },
+  { name: "EMA TREND",     value: 8.2, cat: "momentum"  },
+  { name: "VWAP BIAS",     value: 7.4, cat: "trend"     },
+  { name: "OPTIONS FLOW",  value: 6.8, cat: "momentum"  },
+  { name: "VOL PROFILE",   value: 5.2, cat: "structure" },
+  { name: "RSI MOMENTUM",  value: 8.8, cat: "momentum"  },
+  { name: "MKT STRUCT",    value: 7.1, cat: "structure" },
+  { name: "PUT/CALL",      value: 6.4, cat: "sentiment" },
+  { name: "IV PCT RANK",   value: 4.8, cat: "sentiment" },
+  { name: "SPY BREADTH",   value: 7.6, cat: "trend"     },
+  { name: "PRICE ACTION",  value: 8.4, cat: "momentum"  },
+  { name: "ORDER FLOW",    value: 6.0, cat: "trend"     },
+  { name: "CONSOLIDATION", value: 6.2, cat: "structure" },
 ] as const;
 
 const CAT_COLOR: Record<string, string> = {
@@ -136,7 +137,7 @@ function ConfluenceTab() {
   return (
     <div className="flex flex-col gap-0 h-full">
       <div className="flex items-center justify-between px-4 py-3 border-b border-[#1E2D3D]">
-        <span className="text-[9px] font-mono text-slate-600 tracking-widest uppercase">11 Active Signals</span>
+        <span className="text-[9px] font-mono text-slate-600 tracking-widest uppercase">12 Active Signals</span>
         <span className="text-[9px] font-mono text-amber-400">Composite: 72/100</span>
       </div>
       <div className="flex-1 overflow-y-auto py-3 px-4 flex flex-col gap-[6px]">

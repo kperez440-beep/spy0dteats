@@ -414,7 +414,7 @@ export function IntelligenceBento() {
           <BentoCard
             category="Decision Engine"
             name="Eligibility Engine"
-            desc="Four-condition gate. All conditions must clear before a trade plan is generated — no partial signals, no edge-case entries."
+            desc="Five-condition gate. Confluence, ML win probability, risk parameters, session filter, and confirmed market structure must all clear before a trade plan is generated."
             color="#10B981"
             delay={0.08}
           >

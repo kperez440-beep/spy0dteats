@@ -19,7 +19,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "SPY Pivot Pro — Institutional SPY Options Intelligence",
   description:
-    "Multi-signal confluence, ML win probability, intraday playback, and auto-learn engine for SPY options. Sharpe 14. Calmar 995. Built by Fortitud Capital.",
+    "Precision SPY 0DTE options intelligence. Multi-signal confluence, ML win probability, and automated execution planning. Built by Fortitud Capital.",
   metadataBase: new URL("https://spypivotpro.com"),
   icons: {
     icon: [
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   openGraph: {
-    title: "SPY Pivot Pro — Institutional Edge. Retail Price.",
-    description: "The only platform engineered for SPY options. $100 → $1,217 in January 2026. Sharpe 14. Built by Fortitud Capital.",
+    title: "SPY Pivot Pro — Institutional Trading Research",
+    description: "The only platform engineered for SPY 0DTE options. 7-module intelligence stack. ML win probability. Built by Fortitud Capital.",
     url: "https://spypivotpro.com",
     siteName: "SPY Pivot Pro",
     locale: "en_US",
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SPY Pivot Pro — Institutional Edge. Retail Price.",
-    description: "Sharpe 14. Calmar 995. MaxDD -5.4%. Built on 11-signal confluence + ML win probability.",
+    title: "SPY Pivot Pro — Institutional Trading Research",
+    description: "7-module intelligence stack. 73.2% ML win probability. 11-signal confluence engine. Built by Fortitud Capital.",
     creator: "@spypivotpro",
   },
 };

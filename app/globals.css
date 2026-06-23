@@ -5,13 +5,47 @@
   --font-mono: 'IBM Plex Mono', monospace;
 }
 
+/* ── FORTITUD CAPITAL — Brand Design Tokens ────────────────────────────────
+   Midnight navy palette inspired by the SPY Pivot Pro startup splash screen.
+   Source of truth: brand/identity.ts
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --brand-bg-primary:    #080e1c;
+  --brand-bg-secondary:  #0d1528;
+  --brand-bg-tertiary:   #121d35;
+  --brand-bg-elevated:   #162040;
+
+  /* Borders */
+  --brand-border:        #1a2640;
+  --brand-border-active: #243352;
+  --brand-border-glow:   #2d4a6e;
+
+  /* Gold — aged warm (not yellow-green) */
+  --brand-gold:          #D4A840;
+  --brand-gold-hi:       #E8C060;
+  --brand-gold-lo:       #8a6820;
+
+  /* Signal */
+  --brand-bull:          #10B981;
+  --brand-bear:          #F87171;
+  --brand-data:          #5B8DB8;
+  --brand-quant:         #4ECDC4;
+
+  /* Text */
+  --brand-text-primary:  #EEF0F5;
+  --brand-text-secondary:#8899AA;
+  --brand-text-muted:    #445566;
+  --brand-text-inverse:  #080e1c;
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: #050810;
-  color: #F1F5F9;
+  background: var(--brand-bg-primary);
+  color: var(--brand-text-primary);
   font-family: 'IBM Plex Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,6 +57,14 @@ body {
     linear-gradient(rgba(30,45,61,0.28) 1px, transparent 1px),
     linear-gradient(90deg, rgba(30,45,61,0.28) 1px, transparent 1px);
   background-size: 52px 52px;
+}
+
+/* Ken Burns — slow cinematic pan/zoom for hero background */
+@keyframes ken-burns {
+  0%   { transform: scale(1)    translate(0%,    0%); }
+  30%  { transform: scale(1.05) translate(-1.2%, -0.6%); }
+  65%  { transform: scale(1.04) translate(0.8%,  0.4%); }
+  100% { transform: scale(1)    translate(0%,    0%); }
 }
 
 /* Ticker */
@@ -120,7 +162,7 @@ body {
   100% { transform: translate(0%,0%) scale(1); }
 }
 
-/* Headline shimmer */
+/* Headline shimmer — brand gold (#D4A840 warm aged gold) */
 @keyframes shimmer-sweep {
   0%   { background-position: 200% center; }
   100% { background-position: -200% center; }
@@ -128,11 +170,11 @@ body {
 .text-gold-shimmer {
   background: linear-gradient(
     110deg,
-    #F0B429 20%,
-    #FBBF24 35%,
-    #FDE68A 48%,
-    #FBBF24 55%,
-    #F0B429 70%
+    #D4A840 20%,
+    #E8C060 36%,
+    #F5D88A 48%,
+    #E8C060 56%,
+    #D4A840 70%
   );
   background-size: 250% auto;
   -webkit-background-clip: text;
