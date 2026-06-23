@@ -15,6 +15,7 @@ import { Footer }               from "@/app/components/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--brand-bg-primary)" }}>
+      <div className="grain-overlay" aria-hidden="true" />
       <SmoothScroll />
       <CursorGlow />
       <ScrollProgress />

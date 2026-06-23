@@ -290,18 +290,22 @@ export function PlatformReveal() {
 
                 {/* Terminal frame */}
                 <div
+                  className="terminal-glow-border"
                   style={{
-                    position:     "relative",
-                    borderRadius: "16px",
-                    overflow:     "hidden",
-                    border:       "1px solid rgba(6,182,212,0.09)",
-                    background:   "#020508",
+                    position:  "relative",
+                    zIndex:    1,
                     boxShadow: [
                       `0 0 80px ${panel.glowTL}`,
                       `0 0 180px ${panel.glowBR}`,
                       "0 60px 200px rgba(0,0,0,0.92)",
                     ].join(", "),
-                    zIndex: 1,
+                  }}
+                >
+                <div
+                  style={{
+                    borderRadius: "16px",
+                    overflow:     "hidden",
+                    background:   "#020508",
                   }}
                 >
                   {/* Top hairline — panel-specific gradient */}
@@ -406,6 +410,7 @@ export function PlatformReveal() {
                       </span>
                     </div>
                   </div>
+                </div>
                 </div>
               </motion.div>
 
