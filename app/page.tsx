@@ -18,7 +18,7 @@ import { WhySPYOnly }        from "@/app/components/WhySPYOnly";
 import { TradingDay }        from "@/app/components/TradingDay";
 import { WhySwitch }         from "@/app/components/WhySwitch";
 import { RoadmapVision }     from "@/app/components/RoadmapVision";
-import { FoundingAccess }    from "@/app/components/FoundingAccess";
+import { FoundingGate }      from "@/app/components/FoundingGate";
 import { PricingPlans }      from "@/app/components/PricingPlans";
 import { FAQ }              from "@/app/components/FAQ";
 import { FinalCTA }          from "@/app/components/FinalCTA";
@@ -47,7 +47,7 @@ export default function Home() {
       <TradingDay />
       <WhySwitch />
       <RoadmapVision />
-      <FoundingAccess />
+      <FoundingGate />
       <PricingPlans />
       <FAQ />
       <FinalCTA />
