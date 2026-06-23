@@ -11,7 +11,7 @@
    ─────────────────────────────────────────────────────────────────────────── */
 :root {
   /* Backgrounds */
-  --brand-bg-primary:    #080e1c;
+  --brand-bg-primary:    #030608;
   --brand-bg-secondary:  #0d1528;
   --brand-bg-tertiary:   #121d35;
   --brand-bg-elevated:   #162040;
@@ -317,4 +317,4 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: #2D4057; }
 
 /* Selection */
-::selection { background: rgba(240,180,41,0.2); color: #FBBF24; }
+::selection { background: rgba(6,182,212,0.18); color: #22D3EE; }

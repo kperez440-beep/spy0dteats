@@ -40,16 +40,17 @@ export function StickyMobileCTA() {
         >
           <a
             href="#founding"
-            className="flex items-center justify-between bg-[#F0B429] text-[#050810] font-bold text-[13px] px-5 py-4 rounded-2xl w-full cursor-pointer"
-            style={{ boxShadow: "0 8px 32px rgba(240,180,41,0.45), 0 0 0 1px rgba(255,255,255,0.1) inset" }}
+            className="flex items-center justify-between font-bold text-[13px] px-5 py-4 rounded-2xl w-full cursor-pointer"
+            style={{
+              background: "#06B6D4",
+              color:      "#030608",
+              boxShadow:  "0 8px 32px rgba(6,182,212,0.32), 0 0 0 1px rgba(255,255,255,0.08) inset",
+            }}
           >
             <span>Request Founding Access</span>
-            <div className="flex items-center gap-2 shrink-0">
-              <span className="text-[10px] font-mono opacity-60 tabular-nums">47 / 200</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </a>
         </motion.div>
       )}
