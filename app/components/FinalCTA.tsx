@@ -121,11 +121,21 @@ export function FinalCTA() {
 
           <a
             href="#platform"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-200 text-[14px] font-semibold transition-colors py-4 px-2 cursor-pointer"
+            className="inline-flex items-center gap-1.5 cursor-pointer"
+            style={{
+              fontFamily:    "var(--font-mono)",
+              fontSize:      "12px",
+              letterSpacing: "0.06em",
+              color:         "#374151",
+              transition:    "color 0.2s ease",
+              padding:       "16px 8px",
+            }}
+            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#94A3B8"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#374151"; }}
           >
-            View Platform
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            Explore the Platform
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
         </motion.div>

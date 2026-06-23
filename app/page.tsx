@@ -12,12 +12,12 @@ import { CinematicBreak }    from "@/app/components/CinematicBreak";
 import { PlatformShowcase }  from "@/app/components/PlatformShowcase";
 import { MidPageCTA }        from "@/app/components/MidPageCTA";
 import { WhySPYOnly }        from "@/app/components/WhySPYOnly";
-import { ResearchResults }   from "@/app/components/ResearchResults";
 import { TradingDay }        from "@/app/components/TradingDay";
 import { WhySwitch }         from "@/app/components/WhySwitch";
 import { RoadmapVision }     from "@/app/components/RoadmapVision";
 import { FoundingAccess }    from "@/app/components/FoundingAccess";
 import { PricingPlans }      from "@/app/components/PricingPlans";
+import { FAQ }              from "@/app/components/FAQ";
 import { FinalCTA }          from "@/app/components/FinalCTA";
 import { Footer }            from "@/app/components/Footer";
 
@@ -38,12 +38,12 @@ export default function Home() {
       <PlatformShowcase />
       <MidPageCTA />
       <WhySPYOnly />
-      {/* <ResearchResults /> — hidden until results are ready to publish */}
       <TradingDay />
       <WhySwitch />
       <RoadmapVision />
       <FoundingAccess />
       <PricingPlans />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </div>

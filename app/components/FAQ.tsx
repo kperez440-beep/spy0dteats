@@ -1,100 +1,193 @@
 "use client";
 import { useState } from "react";
-import { RevealText } from "@/app/components/ui/RevealText";
+import { motion, AnimatePresence } from "framer-motion";
 
-const faqs = [
+const QUESTIONS = [
   {
-    q: "Why is the win rate only 38%? Shouldn't it be higher?",
-    a: "Win rate doesn't determine profitability — risk/reward does. With a Profit Factor of 1.60 and a Sharpe of 14, we capture far more on winners than we lose on losers. Most retail traders obsess over win rate. Professionals obsess over expectancy. The math here is exceptional.",
+    q: "Is this a signal alert service?",
+    a: "No. SPY Pivot Pro is a research and intelligence platform. It gives you the infrastructure to identify and evaluate setups — not pre-packaged calls to copy. You make the execution decision. The system builds the analytical case.",
   },
   {
-    q: "Is the January 2026 backtest real money, or simulated?",
-    a: "It's a historical backtest run on our live system — every signal, every entry, every exit logged exactly as the system generated them. Starting capital was $100 in a micro account. No curve-fitting or look-ahead bias. The methodology is disclosed in full under each results section.",
+    q: "Is this automated trading?",
+    a: "No. The platform provides intelligence and research tools. Strike selection, entry timing, and position sizing are outputs of the system — but execution decisions remain with the trader at all times.",
   },
   {
-    q: "Do I need to know how to code?",
-    a: "Zero coding required. SPY Pivot Pro is a native desktop app with a point-and-click interface. Everything from signal configuration to backtest runs to automation rules is done through the UI.",
+    q: "What is the current state of the platform?",
+    a: "The core intelligence terminal, signal confluence engine, session playback system, and backtesting environment are live. Additional modules are in active development. Founding members access the platform as it builds and receive each new feature before general release.",
   },
   {
-    q: "What broker do you use for the automation?",
-    a: "Interactive Brokers integration is planned for the Automate tier at launch. The Core and Pro tiers work with any broker since they operate as a signals and decision layer — you execute trades yourself.",
+    q: "Do I need to be an institutional trader?",
+    a: "No. The methodology is institutional in rigor, not in minimum requirement. The platform is built for disciplined retail traders who take a systematic, research-driven approach to SPY options — not for beginners looking for a shortcut.",
   },
   {
-    q: "Is this available right now?",
-    a: "We're in private beta. The waitlist is open and the first 200 founding members will lock in pre-launch pricing at 40% below our public rates — for life. Join the waitlist to secure your spot.",
+    q: "What happens after founding access closes?",
+    a: "Founding access transitions to a standard subscription model when public pricing launches. Founding members retain their pricing permanently — regardless of future price increases — and retain priority access to every new module and feature.",
   },
   {
-    q: "Can I use this for stocks, futures, or other options besides SPY?",
-    a: "SPY Pivot Pro is currently purpose-built and optimized for SPY 0DTE and weekly options. The signal weighting, ML model, and volatility regime system are all tuned to SPY's specific behavior. Expansion to QQQ and ES futures is on the roadmap.",
+    q: "Is there performance data I can review?",
+    a: "The platform's ML win probability baseline and historical signal statistics are documented within the research environment. We do not publish audited return figures at this stage. Options trading involves substantial risk of loss — past backtest results do not guarantee future performance.",
   },
-  {
-    q: "What's the difference between Core and Pro?",
-    a: "Core gives you the full 11-signal confluence dashboard and real-time alerts — you see the edge and act manually. Pro adds the ML win probability model, the intraday playback simulator, backtesting infrastructure, and the auto-learn engine. Pro is the complete analytical system.",
-  },
-  {
-    q: "If the Automate tier is 'automated', do I still need to watch screens?",
-    a: "The system can operate autonomously within your defined risk parameters. Built-in kill switches halt all trading if your daily loss limit, drawdown threshold, or position count is exceeded. You set the rules once — the system enforces them with precision you can't maintain manually at 9:35am.",
-  },
-];
+] as const;
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 px-4">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="text-[11px] font-mono tracking-widest text-amber-400/70 uppercase mb-3">
-            FAQ
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-            <RevealText text="Real questions. Direct answers." />
-          </h2>
-          <p className="text-slate-400 text-base">No marketing speak.</p>
+    <section className="relative py-28 px-4 overflow-hidden bg-[#050810]" id="faq">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.03) 0%, transparent 55%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-3xl mx-auto">
+
+        {/* Header */}
+        <div className="text-center mb-14">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-1.5 border border-[#1E2D3D] bg-[#0D1520]/80 px-4 py-1.5 rounded-full text-[10px] font-mono tracking-widest text-slate-500 uppercase mb-5"
+          >
+            <span className="text-teal-400/60">◆</span>
+            Common Questions
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: EASE, delay: 0.06 }}
+            className="text-4xl sm:text-5xl font-bold text-white tracking-tight"
+          >
+            Frequently Asked
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: EASE, delay: 0.12 }}
+            className="mt-4 text-slate-500 text-base leading-relaxed"
+          >
+            Straightforward answers about what SPY Pivot Pro is, what it is not,
+            and what founding access includes.
+          </motion.p>
         </div>
 
-        <div className="space-y-2">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="rounded-xl border transition-all duration-200 overflow-hidden"
-              style={{
-                borderColor: open === i ? "rgba(240,180,41,0.3)" : "#1E2D3D",
-                background: open === i ? "rgba(240,180,41,0.03)" : "#0D1520",
-              }}
-            >
-              <button
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer"
-                aria-expanded={open === i}
+        {/* Accordion */}
+        <div className="flex flex-col divide-y divide-[#1A2A38]">
+          {QUESTIONS.map((item, i) => {
+            const isOpen = open === i;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.4, ease: EASE, delay: i * 0.05 }}
               >
-                <span className="text-sm font-semibold text-white leading-snug">{faq.q}</span>
-                <div
-                  className="shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-200"
-                  style={{
-                    borderColor: open === i ? "rgba(240,180,41,0.4)" : "#1E2D3D",
-                    background: open === i ? "rgba(240,180,41,0.08)" : "transparent",
-                    transform: open === i ? "rotate(45deg)" : "rotate(0deg)",
-                  }}
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="w-full flex items-start justify-between gap-4 py-6 text-left cursor-pointer"
+                  aria-expanded={isOpen}
                 >
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                    <path d="M5 1v8M1 5h8" stroke={open === i ? "#F0B429" : "#64748B"} strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                </div>
-              </button>
+                  <span
+                    className="text-[15px] font-semibold leading-snug transition-colors duration-200"
+                    style={{ color: isOpen ? "#06B6D4" : "#CBD5E1" }}
+                  >
+                    {item.q}
+                  </span>
+                  <span
+                    className="shrink-0 mt-0.5 w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-300"
+                    style={{
+                      borderColor: isOpen ? "rgba(6,182,212,0.5)" : "#1E2D3D",
+                      background:  isOpen ? "rgba(6,182,212,0.08)" : "transparent",
+                      transform:   isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                    }}
+                    aria-hidden="true"
+                  >
+                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                      <path
+                        d="M4.5 1v7M1 4.5h7"
+                        stroke={isOpen ? "#06B6D4" : "#475569"}
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
 
-              <div
-                style={{
-                  maxHeight: open === i ? 300 : 0,
-                  overflow: "hidden",
-                  transition: "max-height 0.3s cubic-bezier(0.4,0,0.2,1)",
-                }}
-              >
-                <p className="px-5 pb-5 text-sm text-slate-400 leading-relaxed">{faq.a}</p>
-              </div>
-            </div>
-          ))}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="answer"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: EASE }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      <p className="pb-6 text-[14px] text-slate-500 leading-relaxed pr-10">
+                        {item.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-14 text-center border-t border-[#1A2A38] pt-10"
+        >
+          <p className="text-slate-500 text-[14px] mb-6">
+            Still have questions? Founding members have a direct line to the research team.
+          </p>
+          <a
+            href="#founding"
+            className="inline-flex items-center gap-2 font-bold rounded-full cursor-pointer"
+            style={{
+              background:  "#06B6D4",
+              color:       "#030608",
+              fontSize:    "13px",
+              padding:     "12px 28px",
+              fontFamily:  "var(--font-sans)",
+              boxShadow:   "0 0 0 1px rgba(6,182,212,0.35), 0 4px 24px rgba(6,182,212,0.14)",
+              transition:  "all 0.2s ease",
+            }}
+            onMouseEnter={e => {
+              const el = e.currentTarget as HTMLAnchorElement;
+              el.style.background = "#22D3EE";
+              el.style.boxShadow  = "0 0 36px rgba(6,182,212,0.45), 0 0 0 1px rgba(6,182,212,0.9)";
+              el.style.transform  = "translateY(-1px)";
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget as HTMLAnchorElement;
+              el.style.background = "#06B6D4";
+              el.style.boxShadow  = "0 0 0 1px rgba(6,182,212,0.35), 0 4px 24px rgba(6,182,212,0.14)";
+              el.style.transform  = "translateY(0)";
+            }}
+          >
+            Request Early Access
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
