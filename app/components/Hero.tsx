@@ -300,15 +300,23 @@ export function Hero() {
 
               <TerminalChrome />
 
-              {/* Image + overlays */}
+              {/* Video + overlays */}
               <div className="relative">
-                <img
-                  src="/images/terminal-hero.png"
-                  alt="SPY Pivot Pro Intelligence Terminal"
-                  className="w-full block"
-                  onError={e => { (e.currentTarget as HTMLImageElement).src = "/images/app_hero.png"; }}
-                  draggable={false}
-                />
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{ width: "100%", display: "block" }}
+                >
+                  <source src="/videos/demo.mp4" type="video/mp4" />
+                  {/* Fallback for browsers that can't play video */}
+                  <img
+                    src="/images/terminal-hero.png"
+                    alt="SPY Pivot Pro Intelligence Terminal"
+                    style={{ width: "100%", display: "block" }}
+                  />
+                </video>
                 {/* CRT scanlines */}
                 <div
                   className="absolute inset-0 pointer-events-none"
