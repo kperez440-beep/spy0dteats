@@ -210,20 +210,25 @@ export function SystemLayers() {
             animate={{ y: [0, -7, 0] }}
             transition={{ duration: 8, ease: "easeInOut", repeat: Infinity }}
           >
-            {/* Terminal frame */}
+            {/* Terminal frame — animated border wrapper */}
+            <div
+              className="terminal-glow-border"
+              style={{
+                borderRadius: "21px",
+                boxShadow: [
+                  "0 0  60px rgba(6,182,212,0.07)",
+                  "0 0 140px rgba(16,185,129,0.035)",
+                  "0 70px 200px rgba(0,0,0,0.94)",
+                ].join(", "),
+              }}
+            >
             <div
               className="relative"
               style={{
                 borderRadius: "20px",
                 overflow:     "hidden",
-                border:       "1px solid rgba(6,182,212,0.10)",
                 background:   "#020509",
-                boxShadow: [
-                  "inset 0 0 0 1px rgba(255,255,255,0.018)",
-                  "0 0  60px rgba(6,182,212,0.07)",
-                  "0 0 140px rgba(16,185,129,0.035)",
-                  "0 70px 200px rgba(0,0,0,0.94)",
-                ].join(", "),
+                boxShadow:    "inset 0 0 0 1px rgba(255,255,255,0.018)",
               }}
             >
               {/* Hairline top glow */}
@@ -248,15 +253,26 @@ export function SystemLayers() {
                   }}
                   draggable={false}
                 />
+                {/* CRT scanlines */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  aria-hidden="true"
+                  style={{
+                    backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.038) 2px, rgba(0,0,0,0.038) 4px)",
+                    zIndex: 2,
+                  }}
+                />
                 {/* Bottom vignette — fades image into page */}
                 <div
                   className="absolute inset-0 pointer-events-none"
                   aria-hidden="true"
                   style={{
                     background: "linear-gradient(to bottom, transparent 50%, rgba(2,5,9,0.65) 78%, #020509 100%)",
+                    zIndex: 3,
                   }}
                 />
               </div>
+            </div>
             </div>
           </motion.div>
         </motion.div>

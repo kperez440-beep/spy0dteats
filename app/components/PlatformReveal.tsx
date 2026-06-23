@@ -292,8 +292,9 @@ export function PlatformReveal() {
                 <div
                   className="terminal-glow-border"
                   style={{
-                    position:  "relative",
-                    zIndex:    1,
+                    position:     "relative",
+                    zIndex:       1,
+                    borderRadius: "17px",
                     boxShadow: [
                       `0 0 80px ${panel.glowTL}`,
                       `0 0 180px ${panel.glowBR}`,
@@ -348,11 +349,22 @@ export function PlatformReveal() {
                       <div
                         aria-hidden="true"
                         style={{
-                          position:       "absolute",
-                          inset:          0,
-                          background:     panel.tint,
-                          mixBlendMode:   panel.tintBlend,
-                          pointerEvents:  "none",
+                          position:      "absolute",
+                          inset:         0,
+                          background:    panel.tint,
+                          mixBlendMode:  panel.tintBlend,
+                          pointerEvents: "none",
+                        }}
+                      />
+                      {/* CRT scanlines */}
+                      <div
+                        aria-hidden="true"
+                        style={{
+                          position:        "absolute",
+                          inset:           0,
+                          pointerEvents:   "none",
+                          backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.038) 2px, rgba(0,0,0,0.038) 4px)",
+                          zIndex:          2,
                         }}
                       />
                     </div>
