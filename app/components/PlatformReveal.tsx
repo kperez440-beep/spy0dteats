@@ -17,6 +17,10 @@ const PANELS = [
     badgeColor: "rgba(6,182,212,0.14)",
     badgeBorder: "rgba(6,182,212,0.18)",
     badgeText: "#3EB8CC",
+    imagePos: "0% 15%",
+    imageScale: 1.12,
+    tint: "rgba(6,182,212,0.07)",
+    tintBlend: "color-dodge" as const,
   },
   {
     num:      "02",
@@ -31,6 +35,10 @@ const PANELS = [
     badgeColor: "rgba(16,185,129,0.12)",
     badgeBorder: "rgba(16,185,129,0.18)",
     badgeText: "#34A87A",
+    imagePos: "68% 40%",
+    imageScale: 1.18,
+    tint: "rgba(16,185,129,0.07)",
+    tintBlend: "color-dodge" as const,
   },
   {
     num:      "03",
@@ -45,6 +53,10 @@ const PANELS = [
     badgeColor: "rgba(16,185,129,0.10)",
     badgeBorder: "rgba(16,185,129,0.16)",
     badgeText: "#2E9068",
+    imagePos: "30% 75%",
+    imageScale: 1.22,
+    tint: "rgba(16,185,129,0.06)",
+    tintBlend: "soft-light" as const,
   },
   {
     num:      "04",
@@ -59,6 +71,10 @@ const PANELS = [
     badgeColor: "rgba(99,130,200,0.10)",
     badgeBorder: "rgba(99,130,200,0.16)",
     badgeText: "#7A9AE0",
+    imagePos: "50% 0%",
+    imageScale: 1.08,
+    tint: "rgba(99,130,200,0.09)",
+    tintBlend: "color-dodge" as const,
   },
 ] as const;
 
@@ -298,15 +314,44 @@ export function PlatformReveal() {
 
                   {/* Image + overlays */}
                   <div style={{ position: "relative" }}>
-                    <img
-                      src="/images/terminal-hero.png"
-                      alt={`SPY Pivot Pro — ${panel.title}`}
-                      style={{ width: "100%", display: "block" }}
-                      onError={e => {
-                        (e.currentTarget as HTMLImageElement).src = "/images/app_hero.png";
+                    {/* Cropped viewport — each panel shows a different region */}
+                    <div
+                      style={{
+                        overflow:    "hidden",
+                        aspectRatio: "16 / 7",
+                        position:    "relative",
                       }}
-                      draggable={false}
-                    />
+                    >
+                      <img
+                        src="/images/terminal-hero.png"
+                        alt={`SPY Pivot Pro — ${panel.title}`}
+                        style={{
+                          width:          "100%",
+                          height:         "100%",
+                          display:        "block",
+                          objectFit:      "cover",
+                          objectPosition: panel.imagePos,
+                          transform:      `scale(${panel.imageScale})`,
+                          transformOrigin: panel.imagePos,
+                          transition:     "transform 0.6s ease",
+                        }}
+                        onError={e => {
+                          (e.currentTarget as HTMLImageElement).src = "/images/app_hero.png";
+                        }}
+                        draggable={false}
+                      />
+                      {/* Panel-specific tint overlay */}
+                      <div
+                        aria-hidden="true"
+                        style={{
+                          position:       "absolute",
+                          inset:          0,
+                          background:     panel.tint,
+                          mixBlendMode:   panel.tintBlend,
+                          pointerEvents:  "none",
+                        }}
+                      />
+                    </div>
 
                     {/* Bottom vignette */}
                     <div
