@@ -3,6 +3,7 @@ import { CursorGlow }        from "@/app/components/CursorGlow";
 import { StickyMobileCTA }   from "@/app/components/StickyMobileCTA";
 import { Nav }               from "@/app/components/Nav";
 import { Hero }              from "@/app/components/Hero";
+import { SystemLayers }      from "@/app/components/SystemLayers";
 import { TrustBand }         from "@/app/components/TrustBand";
 import { IntelligenceGap }   from "@/app/components/IntelligenceGap";
 import { WhatItIs }          from "@/app/components/WhatItIs";
@@ -29,6 +30,7 @@ export default function Home() {
       <StickyMobileCTA />
       <Nav />
       <Hero />
+      <SystemLayers />
       <TrustBand />
       <IntelligenceGap />
       <WhatItIs />
