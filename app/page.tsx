@@ -4,8 +4,9 @@ import { StickyMobileCTA }   from "@/app/components/StickyMobileCTA";
 import { Nav }               from "@/app/components/Nav";
 import { Hero }              from "@/app/components/Hero";
 import { SystemLayers }      from "@/app/components/SystemLayers";
-import { ResearchExecution } from "@/app/components/ResearchExecution";
-import { TrustBand }         from "@/app/components/TrustBand";
+import { ResearchExecution }    from "@/app/components/ResearchExecution";
+import { AdaptiveIntelligence } from "@/app/components/AdaptiveIntelligence";
+import { TrustBand }            from "@/app/components/TrustBand";
 import { IntelligenceGap }   from "@/app/components/IntelligenceGap";
 import { WhatItIs }          from "@/app/components/WhatItIs";
 import { IntelligenceFlow }  from "@/app/components/IntelligenceFlow";
@@ -33,6 +34,7 @@ export default function Home() {
       <Hero />
       <SystemLayers />
       <ResearchExecution />
+      <AdaptiveIntelligence />
       <TrustBand />
       <IntelligenceGap />
       <WhatItIs />
