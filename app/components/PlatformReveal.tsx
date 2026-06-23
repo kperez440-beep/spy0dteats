@@ -108,7 +108,7 @@ function PanelChrome({ label, dot }: { label: string; dot: string }) {
           fontSize:      "8px",
           letterSpacing: "0.22em",
           textTransform: "uppercase",
-          color:         "#0B1E2C",
+          color:         "rgba(255,255,255,0.18)",
         }}
       >
         {label}

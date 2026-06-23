@@ -29,7 +29,7 @@ function SystemChrome() {
             fontFamily:    "var(--font-mono)",
             fontSize:      "8px",
             letterSpacing: "0.22em",
-            color:         "#0F2030",
+            color:         "rgba(255,255,255,0.20)",
             textTransform: "uppercase",
           }}
         >
@@ -50,7 +50,7 @@ function SystemChrome() {
             fontFamily:    "var(--font-mono)",
             fontSize:      "8px",
             letterSpacing: "0.18em",
-            color:         "#0F7A52",
+            color:         "rgba(16,185,129,0.75)",
             textTransform: "uppercase",
           }}
         >

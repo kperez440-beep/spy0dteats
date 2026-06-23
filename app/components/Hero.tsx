@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -18,7 +18,7 @@ function TerminalChrome() {
         fontFamily: "var(--font-mono, monospace)",
         fontSize: "9px",
         letterSpacing: "0.22em",
-        color: "#1a2e3a",
+        color: "rgba(255,255,255,0.22)",
         textTransform: "uppercase",
       }}>
         SPY Pivot Pro · Intelligence Terminal
@@ -40,25 +40,11 @@ export function Hero() {
   const contentY  = useTransform(scrollYProgress, [0, 0.6], [0, -48]);
   const terminalY = useTransform(scrollYProgress, [0, 1],   [0, -72]);
 
-  // Mouse parallax — subtle terminal tilt
-  const mouseX  = useMotionValue(0);
-  const mouseY  = useMotionValue(0);
-  const sMX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const sMY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-  const tiltY = useTransform(sMX, [-0.5, 0.5], [-3, 3]);
-  const tiltX = useTransform(sMY, [-0.5, 0.5], [2, -2]);
-
   return (
     <section
       ref={sectionRef}
       className="relative overflow-hidden"
       style={{ background: "#030608", minHeight: "100vh" }}
-      onMouseMove={e => {
-        const r = e.currentTarget.getBoundingClientRect();
-        mouseX.set((e.clientX - r.left) / r.width  - 0.5);
-        mouseY.set((e.clientY - r.top)  / r.height - 0.5);
-      }}
-      onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
     >
 
       {/* ── Blue atmospheric glow — upper left (aurora-1) ── */}
@@ -116,7 +102,7 @@ export function Hero() {
             fontSize:      "10px",
             letterSpacing: "0.38em",
             textTransform: "uppercase",
-            color:         "rgba(255,255,255,0.14)",
+            color:         "rgba(255,255,255,0.24)",
             marginBottom:  "18px",
           }}
         >
@@ -265,17 +251,14 @@ export function Hero() {
         style={{ y: terminalY }}
         className="relative z-10 mt-16 px-4 sm:px-6 lg:px-10"
       >
-        {/* Perspective wrapper */}
-        <div style={{ maxWidth: "1380px", margin: "0 auto", perspective: "1800px" }}>
+        <div style={{ maxWidth: "1380px", margin: "0 auto" }}>
 
-          {/* Tilt + animated border wrapper */}
-          <motion.div
+          {/* Animated border wrapper — flat (no 3D) for smooth video decode */}
+          <div
             className="terminal-glow-border"
             style={{
-              rotateX:         tiltX,
-              rotateY:         tiltY,
-              transformOrigin: "center top",
-              borderRadius:    "19px",
+              borderRadius: "19px",
+              willChange:   "transform",
               boxShadow: [
                 "0 0 80px  rgba(6,182,212,0.09)",
                 "0 0 200px rgba(16,185,129,0.05)",
@@ -338,7 +321,7 @@ export function Hero() {
                 />
               </div>
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </motion.div>
