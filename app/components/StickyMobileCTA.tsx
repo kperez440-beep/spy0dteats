@@ -42,9 +42,9 @@ export function StickyMobileCTA() {
             href="#founding"
             className="flex items-center justify-between font-bold text-[13px] px-5 py-4 rounded-2xl w-full cursor-pointer"
             style={{
-              background: "#06B6D4",
-              color:      "#030608",
-              boxShadow:  "0 8px 32px rgba(6,182,212,0.32), 0 0 0 1px rgba(255,255,255,0.08) inset",
+              background: "#C1FF72",
+              color:      "#040703",
+              boxShadow:  "0 8px 32px rgba(193, 255, 114,0.32), 0 0 0 1px rgba(255,255,255,0.08) inset",
             }}
           >
             <span>Request Founding Access</span>

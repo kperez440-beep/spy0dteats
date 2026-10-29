@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { SPYPivotFavicon } from "./Logo";
 
 const LINKS = [
   { label: "System",          href: "#system"   },
@@ -55,43 +56,46 @@ export function Nav() {
           display:              "flex",
           alignItems:           "center",
           paddingInline:        "clamp(20px, 3vw, 40px)",
-          background:           scrolled ? "rgba(2,5,8,0.90)" : "transparent",
+          background:           scrolled ? "rgba(2,8,5,0.90)" : "transparent",
           backdropFilter:       scrolled ? "blur(24px) saturate(160%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(24px) saturate(160%)" : "none",
-          borderBottom:         scrolled ? "1px solid rgba(12,28,48,0.80)" : "1px solid transparent",
+          borderBottom:         scrolled ? "1px solid rgba(12,48,28,0.80)" : "1px solid transparent",
           boxShadow:            scrolled
-            ? "0 1px 0 rgba(6,182,212,0.035), 0 12px 40px rgba(0,0,0,0.38)"
+            ? "0 1px 0 rgba(193, 255, 114,0.035), 0 12px 40px rgba(0,0,0,0.38)"
             : "none",
           transition:           "background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease",
         }}
       >
 
         {/* ── Left — brand ── */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", lineHeight: 1 }}>
-          <span
-            style={{
-              fontFamily:    "var(--font-mono)",
-              fontSize:      "13px",
-              fontWeight:    700,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color:         "#D8E4EC",
-            }}
-          >
-            SPY Pivot Pro
-          </span>
-          <span
-            style={{
-              fontFamily:    "var(--font-mono)",
-              fontSize:      "8px",
-              letterSpacing: "0.20em",
-              textTransform: "uppercase",
-              color:         "#152230",
-              marginTop:     "4px",
-            }}
-          >
-            by Fortitud Capital
-          </span>
+        <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "10px" }}>
+          <SPYPivotFavicon size={30} />
+          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+            <span
+              style={{
+                fontFamily:    "var(--font-mono)",
+                fontSize:      "13px",
+                fontWeight:    700,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color:         "#EEF0F5",
+              }}
+            >
+              SPY Pivot Pro
+            </span>
+            <span
+              style={{
+                fontFamily:    "var(--font-mono)",
+                fontSize:      "8px",
+                letterSpacing: "0.20em",
+                textTransform: "uppercase",
+                color:         "#153022",
+                marginTop:     "4px",
+              }}
+            >
+              by Fortitud Capital
+            </span>
+          </div>
         </div>
 
         {/* ── Center — nav links (desktop) ── */}
@@ -115,7 +119,7 @@ export function Nav() {
                   fontFamily:     "var(--font-sans)",
                   fontSize:       "13px",
                   fontWeight:     isActive ? 500 : 400,
-                  color:          isActive ? "#C8D8E4" : "#263C50",
+                  color:          isActive ? "#EEF0F5" : "rgba(255,255,255,0.30)",
                   letterSpacing:  "0.01em",
                   textDecoration: "none",
                   position:       "relative",
@@ -123,10 +127,10 @@ export function Nav() {
                   transition:     "color 0.18s ease",
                 }}
                 onMouseEnter={e => {
-                  if (!isActive) (e.currentTarget as HTMLAnchorElement).style.color = "#5A7A8E";
+                  if (!isActive) (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.55)";
                 }}
                 onMouseLeave={e => {
-                  if (!isActive) (e.currentTarget as HTMLAnchorElement).style.color = "#263C50";
+                  if (!isActive) (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.30)";
                 }}
               >
                 {link.label}
@@ -139,7 +143,7 @@ export function Nav() {
                     left:       0,
                     right:      0,
                     height:     "1px",
-                    background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.45), transparent)",
+                    background: "linear-gradient(90deg, transparent, rgba(193, 255, 114,0.45), transparent)",
                     opacity:    isActive ? 1 : 0,
                     transition: "opacity 0.2s ease",
                   }}
@@ -168,9 +172,9 @@ export function Nav() {
               fontSize:       "12px",
               fontWeight:     500,
               letterSpacing:  "0.03em",
-              color:          "#4A6A80",
-              background:     "rgba(5,10,18,0.75)",
-              border:         "1px solid rgba(18,36,54,0.85)",
+              color:          "rgba(255,255,255,0.42)",
+              background:     "rgba(5,18,10,0.75)",
+              border:         "1px solid rgba(18,54,36,0.85)",
               borderRadius:   "7px",
               padding:        "8px 16px",
               textDecoration: "none",
@@ -185,9 +189,9 @@ export function Nav() {
             }}
             onMouseLeave={e => {
               const el = e.currentTarget as HTMLAnchorElement;
-              el.style.color       = "#4A6A80";
-              el.style.borderColor = "rgba(18,36,54,0.85)";
-              el.style.background  = "rgba(5,10,18,0.75)";
+              el.style.color       = "rgba(255,255,255,0.42)";
+              el.style.borderColor = "rgba(18,54,36,0.85)";
+              el.style.background  = "rgba(5,18,10,0.75)";
               el.style.boxShadow   = "none";
             }}
           >
@@ -209,7 +213,7 @@ export function Nav() {
               justifyContent: "center",
               gap:            "5px",
               background:     "transparent",
-              border:         "1px solid rgba(18,36,54,0.75)",
+              border:         "1px solid rgba(18,54,36,0.75)",
               borderRadius:   "7px",
               cursor:         "pointer",
               padding:        0,
@@ -227,7 +231,7 @@ export function Nav() {
                   display:    "block",
                   width:      "14px",
                   height:     "1px",
-                  background: "#3A566A",
+                  background: "rgba(255,255,255,0.30)",
                   transition: "all 0.22s ease",
                   opacity:    i === 1 && menuOpen ? 0 : 1,
                   transform,
@@ -255,7 +259,7 @@ export function Nav() {
           style={{
             position:             "absolute",
             inset:                0,
-            background:           "rgba(1,3,6,0.70)",
+            background:           "rgba(1,6,3,0.70)",
             backdropFilter:       "blur(6px)",
             WebkitBackdropFilter: "blur(6px)",
             opacity:              menuOpen ? 1 : 0,
@@ -271,8 +275,8 @@ export function Nav() {
             right:         0,
             bottom:        0,
             width:         "270px",
-            background:    "rgba(3,6,10,0.98)",
-            borderLeft:    "1px solid rgba(12,28,48,0.8)",
+            background:    "rgba(3,10,6,0.98)",
+            borderLeft:    "1px solid rgba(12,48,28,0.8)",
             transform:     menuOpen ? "translateX(0)" : "translateX(100%)",
             transition:    "transform 0.32s cubic-bezier(0.16,1,0.3,1)",
             padding:       "76px 28px 36px",
@@ -289,15 +293,15 @@ export function Nav() {
               style={{
                 fontSize:       "15px",
                 fontWeight:     400,
-                color:          "#2C4558",
+                color:          "rgba(255,255,255,0.34)",
                 padding:        "16px 0",
-                borderBottom:   "1px solid rgba(12,26,42,0.7)",
+                borderBottom:   "1px solid rgba(12,42,26,0.7)",
                 textDecoration: "none",
                 letterSpacing:  "0.01em",
                 transition:     "color 0.15s ease",
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#6A8FA8"; }}
-              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#2C4558"; }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.62)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.34)"; }}
             >
               {link.label}
             </a>
@@ -312,9 +316,9 @@ export function Nav() {
               fontSize:       "12px",
               fontWeight:     500,
               letterSpacing:  "0.04em",
-              color:          "#4A6A80",
-              background:     "rgba(5,10,18,0.9)",
-              border:         "1px solid rgba(18,36,54,0.85)",
+              color:          "rgba(255,255,255,0.42)",
+              background:     "rgba(5,18,10,0.9)",
+              border:         "1px solid rgba(18,54,36,0.85)",
               borderRadius:   "7px",
               padding:        "13px 20px",
               textAlign:      "center",
@@ -331,7 +335,7 @@ export function Nav() {
                 fontSize:      "8px",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color:         "#0D1A24",
+                color:         "#0d241a",
               }}
             >
               by Fortitud Capital

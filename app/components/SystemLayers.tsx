@@ -15,12 +15,12 @@ function SystemChrome() {
     <div
       className="flex items-center gap-1.5 px-5 py-3 flex-shrink-0"
       style={{
-        borderBottom: "1px solid rgba(6,182,212,0.07)",
-        background: "linear-gradient(180deg, #020609 0%, #030810 100%)",
+        borderBottom: "1px solid rgba(193, 255, 114,0.07)",
+        background: "linear-gradient(180deg, #020906 0%, #030702 100%)",
       }}
     >
       <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#F87171", opacity: 0.35 }} />
-      <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#D4A840", opacity: 0.35 }} />
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#C1FF72", opacity: 0.35 }} />
       <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#10B981", opacity: 0.35 }} />
       <div className="flex-1" />
       <div className="flex items-center gap-2.5">
@@ -68,17 +68,17 @@ export function SystemLayers() {
       className="relative overflow-hidden"
       id="system"
       style={{
-        background: "linear-gradient(180deg, #030608 0%, #030a14 45%, #030608 100%)",
+        background: "linear-gradient(180deg, #040703 0%, #03140a 45%, #040703 100%)",
         paddingTop:    "120px",
         paddingBottom: "100px",
       }}
     >
-      {/* Center blue spotlight */}
+      {/* Center canopy spotlight */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: "radial-gradient(ellipse 70% 55% at 50% 22%, rgba(37,99,235,0.07) 0%, transparent 68%)",
+          background: "radial-gradient(ellipse 70% 55% at 50% 22%, rgba(193,255,114,0.06) 0%, transparent 68%)",
         }}
       />
 
@@ -100,8 +100,8 @@ export function SystemLayers() {
         aria-hidden="true"
         style={{
           backgroundImage: [
-            "linear-gradient(rgba(6,182,212,0.018) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(6,182,212,0.018) 1px, transparent 1px)",
+            "linear-gradient(rgba(193, 255, 114,0.018) 1px, transparent 1px)",
+            "linear-gradient(90deg, rgba(193, 255, 114,0.018) 1px, transparent 1px)",
           ].join(", "),
           backgroundSize: "88px 88px",
         }}
@@ -200,7 +200,7 @@ export function SystemLayers() {
               bottom: "-60px",
               insetInline: "5%",
               height: "120px",
-              background: "radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.10) 0%, rgba(16,185,129,0.05) 40%, transparent 75%)",
+              background: "radial-gradient(ellipse at 50% 0%, rgba(193, 255, 114,0.10) 0%, rgba(16,185,129,0.05) 40%, transparent 75%)",
               filter: "blur(30px)",
             }}
           />
@@ -216,7 +216,7 @@ export function SystemLayers() {
               style={{
                 borderRadius: "21px",
                 boxShadow: [
-                  "0 0  60px rgba(6,182,212,0.07)",
+                  "0 0  60px rgba(193, 255, 114,0.07)",
                   "0 0 140px rgba(16,185,129,0.035)",
                   "0 70px 200px rgba(0,0,0,0.94)",
                 ].join(", "),
@@ -227,7 +227,7 @@ export function SystemLayers() {
               style={{
                 borderRadius: "20px",
                 overflow:     "hidden",
-                background:   "#020509",
+                background:   "#020602",
                 boxShadow:    "inset 0 0 0 1px rgba(255,255,255,0.018)",
               }}
             >
@@ -236,7 +236,7 @@ export function SystemLayers() {
                 aria-hidden="true"
                 style={{
                   height:     "1px",
-                  background: "linear-gradient(90deg, transparent 4%, rgba(6,182,212,0.55) 36%, rgba(16,185,129,0.28) 64%, transparent 96%)",
+                  background: "linear-gradient(90deg, transparent 4%, rgba(193, 255, 114,0.55) 36%, rgba(16,185,129,0.28) 64%, transparent 96%)",
                 }}
               />
 
@@ -267,7 +267,7 @@ export function SystemLayers() {
                   className="absolute inset-0 pointer-events-none"
                   aria-hidden="true"
                   style={{
-                    background: "linear-gradient(to bottom, transparent 50%, rgba(2,5,9,0.65) 78%, #020509 100%)",
+                    background: "linear-gradient(to bottom, transparent 50%, rgba(2,9,5,0.65) 78%, #020602 100%)",
                     zIndex: 3,
                   }}
                 />
@@ -292,9 +292,9 @@ export function SystemLayers() {
                 fontSize:      "10px",
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color:         b.emerald ? "#34A87A" : "#3EB8CC",
-                border:        `1px solid ${b.emerald ? "rgba(16,185,129,0.14)" : "rgba(6,182,212,0.14)"}`,
-                background:    b.emerald ? "rgba(16,185,129,0.04)" : "rgba(6,182,212,0.04)",
+                color:         b.emerald ? "#34A87A" : "#8FBF52",
+                border:        `1px solid ${b.emerald ? "rgba(16,185,129,0.14)" : "rgba(193, 255, 114,0.14)"}`,
+                background:    b.emerald ? "rgba(16,185,129,0.04)" : "rgba(193, 255, 114,0.04)",
                 padding:       "8px 18px",
                 borderRadius:  "999px",
               }}
@@ -306,7 +306,7 @@ export function SystemLayers() {
                   width:        4,
                   height:       4,
                   borderRadius: "50%",
-                  background:   b.emerald ? "#10B981" : "#06B6D4",
+                  background:   b.emerald ? "#10B981" : "#C1FF72",
                   opacity:      0.65,
                   flexShrink:   0,
                 }}

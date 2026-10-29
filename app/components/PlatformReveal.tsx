@@ -10,16 +10,16 @@ const PANELS = [
     desc:     "The system evaluates structure across multiple timeframes to identify alignment before execution.",
     chromeLabel: "Multi-Timeframe Alignment Engine",
     badge: { text: "3 TIMEFRAMES · ALIGNED", corner: "tr" },
-    hairline: "linear-gradient(90deg, transparent 4%, rgba(6,182,212,0.55) 36%, rgba(34,211,238,0.30) 64%, transparent 96%)",
-    glowTL:   "rgba(6,182,212,0.10)",
-    glowBR:   "rgba(34,211,238,0.05)",
-    dotColor: "#06B6D4",
-    badgeColor: "rgba(6,182,212,0.14)",
-    badgeBorder: "rgba(6,182,212,0.18)",
-    badgeText: "#3EB8CC",
+    hairline: "linear-gradient(90deg, transparent 4%, rgba(193, 255, 114,0.55) 36%, rgba(217, 255, 160,0.30) 64%, transparent 96%)",
+    glowTL:   "rgba(193, 255, 114,0.10)",
+    glowBR:   "rgba(217, 255, 160,0.05)",
+    dotColor: "#C1FF72",
+    badgeColor: "rgba(193, 255, 114,0.14)",
+    badgeBorder: "rgba(193, 255, 114,0.18)",
+    badgeText: "#8FBF52",
     imagePos: "0% 15%",
     imageScale: 1.12,
-    tint: "rgba(6,182,212,0.07)",
+    tint: "rgba(193, 255, 114,0.07)",
     tintBlend: "color-dodge" as const,
   },
   {
@@ -28,9 +28,9 @@ const PANELS = [
     desc:     "Every setup must satisfy a structured set of conditions before execution is considered.",
     chromeLabel: "Eligibility & Confluence Engine",
     badge: { text: "CONDITIONS MET · ELIGIBLE", corner: "tl" },
-    hairline: "linear-gradient(90deg, transparent 4%, rgba(16,185,129,0.40) 36%, rgba(6,182,212,0.25) 64%, transparent 96%)",
+    hairline: "linear-gradient(90deg, transparent 4%, rgba(16,185,129,0.40) 36%, rgba(193, 255, 114,0.25) 64%, transparent 96%)",
     glowTL:   "rgba(16,185,129,0.07)",
-    glowBR:   "rgba(6,182,212,0.06)",
+    glowBR:   "rgba(193, 255, 114,0.06)",
     dotColor: "#10B981",
     badgeColor: "rgba(16,185,129,0.12)",
     badgeBorder: "rgba(16,185,129,0.18)",
@@ -48,7 +48,7 @@ const PANELS = [
     badge: { text: "ZONE ACTIVE · REACTION CONFIRMED", corner: "br" },
     hairline: "linear-gradient(90deg, transparent 4%, rgba(16,185,129,0.55) 36%, rgba(16,185,129,0.28) 64%, transparent 96%)",
     glowTL:   "rgba(16,185,129,0.09)",
-    glowBR:   "rgba(6,182,212,0.04)",
+    glowBR:   "rgba(193, 255, 114,0.04)",
     dotColor: "#10B981",
     badgeColor: "rgba(16,185,129,0.10)",
     badgeBorder: "rgba(16,185,129,0.16)",
@@ -64,8 +64,8 @@ const PANELS = [
     desc:     "Trade plans are built around structure, discipline, and controlled execution.",
     chromeLabel: "Execution & Trade Planning Framework",
     badge: { text: "ENTRY · TARGET · STOP DEFINED", corner: "bl" },
-    hairline: "linear-gradient(90deg, transparent 4%, rgba(6,182,212,0.40) 36%, rgba(99,130,200,0.25) 64%, transparent 96%)",
-    glowTL:   "rgba(6,182,212,0.07)",
+    hairline: "linear-gradient(90deg, transparent 4%, rgba(193, 255, 114,0.40) 36%, rgba(99,130,200,0.25) 64%, transparent 96%)",
+    glowTL:   "rgba(193, 255, 114,0.07)",
     glowBR:   "rgba(99,130,200,0.07)",
     dotColor: "#7A9AE0",
     badgeColor: "rgba(99,130,200,0.10)",
@@ -93,13 +93,13 @@ function PanelChrome({ label, dot }: { label: string; dot: string }) {
         alignItems:     "center",
         gap:            "6px",
         padding:        "10px 20px",
-        borderBottom:   "1px solid rgba(6,182,212,0.06)",
-        background:     "linear-gradient(180deg, #020508 0%, #030810 100%)",
+        borderBottom:   "1px solid rgba(193, 255, 114,0.06)",
+        background:     "linear-gradient(180deg, #020602 0%, #030702 100%)",
         flexShrink:     0,
       }}
     >
       <div style={{ width: 9,  height: 9,  borderRadius: "50%", background: "#F87171", opacity: 0.35 }} />
-      <div style={{ width: 9,  height: 9,  borderRadius: "50%", background: "#D4A840", opacity: 0.35 }} />
+      <div style={{ width: 9,  height: 9,  borderRadius: "50%", background: "#C1FF72", opacity: 0.35 }} />
       <div style={{ width: 9,  height: 9,  borderRadius: "50%", background: "#10B981", opacity: 0.35 }} />
       <div style={{ flex: 1 }} />
       <span
@@ -124,14 +124,14 @@ export function PlatformReveal() {
     <section
       id="inside"
       className="relative overflow-hidden"
-      style={{ background: "#030608", paddingTop: "120px", paddingBottom: "140px" }}
+      style={{ background: "#040703", paddingTop: "120px", paddingBottom: "140px" }}
     >
       {/* Very faint ambient center */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: "radial-gradient(ellipse 50% 40% at 50% 0%, rgba(6,182,212,0.05) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse 50% 40% at 50% 0%, rgba(193, 255, 114,0.05) 0%, transparent 65%)",
         }}
       />
 
@@ -244,7 +244,7 @@ export function PlatformReveal() {
                       fontSize:      "clamp(20px, 2.2vw, 28px)",
                       fontWeight:    700,
                       letterSpacing: "-0.02em",
-                      color:         "#B8CDD8",
+                      color:         "#EEF0F5",
                     }}
                   >
                     {panel.title}
@@ -306,7 +306,7 @@ export function PlatformReveal() {
                   style={{
                     borderRadius: "16px",
                     overflow:     "hidden",
-                    background:   "#020508",
+                    background:   "#020602",
                   }}
                 >
                   {/* Top hairline — panel-specific gradient */}
@@ -375,7 +375,7 @@ export function PlatformReveal() {
                       style={{
                         position:   "absolute",
                         inset:      0,
-                        background: "linear-gradient(to bottom, transparent 45%, rgba(2,5,8,0.55) 78%, #020508 100%)",
+                        background: "linear-gradient(to bottom, transparent 45%, rgba(2,8,5,0.55) 78%, #020602 100%)",
                         pointerEvents: "none",
                       }}
                     />
@@ -391,7 +391,7 @@ export function PlatformReveal() {
                         gap:           "7px",
                         padding:       "7px 12px",
                         borderRadius:  "6px",
-                        background:    `rgba(2,5,8,0.82)`,
+                        background:    `rgba(2,8,5,0.82)`,
                         border:        `1px solid ${panel.badgeBorder}`,
                         backdropFilter: "blur(8px)",
                         pointerEvents: "none",
@@ -432,7 +432,7 @@ export function PlatformReveal() {
                   aria-hidden="true"
                   style={{
                     height:     "1px",
-                    background: "linear-gradient(90deg, transparent, rgba(10,22,38,0.8), transparent)",
+                    background: "linear-gradient(90deg, transparent, rgba(10,38,22,0.8), transparent)",
                     marginTop:  "80px",
                   }}
                 />

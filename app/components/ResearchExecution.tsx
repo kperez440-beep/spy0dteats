@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { SPYPivotMark } from "./Logo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -77,7 +78,7 @@ export function ResearchExecution() {
       className="relative overflow-hidden"
       id="research"
       style={{
-        background:    "#030608",
+        background:    "#040703",
         paddingTop:    "116px",
         paddingBottom: "120px",
       }}
@@ -88,7 +89,7 @@ export function ResearchExecution() {
         aria-hidden="true"
         style={{
           height:     "1px",
-          background: "linear-gradient(90deg, transparent 8%, rgba(20,35,52,0.9) 35%, rgba(20,35,52,0.9) 65%, transparent 92%)",
+          background: "linear-gradient(90deg, transparent 8%, rgba(20,52,35,0.9) 35%, rgba(20,52,35,0.9) 65%, transparent 92%)",
         }}
       />
 
@@ -113,7 +114,9 @@ export function ResearchExecution() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: EASE }}
             className="mb-5"
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}
           >
+            <SPYPivotMark size={13} badge={false} color="rgba(193,255,114,0.55)" />
             <span
               style={{
                 fontFamily:    "var(--font-mono)",
@@ -192,7 +195,7 @@ export function ResearchExecution() {
                       width:        3,
                       height:       3,
                       borderRadius: "50%",
-                      background:   "rgba(6,182,212,0.25)",
+                      background:   "rgba(193, 255, 114,0.25)",
                       flexShrink:   0,
                     }}
                   />
@@ -225,8 +228,8 @@ export function ResearchExecution() {
               transition={{ duration: 0.55, ease: EASE, delay: 0.08 + i * 0.07 }}
               className="group relative card-hover"
               style={{
-                background:   "#060C15",
-                border:       "1px solid rgba(18,32,50,0.95)",
+                background:   "#06150c",
+                border:       "1px solid rgba(18,50,32,0.95)",
                 borderRadius: "12px",
                 padding:      "30px 30px 34px",
                 overflow:     "hidden",
@@ -242,7 +245,7 @@ export function ResearchExecution() {
                   left:       "25%",
                   right:      "25%",
                   height:     "1px",
-                  background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.12), transparent)",
+                  background: "linear-gradient(90deg, transparent, rgba(193, 255, 114,0.12), transparent)",
                 }}
               />
 
@@ -252,8 +255,8 @@ export function ResearchExecution() {
                   width:           34,
                   height:          34,
                   borderRadius:    "8px",
-                  border:          "1px solid rgba(20,40,62,0.9)",
-                  background:      "rgba(6,182,212,0.04)",
+                  border:          "1px solid rgba(20,62,40,0.9)",
+                  background:      "rgba(193, 255, 114,0.04)",
                   display:         "flex",
                   alignItems:      "center",
                   justifyContent:  "center",
@@ -261,7 +264,7 @@ export function ResearchExecution() {
                   color:           "rgba(255,255,255,0.25)",
                   transition:      "color 0.3s ease, border-color 0.3s ease",
                 }}
-                className="group-hover:[&]:!border-[rgba(6,182,212,0.18)] group-hover:[&]:!text-[#2A7A96]"
+                className="group-hover:[&]:!border-[rgba(193,255,114,0.30)] group-hover:[&]:!text-[#8FBF52]"
               >
                 {card.icon}
               </div>
@@ -271,7 +274,7 @@ export function ResearchExecution() {
                 style={{
                   fontSize:      "15px",
                   fontWeight:    600,
-                  color:         "#C2CDD8",
+                  color:         "#EEF0F5",
                   letterSpacing: "-0.01em",
                   lineHeight:    1.3,
                   marginBottom:  "12px",
@@ -308,7 +311,7 @@ export function ResearchExecution() {
             style={{
               width:      "48px",
               height:     "1px",
-              background: "rgba(6,182,212,0.15)",
+              background: "rgba(193, 255, 114,0.15)",
               margin:     "0 auto 28px",
             }}
           />

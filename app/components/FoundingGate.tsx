@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SPYPivotMark } from "./Logo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 const FORMSPREE = "https://formspree.io/f/xykvpdya";
@@ -42,7 +43,7 @@ export function FoundingGate() {
       id="founding"
       className="relative overflow-hidden"
       style={{
-        background:    "#030608",
+        background:    "#040703",
         paddingTop:    "148px",
         paddingBottom: "148px",
       }}
@@ -53,7 +54,7 @@ export function FoundingGate() {
         aria-hidden="true"
         style={{
           background: [
-            "radial-gradient(ellipse 28% 70% at 50% -5%,  rgba(6,182,212,0.06)  0%, transparent 65%)",
+            "radial-gradient(ellipse 28% 70% at 50% -5%,  rgba(193, 255, 114,0.06)  0%, transparent 65%)",
             "radial-gradient(ellipse 20% 50% at 50% 105%, rgba(16,185,129,0.04) 0%, transparent 60%)",
           ].join(", "),
         }}
@@ -64,7 +65,7 @@ export function FoundingGate() {
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 40%, rgba(2,4,8,0.7) 100%)",
+          background: "radial-gradient(ellipse 90% 80% at 50% 50%, transparent 40%, rgba(2,8,4,0.7) 100%)",
         }}
       />
 
@@ -216,8 +217,8 @@ export function FoundingGate() {
                 required
                 style={{
                   width:         "100%",
-                  background:    "rgba(6,10,20,0.7)",
-                  border:        "1px solid rgba(20,36,56,0.9)",
+                  background:    "rgba(6,20,10,0.7)",
+                  border:        "1px solid rgba(20,56,36,0.9)",
                   borderRadius:  "10px",
                   color:         "#FFFFFF",
                   fontSize:      "14px",
@@ -228,11 +229,11 @@ export function FoundingGate() {
                   transition:    "border-color 0.2s ease, box-shadow 0.2s ease",
                 }}
                 onFocus={e => {
-                  e.currentTarget.style.borderColor = "rgba(6,182,212,0.20)";
-                  e.currentTarget.style.boxShadow  = "0 0 0 3px rgba(6,182,212,0.04)";
+                  e.currentTarget.style.borderColor = "rgba(193, 255, 114,0.20)";
+                  e.currentTarget.style.boxShadow  = "0 0 0 3px rgba(193, 255, 114,0.04)";
                 }}
                 onBlur={e => {
-                  e.currentTarget.style.borderColor = "rgba(20,36,56,0.9)";
+                  e.currentTarget.style.borderColor = "rgba(20,56,36,0.9)";
                   e.currentTarget.style.boxShadow  = "none";
                 }}
               />
@@ -242,8 +243,8 @@ export function FoundingGate() {
                 disabled={loading}
                 style={{
                   width:         "100%",
-                  background:    loading ? "rgba(6,182,212,0.45)" : "#06B6D4",
-                  color:         "#030608",
+                  background:    loading ? "rgba(193, 255, 114,0.45)" : "#C1FF72",
+                  color:         "#040703",
                   fontWeight:    700,
                   fontSize:      "14px",
                   letterSpacing: "0.01em",
@@ -257,12 +258,12 @@ export function FoundingGate() {
                 onMouseEnter={e => {
                   if (loading) return;
                   const el = e.currentTarget as HTMLButtonElement;
-                  el.style.background = "#22D3EE";
-                  el.style.boxShadow  = "0 0 32px rgba(6,182,212,0.30)";
+                  el.style.background = "#D9FFA0";
+                  el.style.boxShadow  = "0 0 32px rgba(193, 255, 114,0.30)";
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget as HTMLButtonElement;
-                  el.style.background = loading ? "rgba(6,182,212,0.45)" : "#06B6D4";
+                  el.style.background = loading ? "rgba(193, 255, 114,0.45)" : "#C1FF72";
                   el.style.boxShadow  = "none";
                 }}
               >
@@ -325,7 +326,7 @@ export function FoundingGate() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           style={{
             height:     "1px",
-            background: "linear-gradient(90deg, transparent, rgba(15,30,50,0.8), transparent)",
+            background: "linear-gradient(90deg, transparent, rgba(15,50,30,0.8), transparent)",
             margin:     "52px 0",
           }}
           aria-hidden="true"
@@ -337,25 +338,28 @@ export function FoundingGate() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "7px" }}
+          style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}
         >
-          <p
-            style={{
-              fontSize:      "18px",
-              fontWeight:    600,
-              letterSpacing: "-0.02em",
-              color:         "rgba(255,255,255,0.09)",
-            }}
-          >
-            SPY Pivot Pro
-          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <SPYPivotMark size={22} badge={false} color="#C1FF72" />
+            <p
+              style={{
+                fontSize:      "18px",
+                fontWeight:    600,
+                letterSpacing: "-0.02em",
+                color:         "rgba(255,255,255,0.45)",
+              }}
+            >
+              SPY Pivot Pro
+            </p>
+          </div>
           <p
             style={{
               fontFamily:    "var(--font-mono)",
               fontSize:      "10px",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color:         "rgba(255,255,255,0.06)",
+              color:         "rgba(255,255,255,0.24)",
             }}
           >
             The Operating System for SPY Options Traders
@@ -366,7 +370,7 @@ export function FoundingGate() {
               fontSize:      "9px",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color:         "rgba(255,255,255,0.04)",
+              color:         "rgba(255,255,255,0.16)",
               marginTop:     "3px",
             }}
           >

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { SPYPivotMark } from "./Logo";
 
 const FADE = (delay = 0) => ({
   initial:    { opacity: 0 },
@@ -14,7 +15,7 @@ export function Philosophy() {
       id="philosophy"
       className="relative overflow-hidden"
       style={{
-        background:    "#030608",
+        background:    "#040703",
         paddingTop:    "160px",
         paddingBottom: "160px",
       }}
@@ -24,7 +25,7 @@ export function Philosophy() {
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: "radial-gradient(ellipse 45% 60% at 50% 40%, rgba(6,182,212,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 45% 60% at 50% 40%, rgba(193, 255, 114,0.04) 0%, transparent 70%)",
         }}
       />
 
@@ -40,7 +41,7 @@ export function Philosophy() {
           style={{
             width:        "32px",
             height:       "1px",
-            background:   "rgba(6,182,212,0.18)",
+            background:   "rgba(193, 255, 114,0.18)",
             margin:       "0 auto 72px",
           }}
         />
@@ -156,7 +157,7 @@ export function Philosophy() {
           style={{
             width:        "1px",
             height:       "48px",
-            background:   "linear-gradient(180deg, rgba(6,182,212,0.12) 0%, transparent 100%)",
+            background:   "linear-gradient(180deg, rgba(193, 255, 114,0.12) 0%, transparent 100%)",
             margin:       "0 auto 44px",
           }}
         />
@@ -168,26 +169,30 @@ export function Philosophy() {
             textAlign:     "center",
             display:       "flex",
             flexDirection: "column",
-            gap:           "7px",
+            alignItems:    "center",
+            gap:           "10px",
           }}
         >
-          <p
-            style={{
-              fontSize:      "17px",
-              fontWeight:    600,
-              letterSpacing: "-0.02em",
-              color:         "rgba(255,255,255,0.09)",
-            }}
-          >
-            SPY Pivot Pro
-          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
+            <SPYPivotMark size={20} badge={false} color="#C1FF72" />
+            <p
+              style={{
+                fontSize:      "17px",
+                fontWeight:    600,
+                letterSpacing: "-0.02em",
+                color:         "rgba(255,255,255,0.42)",
+              }}
+            >
+              SPY Pivot Pro
+            </p>
+          </div>
           <p
             style={{
               fontFamily:    "var(--font-mono)",
               fontSize:      "9px",
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color:         "rgba(255,255,255,0.06)",
+              color:         "rgba(255,255,255,0.22)",
             }}
           >
             The Operating System for SPY Options Traders
@@ -198,7 +203,7 @@ export function Philosophy() {
               fontSize:      "8px",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color:         "rgba(255,255,255,0.04)",
+              color:         "rgba(255,255,255,0.15)",
               marginTop:     "3px",
             }}
           >

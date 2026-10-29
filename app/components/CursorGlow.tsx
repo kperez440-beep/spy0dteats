@@ -36,7 +36,7 @@ export function CursorGlow() {
       style={{
         width:  "600px",
         height: "600px",
-        background: "radial-gradient(circle at center, rgba(6,182,212,0.055) 0%, rgba(6,182,212,0.02) 40%, transparent 70%)",
+        background: "radial-gradient(circle at center, rgba(193, 255, 114,0.055) 0%, rgba(193, 255, 114,0.02) 40%, transparent 70%)",
         willChange: "transform",
       }}
       aria-hidden="true"

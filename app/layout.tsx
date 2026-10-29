@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono, Baloo_2 } from "next/font/google";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -13,6 +13,17 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-mono",
+  display: "swap",
+});
+
+// Rounded logotype face for the SPY Pivot Pro wordmark specifically — reads
+// close to Segoe UI Rounded (used on the Windows desktop terminal) but is a
+// real open web font, so it renders identically on Mac/Linux/mobile instead
+// of silently falling back on non-Windows visitors.
+const baloo2 = Baloo_2({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -52,9 +63,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} h-full`}
+      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} ${baloo2.variable} h-full`}
     >
-      <body className="min-h-full bg-[#050810] text-slate-100 antialiased">
+      <body className="min-h-full bg-[#050904] text-slate-100 antialiased">
         {children}
       </body>
     </html>

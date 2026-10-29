@@ -4,9 +4,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[#1E2D3D] bg-[#050810] pb-10 px-4">
+    <footer className="border-t border-[#1a4026] bg-[#050904] pb-10 px-4">
       {/* Compliance bar */}
-      <div className="border-b border-[#1E2D3D] bg-[#060D18] px-4 py-3 text-center">
+      <div className="border-b border-[#1a4026] bg-[#06180d] px-4 py-3 text-center">
         <p className="text-[9px] font-mono text-slate-600 tracking-wide leading-relaxed max-w-4xl mx-auto">
           Options trading involves substantial risk and is not appropriate for all investors.&nbsp;&nbsp;Past performance does not guarantee future results.
         </p>
@@ -25,7 +25,7 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-[#1E2D3D] pt-8 space-y-4">
+        <div className="border-t border-[#1a4026] pt-8 space-y-4">
           <p className="text-[11px] text-slate-600 leading-relaxed max-w-3xl font-mono">
             <span className="text-slate-500 font-semibold">Risk Disclosure:</span> Options trading
             involves substantial risk and is not appropriate for all investors. Past performance of

@@ -40,7 +40,7 @@ export function AdaptiveIntelligence() {
       className="relative overflow-hidden"
       id="adaptive"
       style={{
-        background:    "#030608",
+        background:    "#040703",
         paddingTop:    "140px",
         paddingBottom: "140px",
       }}
@@ -63,8 +63,8 @@ export function AdaptiveIntelligence() {
         aria-hidden="true"
         style={{
           backgroundImage: [
-            "linear-gradient(rgba(6,182,212,0.013) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(6,182,212,0.013) 1px, transparent 1px)",
+            "linear-gradient(rgba(193, 255, 114,0.013) 1px, transparent 1px)",
+            "linear-gradient(90deg, rgba(193, 255, 114,0.013) 1px, transparent 1px)",
           ].join(", "),
           backgroundSize: "88px 88px",
         }}
@@ -188,7 +188,7 @@ export function AdaptiveIntelligence() {
               transition={{ duration: 0.6, delay: 0.38 }}
               style={{
                 fontSize:   "13px",
-                color:      "#1A2E40",
+                color:      "rgba(255,255,255,0.28)",
                 lineHeight: 1.78,
               }}
             >
@@ -219,7 +219,7 @@ export function AdaptiveIntelligence() {
                 left:       "12.5%",
                 right:      "12.5%",
                 height:     "1px",
-                background: "linear-gradient(90deg, rgba(6,182,212,0.08) 0%, rgba(6,182,212,0.14) 50%, rgba(6,182,212,0.08) 100%)",
+                background: "linear-gradient(90deg, rgba(193, 255, 114,0.08) 0%, rgba(193, 255, 114,0.14) 50%, rgba(193, 255, 114,0.08) 100%)",
               }}
             />
 
@@ -238,9 +238,9 @@ export function AdaptiveIntelligence() {
                     width:        7,
                     height:       7,
                     borderRadius: "50%",
-                    border:       "1px solid rgba(6,182,212,0.22)",
-                    background:   "rgba(6,182,212,0.06)",
-                    boxShadow:    "0 0 8px rgba(6,182,212,0.08)",
+                    border:       "1px solid rgba(193, 255, 114,0.22)",
+                    background:   "rgba(193, 255, 114,0.06)",
+                    boxShadow:    "0 0 8px rgba(193, 255, 114,0.08)",
                     position:     "relative",
                     zIndex:       1,
                     flexShrink:   0,
@@ -267,7 +267,7 @@ export function AdaptiveIntelligence() {
                     style={{
                       fontSize:      "16px",
                       fontWeight:    600,
-                      color:         "#8CA8BE",
+                      color:         "#EEF0F5",
                       letterSpacing: "-0.01em",
                       marginBottom:  "12px",
                     }}
@@ -302,7 +302,7 @@ export function AdaptiveIntelligence() {
                 bottom:   "3px",
                 left:     "3px",
                 width:    "1px",
-                background: "linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(6,182,212,0.14) 50%, rgba(6,182,212,0.08) 100%)",
+                background: "linear-gradient(180deg, rgba(193, 255, 114,0.08) 0%, rgba(193, 255, 114,0.14) 50%, rgba(193, 255, 114,0.08) 100%)",
               }}
             />
 
@@ -324,9 +324,9 @@ export function AdaptiveIntelligence() {
                     width:        7,
                     height:       7,
                     borderRadius: "50%",
-                    border:       "1px solid rgba(6,182,212,0.22)",
-                    background:   "rgba(6,182,212,0.06)",
-                    boxShadow:    "0 0 8px rgba(6,182,212,0.08)",
+                    border:       "1px solid rgba(193, 255, 114,0.22)",
+                    background:   "rgba(193, 255, 114,0.06)",
+                    boxShadow:    "0 0 8px rgba(193, 255, 114,0.08)",
                   }}
                 />
 
@@ -347,7 +347,7 @@ export function AdaptiveIntelligence() {
                   style={{
                     fontSize:     "15px",
                     fontWeight:   600,
-                    color:        "#8CA8BE",
+                    color:        "#EEF0F5",
                     letterSpacing: "-0.01em",
                     marginBottom: "8px",
                   }}
@@ -355,7 +355,7 @@ export function AdaptiveIntelligence() {
                   {stage.label}
                 </h3>
 
-                <p style={{ fontSize: "12px", color: "#1E3548", lineHeight: 1.75 }}>
+                <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.30)", lineHeight: 1.75 }}>
                   {stage.desc}
                 </p>
               </motion.div>
@@ -377,7 +377,7 @@ export function AdaptiveIntelligence() {
             style={{
               width:      "1px",
               height:     "52px",
-              background: "linear-gradient(180deg, transparent 0%, rgba(6,182,212,0.14) 100%)",
+              background: "linear-gradient(180deg, transparent 0%, rgba(193, 255, 114,0.14) 100%)",
               margin:     "0 auto 52px",
             }}
           />
@@ -423,7 +423,7 @@ export function AdaptiveIntelligence() {
             style={{
               width:      "1px",
               height:     "44px",
-              background: "linear-gradient(180deg, rgba(6,182,212,0.10) 0%, transparent 100%)",
+              background: "linear-gradient(180deg, rgba(193, 255, 114,0.10) 0%, transparent 100%)",
               margin:     "52px auto 44px",
             }}
           />

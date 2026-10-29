@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { SPYPivotMark } from "./Logo";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -8,10 +9,10 @@ function TerminalChrome() {
   return (
     <div
       className="flex items-center gap-1.5 px-4 py-3 flex-shrink-0"
-      style={{ borderBottom: "1px solid rgba(6,182,212,0.07)", background: "#020509" }}
+      style={{ borderBottom: "1px solid rgba(193, 255, 114,0.07)", background: "#020602" }}
     >
       <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#F87171", opacity: 0.45 }} />
-      <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#D4A840", opacity: 0.45 }} />
+      <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#C1FF72", opacity: 0.45 }} />
       <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#10B981", opacity: 0.45 }} />
       <div className="flex-1" />
       <span style={{
@@ -44,17 +45,17 @@ export function Hero() {
     <section
       ref={sectionRef}
       className="relative overflow-hidden"
-      style={{ background: "#030608", minHeight: "100vh" }}
+      style={{ background: "#040703", minHeight: "100vh" }}
     >
 
-      {/* ── Blue atmospheric glow — upper left (aurora-1) ── */}
+      {/* ── Canopy atmospheric glow — upper left (aurora-1) ── */}
       <div
         className="absolute pointer-events-none"
         aria-hidden="true"
         style={{
           top: "-18%", left: "-10%",
           width: "65%", height: "75%",
-          background: "radial-gradient(ellipse at center, rgba(59,130,246,0.11) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse at center, rgba(193,255,114,0.09) 0%, transparent 65%)",
           filter: "blur(52px)",
           animation: "aurora-1 22s ease-in-out infinite",
         }}
@@ -79,8 +80,8 @@ export function Hero() {
         aria-hidden="true"
         style={{
           backgroundImage: [
-            "linear-gradient(rgba(6,182,212,0.022) 1px, transparent 1px)",
-            "linear-gradient(90deg, rgba(6,182,212,0.022) 1px, transparent 1px)",
+            "linear-gradient(rgba(193, 255, 114,0.022) 1px, transparent 1px)",
+            "linear-gradient(90deg, rgba(193, 255, 114,0.022) 1px, transparent 1px)",
           ].join(", "),
           backgroundSize: "88px 88px",
         }}
@@ -109,38 +110,28 @@ export function Hero() {
           by Fortitud Capital
         </motion.p>
 
-        {/* Product badge */}
+        {/* Product lockup — the real mark, not a text pill */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE, delay: 0.08 }}
-          style={{ marginBottom: "32px" }}
+          style={{
+            display:      "flex",
+            alignItems:   "center",
+            gap:          "16px",
+            marginBottom: "36px",
+          }}
         >
+          <SPYPivotMark size={88} color="#F7F6F1" badge={false} />
           <span
-            className="inline-flex items-center gap-2"
             style={{
-              fontFamily:    "var(--font-mono)",
-              fontSize:      "10px",
-              letterSpacing: "0.26em",
-              textTransform: "uppercase",
-              color:         "#22D3EE",
-              padding:       "6px 16px",
-              borderRadius:  "999px",
-              border:        "1px solid rgba(6,182,212,0.20)",
-              background:    "rgba(6,182,212,0.05)",
+              fontFamily:    "var(--font-display, 'Baloo 2', sans-serif)",
+              fontWeight:    700,
+              fontSize:      "clamp(26px, 3vw, 36px)",
+              letterSpacing: "-0.01em",
+              color:         "#F7F6F1",
             }}
           >
-            <span
-              style={{
-                display:   "inline-block",
-                width:     6,
-                height:    6,
-                borderRadius: "50%",
-                background: "#10B981",
-                boxShadow: "0 0 7px rgba(16,185,129,0.9)",
-                flexShrink: 0,
-              }}
-            />
             SPY Pivot Pro
           </span>
         </motion.div>
@@ -193,24 +184,24 @@ export function Hero() {
             href="#founding"
             className="inline-flex items-center gap-2.5 font-bold rounded-full cursor-pointer"
             style={{
-              background:  "#06B6D4",
-              color:       "#030608",
+              background:  "#C1FF72",
+              color:       "#040703",
               fontSize:    "14px",
               padding:     "14px 34px",
               fontFamily:  "var(--font-sans)",
-              boxShadow:   "0 0 0 1px rgba(6,182,212,0.35), 0 4px 32px rgba(6,182,212,0.16)",
+              boxShadow:   "0 0 0 1px rgba(193, 255, 114,0.35), 0 4px 32px rgba(193, 255, 114,0.16)",
               transition:  "all 0.22s ease",
             }}
             onMouseEnter={e => {
               const el = e.currentTarget as HTMLAnchorElement;
-              el.style.background = "#22D3EE";
-              el.style.boxShadow  = "0 0 48px rgba(6,182,212,0.50), 0 0 0 1px rgba(6,182,212,0.9)";
+              el.style.background = "#D9FFA0";
+              el.style.boxShadow  = "0 0 48px rgba(193, 255, 114,0.50), 0 0 0 1px rgba(193, 255, 114,0.9)";
               el.style.transform  = "translateY(-2px)";
             }}
             onMouseLeave={e => {
               const el = e.currentTarget as HTMLAnchorElement;
-              el.style.background = "#06B6D4";
-              el.style.boxShadow  = "0 0 0 1px rgba(6,182,212,0.35), 0 4px 32px rgba(6,182,212,0.16)";
+              el.style.background = "#C1FF72";
+              el.style.boxShadow  = "0 0 0 1px rgba(193, 255, 114,0.35), 0 4px 32px rgba(193, 255, 114,0.16)";
               el.style.transform  = "translateY(0)";
             }}
           >
@@ -260,7 +251,7 @@ export function Hero() {
               borderRadius: "19px",
               willChange:   "transform",
               boxShadow: [
-                "0 0 80px  rgba(6,182,212,0.09)",
+                "0 0 80px  rgba(193, 255, 114,0.09)",
                 "0 0 200px rgba(16,185,129,0.05)",
                 "0 100px 300px rgba(0,0,0,0.92)",
               ].join(", "),
@@ -269,37 +260,50 @@ export function Hero() {
             {/* Inner frame — owns overflow + background */}
             <div
               className="relative"
-              style={{ borderRadius: "18px", overflow: "hidden", background: "#020509" }}
+              style={{ borderRadius: "18px", overflow: "hidden", background: "#020602" }}
             >
               {/* Hairline top glow */}
               <div
                 className="absolute inset-x-0 top-0 z-10 pointer-events-none"
                 style={{
                   height: "1px",
-                  background: "linear-gradient(90deg, transparent 5%, rgba(6,182,212,0.55) 38%, rgba(16,185,129,0.30) 62%, transparent 95%)",
+                  background: "linear-gradient(90deg, transparent 5%, rgba(193, 255, 114,0.55) 38%, rgba(16,185,129,0.30) 62%, transparent 95%)",
                 }}
                 aria-hidden="true"
               />
 
               <TerminalChrome />
 
-              {/* Video + overlays */}
+              {/* Placeholder — old demo.mp4/terminal-hero.png retired 2026-08-23,
+                  showed the pre-rebrand look of the terminal. Swap back in a
+                  <video>/<img> here once a fresh capture of the current app
+                  is ready. */}
               <div className="relative">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  style={{ width: "100%", display: "block" }}
+                <div
+                  style={{
+                    width:          "100%",
+                    aspectRatio:    "16 / 9",
+                    display:        "flex",
+                    alignItems:     "center",
+                    justifyContent: "center",
+                    background:     "radial-gradient(ellipse at 50% 40%, #0a0d09 0%, #040503 70%)",
+                  }}
                 >
-                  <source src="/videos/demo.mp4" type="video/mp4" />
-                  {/* Fallback for browsers that can't play video */}
-                  <img
-                    src="/images/terminal-hero.png"
-                    alt="SPY Pivot Pro Intelligence Terminal"
-                    style={{ width: "100%", display: "block" }}
-                  />
-                </video>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px" }}>
+                    <SPYPivotMark size={40} badge={false} color="rgba(193,255,114,0.30)" />
+                    <span
+                      style={{
+                        fontFamily:    "var(--font-mono)",
+                        fontSize:      "10px",
+                        letterSpacing: "0.24em",
+                        textTransform: "uppercase",
+                        color:         "rgba(255,255,255,0.20)",
+                      }}
+                    >
+                      Terminal preview updating
+                    </span>
+                  </div>
+                </div>
                 {/* CRT scanlines */}
                 <div
                   className="absolute inset-0 pointer-events-none"
@@ -314,7 +318,7 @@ export function Hero() {
                   className="absolute bottom-0 inset-x-0 pointer-events-none"
                   style={{
                     height:     "40%",
-                    background: "linear-gradient(to bottom, transparent 0%, rgba(3,6,8,0.72) 55%, #030608 100%)",
+                    background: "linear-gradient(to bottom, transparent 0%, rgba(3,8,6,0.72) 55%, #040703 100%)",
                     zIndex:     3,
                   }}
                   aria-hidden="true"
