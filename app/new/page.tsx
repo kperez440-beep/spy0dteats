@@ -6,6 +6,13 @@ import { WhatYouGet } from "@/app/components/v2/WhatYouGet";
 import { FeatureGrid } from "@/app/components/v2/FeatureGrid";
 import { HowItWorks } from "@/app/components/v2/HowItWorks";
 import { DayInside } from "@/app/components/v2/DayInside";
+import { Founder } from "@/app/components/v2/Founder";
+import { SystemSpecs } from "@/app/components/v2/SystemSpecs";
+import { Pricing } from "@/app/components/v2/Pricing";
+import { Roadmap } from "@/app/components/v2/Roadmap";
+import { Waitlist } from "@/app/components/v2/Waitlist";
+import { Faq } from "@/app/components/v2/Faq";
+import { FinalCta, Footer } from "@/app/components/v2/Footer";
 
 // Preview of the v2 homepage, built section by section. Replaces "/" once approved.
 export const metadata: Metadata = {
@@ -24,10 +31,15 @@ export default function NewHome() {
         <FeatureGrid />
         <HowItWorks />
         <DayInside />
-        <div className="flex h-[40vh] items-center justify-center border-t border-dashed border-white/10 font-mono text-xs text-white/30">
-          Founder, specs, pricing, roadmap, waitlist, FAQ in progress…
-        </div>
+        <Founder />
+        <SystemSpecs />
+        <Pricing />
+        <Roadmap />
+        <Waitlist />
+        <Faq />
+        <FinalCta />
       </main>
+      <Footer />
     </div>
   );
 }
