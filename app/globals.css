@@ -374,8 +374,15 @@ body {
 }
 .v2-rise { animation: v2-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .v2-word { display: inline-block; animation: v2-word 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+/* Scroll reveal (Reveal.tsx). Only hides once JS has marked <html>. */
+html.v2-js .v2-reveal:not([data-in]) { opacity: 0; transform: translateY(24px); }
+.v2-reveal { transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes v2-caret { 50% { opacity: 0; } }
+.v2-caret { animation: v2-caret 1s steps(1) infinite; }
 @media (prefers-reduced-motion: reduce) {
-  .v2-rise, .v2-word { animation: none; }
+  .v2-rise, .v2-word, .v2-caret { animation: none; }
+  html.v2-js .v2-reveal:not([data-in]) { opacity: 1; transform: none; }
+  .v2-reveal { transition: none; }
 }
 
 /* Scrollbar */

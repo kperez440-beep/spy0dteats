@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { geist } from "@/app/fonts";
 import { Nav } from "@/app/components/v2/Nav";
 import { Hero } from "@/app/components/v2/Hero";
+import { WhatYouGet } from "@/app/components/v2/WhatYouGet";
+import { FeatureGrid } from "@/app/components/v2/FeatureGrid";
+import { HowItWorks } from "@/app/components/v2/HowItWorks";
+import { DayInside } from "@/app/components/v2/DayInside";
 
 // Preview of the v2 homepage, built section by section. Replaces "/" once approved.
 export const metadata: Metadata = {
@@ -16,8 +20,12 @@ export default function NewHome() {
       <Nav />
       <main>
         <Hero />
-        <div className="flex h-[60vh] items-center justify-center border-t border-dashed border-white/10 font-mono text-xs text-white/30">
-          Next sections in progress…
+        <WhatYouGet />
+        <FeatureGrid />
+        <HowItWorks />
+        <DayInside />
+        <div className="flex h-[40vh] items-center justify-center border-t border-dashed border-white/10 font-mono text-xs text-white/30">
+          Founder, specs, pricing, roadmap, waitlist, FAQ in progress…
         </div>
       </main>
     </div>
