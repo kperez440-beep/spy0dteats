@@ -360,6 +360,24 @@ body {
   background-size: 192px 192px;
 }
 
+/* ── v2 entrance animations ─────────────────────────────────────────────────
+   Pure CSS (not framer-motion) so content renders visible-at-rest before JS
+   hydrates; a slow phone never sees a blank hero. Stagger via inline
+   animation-delay. */
+@keyframes v2-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes v2-word {
+  from { transform: translateY(105%); }
+  to   { transform: none; }
+}
+.v2-rise { animation: v2-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.v2-word { display: inline-block; animation: v2-word 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .v2-rise, .v2-word { animation: none; }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0c130a; }
