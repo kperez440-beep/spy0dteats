@@ -1,7 +1,7 @@
 // Single place for outbound links used across the v2 homepage.
 export const LINKS = {
-  whop: "#pricing", // TODO: replace with the Whop product URL once the listing is live
-  discord: "#",
+  whop: "https://whop.com/spy-options-alerts/spy-options-alerts/",
+  discord: "#", // TODO: Discord invite link
   instagram: "https://instagram.com/spypivotpro",
 } as const;
 
