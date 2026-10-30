@@ -6,7 +6,7 @@ import { Reveal, SectionHead } from "./Reveal";
 // Section 03b: the checklist the system runs before an alert. A scanner walks
 // the cards in order, ticking each one, then loops; it mirrors the pre-alert checks.
 
-const FEATURES = [
+export const FEATURES = [
   { icon: Gauge, title: "Alert quality grading", line: "Every alert graded Strong / Decent / Weak, from a study of 1,800+ real alerts across 84 trading days." },
   { icon: Waves, title: "Market mood", line: "Trend, chop, compression, expansion, opening drive: know what kind of day it is before you trade it." },
   { icon: ShieldOff, title: "Chop protection", line: "Knows when not to trade, and tells you when it's standing aside." },

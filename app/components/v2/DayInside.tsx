@@ -33,7 +33,7 @@ const LINES = ALERT.map((l, i) => ({
 }));
 const TOTAL = LINES.reduce((n, l) => n + l.chars.length, 0);
 
-function SampleAlert() {
+export function SampleAlert() {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(0); // characters revealed so far
 
