@@ -27,10 +27,12 @@ const baloo2 = Baloo_2({
   display: "swap",
 });
 
+const DESCRIPTION =
+  "An automated system built to trade SPY 0DTE options. Get its graded alerts, its reasoning, and its daily positions live in Discord.";
+
 export const metadata: Metadata = {
-  title: "SPY Pivot Pro — Institutional SPY Options Intelligence",
-  description:
-    "Precision SPY 0DTE options intelligence. Multi-signal confluence, ML win probability, and automated execution planning. Built by Fortitud Capital.",
+  title: "SPY Pivot Pro: a trading robot built for SPY",
+  description: DESCRIPTION,
   metadataBase: new URL("https://spypivotpro.com"),
   icons: {
     icon: [
@@ -40,8 +42,8 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   openGraph: {
-    title: "SPY Pivot Pro — Institutional Trading Research",
-    description: "The only platform engineered for SPY 0DTE options. 7-module intelligence stack. ML win probability. Built by Fortitud Capital.",
+    title: "SPY Pivot Pro: watch the machine think",
+    description: DESCRIPTION,
     url: "https://spypivotpro.com",
     siteName: "SPY Pivot Pro",
     locale: "en_US",
@@ -49,9 +51,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SPY Pivot Pro — Institutional Trading Research",
-    description: "7-module intelligence stack. 73.2% ML win probability. 11-signal confluence engine. Built by Fortitud Capital.",
-    creator: "@spypivotpro",
+    title: "SPY Pivot Pro: watch the machine think",
+    description: DESCRIPTION,
   },
 };
 

@@ -1,33 +1,37 @@
-import { SmoothScroll }         from "@/app/components/SmoothScroll";
-import { ScrollProgress }       from "@/app/components/ScrollProgress";
-import { CursorGlow }           from "@/app/components/CursorGlow";
-import { StickyMobileCTA }      from "@/app/components/StickyMobileCTA";
-import { Nav }                  from "@/app/components/Nav";
-import { Hero }                 from "@/app/components/Hero";
-import { SystemLayers }         from "@/app/components/SystemLayers";
-import { PlatformReveal }       from "@/app/components/PlatformReveal";
-import { ResearchExecution }    from "@/app/components/ResearchExecution";
-import { AdaptiveIntelligence } from "@/app/components/AdaptiveIntelligence";
-import { Philosophy }           from "@/app/components/Philosophy";
-import { FoundingGate }         from "@/app/components/FoundingGate";
-import { Footer }               from "@/app/components/Footer";
+import { geist } from "@/app/fonts";
+import { Nav } from "@/app/components/v2/Nav";
+import { Hero } from "@/app/components/v2/Hero";
+import { WhatYouGet } from "@/app/components/v2/WhatYouGet";
+import { FeatureGrid } from "@/app/components/v2/FeatureGrid";
+import { HowItWorks } from "@/app/components/v2/HowItWorks";
+import { DayInside } from "@/app/components/v2/DayInside";
+import { Founder } from "@/app/components/v2/Founder";
+import { SystemSpecs } from "@/app/components/v2/SystemSpecs";
+import { Pricing } from "@/app/components/v2/Pricing";
+import { Roadmap } from "@/app/components/v2/Roadmap";
+import { Waitlist } from "@/app/components/v2/Waitlist";
+import { Faq } from "@/app/components/v2/Faq";
+import { FinalCta, Footer } from "@/app/components/v2/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden" style={{ background: "var(--brand-bg-primary)" }}>
+    <div className={`${geist.variable} min-h-screen bg-[#040503] text-[#EEF0F5]`}>
       <div className="grain-overlay" aria-hidden="true" />
-      <SmoothScroll />
-      <CursorGlow />
-      <ScrollProgress />
-      <StickyMobileCTA />
       <Nav />
-      <Hero />
-      <SystemLayers />
-      <PlatformReveal />
-      <ResearchExecution />
-      <AdaptiveIntelligence />
-      <Philosophy />
-      <FoundingGate />
+      <main>
+        <Hero />
+        <WhatYouGet />
+        <FeatureGrid />
+        <HowItWorks />
+        <DayInside />
+        <Founder />
+        <SystemSpecs />
+        <Pricing />
+        <Roadmap />
+        <Waitlist />
+        <Faq />
+        <FinalCta />
+      </main>
       <Footer />
     </div>
   );

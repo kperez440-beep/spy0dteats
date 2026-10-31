@@ -29,11 +29,13 @@ export function FinalCta() {
   );
 }
 
+// Discord appears once LINKS.discord holds a real invite.
 const FOOTER_LINKS = [
   { label: "Whop", href: LINKS.whop },
-  { label: "Discord", href: LINKS.discord },
+  { label: "Discord", href: LINKS.discord, external: true },
   { label: "Instagram @spypivotpro", href: LINKS.instagram, external: true },
-];
+  { label: "Privacy", href: "/privacy" },
+].filter((l) => l.href !== "#");
 
 export function Footer() {
   return (
