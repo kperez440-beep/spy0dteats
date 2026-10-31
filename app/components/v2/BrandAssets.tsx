@@ -89,6 +89,20 @@ export function BrandAssets() {
         </div>
       </Frame>
 
+      {/* Link-share (Open Graph) image */}
+      <Frame id="og" w={1200} h={630}>
+        <MarketCanvas className="absolute inset-0 h-full w-full" />
+        <Shade />
+        <div className="relative flex h-full flex-col justify-between p-[64px]">
+          <Lockup size={32} />
+          <h1 className="text-[68px] font-bold leading-[0.98] tracking-[-0.035em] text-white" style={heading}>
+            A trading robot<br />built for SPY.<br />
+            <span className="text-white/45">Watch it </span><span className="text-[#C1FF72]">think.</span>
+          </h1>
+          <p className="font-mono text-[16px] text-white/50">Graded SPY 0DTE alerts · Its reasoning · Its positions · Live in Discord</p>
+        </div>
+      </Frame>
+
       {/* Square icon */}
       <Frame id="icon" w={1024} h={1024}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(193,255,114,0.22),transparent_62%)]" />
