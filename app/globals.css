@@ -379,8 +379,13 @@ html.v2-js .v2-reveal:not([data-in]) { opacity: 0; transform: translateY(24px); 
 .v2-reveal { transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
 @keyframes v2-caret { 50% { opacity: 0; } }
 .v2-caret { animation: v2-caret 1s steps(1) infinite; }
+/* Discord replay: messages arrive in order once the window is in view */
+@keyframes dr-in { from { opacity: 0; transform: translateY(10px); } }
+html.v2-js .dr-feed:not([data-in]) .dr-msg { opacity: 0; }
+.dr-feed[data-in] .dr-msg { animation: dr-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: var(--d, 0s); }
 @media (prefers-reduced-motion: reduce) {
-  .v2-rise, .v2-word, .v2-caret { animation: none; }
+  .v2-rise, .v2-word, .v2-caret, .dr-feed[data-in] .dr-msg { animation: none; }
+  html.v2-js .dr-feed:not([data-in]) .dr-msg { opacity: 1; }
   html.v2-js .v2-reveal:not([data-in]) { opacity: 1; transform: none; }
   .v2-reveal { transition: none; }
 }

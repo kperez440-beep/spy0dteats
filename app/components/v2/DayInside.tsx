@@ -2,17 +2,18 @@
 import { useEffect, useRef, useState } from "react";
 import { SPYPivotMark } from "../Logo";
 import { Reveal, SectionHead } from "./Reveal";
+import { COUNTS, DiscordReplay, type Channel } from "./DiscordReplay";
 
-// Section 05: a trading day as a timeline, beside a Discord-style sample alert
-// that types itself out when scrolled into view. All messages are illustrative.
+// Section 05: one real paper-trading day replayed as the members' Discord
+// feed. The timeline doubles as the channel filter. SampleAlert below is the
+// older single-alert card, still used by the /brand-assets gallery export.
 
-const TIMELINE = [
-  { time: "~9:00 ET", title: "Premarket brief", body: "Key levels, overnight context and the robot's bias for the day." },
-  { time: "9:30 – 4:00", title: "Live alerts", body: "Graded and explained, the moment they fire.", hot: true },
-  { time: "9:30 – 4:00", title: "Chop warnings", body: "“⚠️ Chop detected. The system is standing aside.”" },
-  { time: "9:30 – 4:00", title: "Thoughts", body: "“Skipping this bear signal. Chop filter is on and we're inside the opening range.”" },
-  { time: "9:30 – 4:00", title: "Positions", body: "Entry, stop, T1 and exit on the paper account." },
-  { time: "~4:15 ET", title: "Daily recap", body: "What fired, what worked, what didn't." },
+const TIMELINE: { ch: Channel; time: string; title: string; body: string; hot?: boolean }[] = [
+  { ch: "all", time: "Fri Oct 30", title: "The whole day", body: "Every message, in the order members got it." },
+  { ch: "premarket", time: "~8:45 ET", title: "Premarket brief", body: "The mood, the levels that matter and the plan for the day." },
+  { ch: "thoughts", time: "9:30 – 4:00", title: "Robot's thoughts", body: "What it's watching, and a chop warning when it stands aside." },
+  { ch: "positions", time: "9:30 – 4:00", title: "Positions", body: "Every paper entry with levels, then target hits, stop moves and the close.", hot: true },
+  { ch: "recap", time: "~4:05 ET", title: "Daily recap", body: "Every trade, wins and losses, in one place." },
 ];
 
 type Line = { text: string; className?: string };
@@ -97,32 +98,53 @@ export function SampleAlert() {
 }
 
 export function DayInside() {
+  const [channel, setChannel] = useState<Channel>("all");
   return (
     <section id="sample" className="relative scroll-mt-20 px-5 py-24 md:px-8 md:py-36">
       <div className="mx-auto max-w-7xl">
-        <SectionHead kicker="A day inside the machine" title={<>From premarket <span className="text-white/45">to the closing bell.</span></>} />
-        <div className="mt-14 grid gap-12 md:mt-20 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
-          <ol className="relative border-l border-white/[0.08] pl-7">
-            {TIMELINE.map((t, i) => (
-              <li key={t.title} className="relative pb-9 last:pb-0">
-                <span
-                  aria-hidden
-                  className={`absolute -left-[33px] top-1.5 h-2.5 w-2.5 rounded-full ring-4 ring-[#040503] ${t.hot ? "bg-[#C1FF72]" : "bg-white/25"}`}
-                />
-                <Reveal delay={i * 0.05}>
-                  <p className="font-mono text-[11px] tracking-[0.15em] text-white/35">{t.time}</p>
-                  <h3 className={`mt-1 text-lg font-semibold ${t.hot ? "text-[#C1FF72]" : "text-white"}`} style={{ fontFamily: "var(--font-heading)" }}>
-                    {t.title}
-                  </h3>
-                  <p className="mt-1 text-[15px] leading-relaxed text-white/55">{t.body}</p>
-                </Reveal>
-              </li>
-            ))}
+        <SectionHead
+          kicker="A day inside the machine"
+          title={<>A real day. <span className="text-white/45">Every message.</span></>}
+          sub="Friday, October 30, replayed from the robot's paper account in the members' alert format. Pick a channel to see what lands where."
+        />
+        <div className="mt-10 grid gap-12 md:mt-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          {/* Below lg the feed's own channel chips do this job. */}
+          <ol className="relative hidden border-l border-white/[0.08] pl-7 lg:block">
+            {TIMELINE.map((t, i) => {
+              const on = channel === t.ch;
+              return (
+                <li key={t.title} className="relative pb-7 last:pb-0">
+                  <span
+                    aria-hidden
+                    className={`absolute -left-[33px] top-[18px] h-2.5 w-2.5 rounded-full ring-4 ring-[#040503] transition-colors ${on ? "bg-[#C1FF72]" : t.hot ? "bg-[#C1FF72]/50" : "bg-white/25"}`}
+                  />
+                  <Reveal delay={i * 0.05}>
+                    <button
+                      type="button"
+                      aria-pressed={on}
+                      onClick={() => setChannel(t.ch)}
+                      className={`-mx-3 block w-[calc(100%+1.5rem)] rounded-xl px-3 py-2.5 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C1FF72] ${on ? "bg-white/[0.05]" : "hover:bg-white/[0.03]"}`}
+                    >
+                      <span className="flex items-baseline justify-between gap-3 font-mono text-[11px] tracking-[0.15em] text-white/35">
+                        {t.time}
+                        <span className={on ? "text-[#C1FF72]/80" : ""}>{COUNTS[t.ch]} msg</span>
+                      </span>
+                      <span className={`mt-1 block text-lg font-semibold ${on ? "text-[#C1FF72]" : "text-white"}`} style={{ fontFamily: "var(--font-heading)" }}>
+                        {t.title}
+                      </span>
+                      <span className="mt-1 block text-[15px] leading-relaxed text-white/55">{t.body}</span>
+                    </button>
+                  </Reveal>
+                </li>
+              );
+            })}
           </ol>
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <SampleAlert />
-            <p className="mt-4 font-mono text-[11px] leading-relaxed text-white/35">
-              Illustrative example. Alerts are information, not trade instructions.
+          <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
+            <DiscordReplay channel={channel} onChannel={setChannel} />
+            <p className="mt-4 font-mono text-[11px] leading-relaxed text-white/40">
+              A real paper-trading day. Results vary, and some days lose. Times, prices and results come from the paper-account log;
+              grades, checklists, targets and contracts show the alert format. Results are in SPY points, not option profit.
+              Information only, not trade instructions.
             </p>
           </div>
         </div>

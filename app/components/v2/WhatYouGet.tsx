@@ -35,7 +35,7 @@ function ThoughtsMock() {
         <span className="mr-1.5">🧠</span>Skipping this bear signal. Chop filter is on and we&apos;re still inside the opening range.
       </div>
       <div className="rounded-xl rounded-tl-sm border border-[#C1FF72]/20 bg-[#C1FF72]/[0.04] px-3.5 py-2.5 text-white/70">
-        <span className="mr-1.5">👀</span>Watching the pivot at 582.40. A clean reclaim with volume is the setup.
+        <span className="mr-1.5">👀</span>Watching the premarket low at 760.90. A failed bounce under it is the setup.
       </div>
     </div>
   );
@@ -43,15 +43,15 @@ function ThoughtsMock() {
 
 function PositionsMock() {
   const rows = [
-    ["ENTRY", "582.45", "text-white/80"],
-    ["STOP", "581.80", "text-[#F87171]"],
-    ["T1", "583.30", "text-[#10B981]"],
-    ["EXIT", "583.10 · trimmed", "text-[#C1FF72]"],
+    ["ENTRY", "760.29", "text-white/80"],
+    ["STOP", "761.30", "text-[#F87171]"],
+    ["T1", "759.30", "text-[#10B981]"],
+    ["EXIT", "758.06 · closed", "text-[#C1FF72]"],
   ];
   return (
     <div className="rounded-lg border border-white/[0.06] bg-black/40 font-mono text-[11px]">
       <div className="flex justify-between border-b border-white/[0.06] px-3 py-2 text-white/40">
-        <span>SPY 583C 0DTE</span>
+        <span>SPY 760P 0DTE</span>
         <span>PAPER</span>
       </div>
       {rows.map(([k, v, c]) => (

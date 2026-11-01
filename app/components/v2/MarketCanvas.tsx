@@ -11,12 +11,12 @@ const EMERALD = "16,185,129";
 const RED = "248,113,113";
 
 const LEVELS = [
-  { name: "R1", price: 584.2 },
-  { name: "PIVOT", price: 582.4 },
-  { name: "S1", price: 580.9 },
+  { name: "R1", price: 762.7 },
+  { name: "PIVOT", price: 760.9 },
+  { name: "S1", price: 759.4 },
 ];
-const PRICE_MIN = 579.6;
-const PRICE_MAX = 585.6;
+const PRICE_MIN = 758.1;
+const PRICE_MAX = 764.1;
 
 type Point = { v: number; fast: number; slow: number };
 type Signal = { tick: number; price: number; up: boolean; label: string; born: number };
@@ -37,7 +37,7 @@ export function MarketCanvas({ className = "" }: { className?: string }) {
 
     // ── Price model: mean-reverting walk whose target hops between levels ──
     let tick = 0;
-    let target = 582.4;
+    let target = 760.9;
     let targetTtl = 0;
     let momentum = 0;
     const pts: Point[] = [];
@@ -75,7 +75,7 @@ export function MarketCanvas({ className = "" }: { className?: string }) {
       while (signals.length && tick - signals[0].tick > maxPts) signals.shift();
     };
 
-    let next = 582.4;
+    let next = 760.9;
     const resize = () => {
       const r = canvas.getBoundingClientRect();
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -86,7 +86,7 @@ export function MarketCanvas({ className = "" }: { className?: string }) {
       dx = w < 640 ? 5 : 7;
       // Backfill so the line already spans the screen on first paint.
       while (pts.length < Math.ceil(w / dx) + 2) {
-        const prev = pts.length ? pts[pts.length - 1].v : 582.4;
+        const prev = pts.length ? pts[pts.length - 1].v : 760.9;
         push(nextValue(prev), false);
       }
       next = nextValue(pts[pts.length - 1].v);
